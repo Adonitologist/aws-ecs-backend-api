@@ -1,0 +1,15 @@
+# Local .terraform directories
+.terraform/
+.terraform.lock.hcl
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+crash.log
+*.tfvars
+*.tfstate.backup
+
+# IDEs
+.idea/
+.vscode/
+*.swp
