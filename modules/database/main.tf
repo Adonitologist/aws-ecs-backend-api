@@ -32,7 +32,7 @@ resource "aws_db_subnet_group" "default" {
 resource "aws_db_instance" "postgres" {
   identifier             = "ecs-backend-db-${var.environment}"
   engine                 = "postgres"
-  engine_version = "15.8"
+  engine_version         = "15.8"
   instance_class         = "db.t3.micro"
   allocated_storage      = 20
   db_name                = "appdb"
