@@ -33,7 +33,7 @@ jobs:
         run: terraform validate
 
       - name: Run TFLint Static Analysis
-        uses: tflint-actions/setup-tflint@v3
+        uses: terraform-linters/setup-tflint@v4
         with:
           tflint_version: v0.50.0
         
