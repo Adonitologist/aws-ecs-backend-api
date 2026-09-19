@@ -119,8 +119,6 @@ resource "aws_ecs_service" "app" {
     container_name   = "backend"
     container_port   = 8080
   }
-
-  depends_on = [aws_lb_target_group_attachment_check_stub_or_similar] # Se mantiene alineado con la estructura original
 }
 
 resource "aws_appautoscaling_target" "ecs_target" {
