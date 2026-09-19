@@ -10,6 +10,62 @@ resource "aws_vpc" "main" {
   enable_dns_support   = true
 }
 
+# vpc flow logs
+# tfsec:ignore:aws-cloudwatch-log-group-customer-key
+resource "aws_cloudwatch_log_group" "vpc_flow_log" {
+  name              = "/aws/vpc/flow-log/${var.environment}"
+  retention_in_days = 7
+  # Accepted risk: Default AWS managed encryption is sufficient; custom KMS key omitted to prevent unnecessary portfolio costs.
+}
+
+data "aws_iam_policy_document" "vpc_flow_log_assume_role" {
+  statement {
+    effect = "Allow"
+    principals {
+      type        = "Service"
+      identifiers = ["vpc-flow-logs.amazonaws.com"]
+    }
+    actions = ["sts:AssumeRole"]
+  }
+}
+
+resource "aws_iam_role" "vpc_flow_log_role" {
+  name               = "vpc-flow-log-role-${var.environment}"
+  assume_role_policy = data.aws_iam_policy_document.vpc_flow_log_assume_role.json
+}
+
+# tfsec:ignore:aws-iam-no-policy-wildcards
+data "aws_iam_policy_document" "vpc_flow_log_policy" {
+  statement {
+    effect = "Allow"
+    actions = [
+      "logs:CreateLogGroup",
+      "logs:CreateLogStream",
+      "logs:PutLogEvents",
+      "logs:DescribeLogGroups",
+      "logs:DescribeLogStreams",
+    ]
+    # Accepted risk: Trailing wildcard is natively required by AWS to allow writing to dynamically generated log streams within this specific log group.
+    resources = [
+      aws_cloudwatch_log_group.vpc_flow_log.arn,
+      "${aws_cloudwatch_log_group.vpc_flow_log.arn}:*"
+    ]
+  }
+}
+
+resource "aws_iam_role_policy" "vpc_flow_log_policy_attachment" {
+  name   = "vpc-flow-log-policy-${var.environment}"
+  role   = aws_iam_role.vpc_flow_log_role.id
+  policy = data.aws_iam_policy_document.vpc_flow_log_policy.json
+}
+
+resource "aws_flow_log" "main" {
+  iam_role_arn    = aws_iam_role.vpc_flow_log_role.arn
+  log_destination = aws_cloudwatch_log_group.vpc_flow_log.arn
+  traffic_type    = "ALL"
+  vpc_id          = aws_vpc.main.id
+}
+
 # subnets
 resource "aws_subnet" "public" {
   count                   = 2
@@ -82,6 +138,7 @@ resource "aws_security_group" "alb_sg" {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
+    # tfsec:ignore:aws-ec2-no-public-ingress-sgr
     cidr_blocks = var.allowed_ingress_cidrs
   }
   egress {
@@ -110,6 +167,7 @@ resource "aws_security_group" "ecs_sg" {
     from_port   = 443
     to_port     = 443
     protocol    = "tcp"
+    # tfsec:ignore:aws-ec2-no-public-egress-sgr
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
@@ -129,7 +187,7 @@ resource "aws_security_group" "db_sg" {
 }
 
 # load balancer
-# tfsec:ignore:aws-elbv2-alb-not-public
+# tfsec:ignore:aws-elb-alb-not-public
 resource "aws_lb" "app_alb" {
   name                       = "app-alb-${var.environment}"
   internal                   = false # Accepted risk: Required for portfolio visibility without VPN
@@ -153,7 +211,7 @@ resource "aws_lb_target_group" "app_tg" {
   }
 }
 
-# tfsec:ignore:aws-elbv2-http-not-used
+# tfsec:ignore:aws-elb-http-not-used
 resource "aws_lb_listener" "app_listener" {
   load_balancer_arn = aws_lb.app_alb.arn
   port              = 80
