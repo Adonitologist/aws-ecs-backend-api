@@ -1,91 +1,37 @@
+# data sources to get availability zones
 data "aws_availability_zones" "available" {
   state = "available"
 }
 
-data "aws_caller_identity" "current" {}
-
-resource "aws_kms_key" "vpc_flow_log_key" {
-  description             = "KMS key for VPC Flow Logs encryption"
-  deletion_window_in_days = 7
-  enable_key_rotation     = true
-}
-
-resource "aws_cloudwatch_log_group" "flow_log_group" {
-  name              = "/aws/vpc/flow-logs-${var.environment}"
-  retention_in_days = 30
-  kms_key_id        = aws_kms_key.vpc_flow_log_key.arn
-}
-
-resource "aws_iam_role" "flow_log_role" {
-  name = "vpc-flow-log-role-${var.environment}"
-
-  assume_role_policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [
-      {
-        Action = "sts:AssumeRole"
-        Effect = "Allow"
-        Principal = {
-          Service = "vpc-flow-logs.amazonaws.com"
-        }
-      }
-    ]
-  })
-}
-
-resource "aws_iam_role_policy" "flow_log_policy" {
-  name = "vpc-flow-log-policy-${var.environment}"
-  role = aws_iam_role.flow_log_role.id
-
-  policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [
-      {
-        Action = [
-          "logs:CreateLogStream",
-          "logs:PutLogEvents",
-          "logs:DescribeLogStreams"
-        ]
-        Effect   = "Allow"
-        Resource = "${aws_cloudwatch_log_group.flow_log_group.arn}:*"
-      }
-    ]
-  })
-}
-
-resource "aws_flow_log" "main" {
-  iam_role_arn    = aws_iam_role.flow_log_role.arn
-  log_destination = aws_cloudwatch_log_group.flow_log_group.arn
-  traffic_type    = "ALL"
-  vpc_id          = aws_vpc.main.id
-}
-
+# vpc
 resource "aws_vpc" "main" {
   cidr_block           = var.vpc_cidr
   enable_dns_hostnames = true
   enable_dns_support   = true
 }
 
+# subnets
 resource "aws_subnet" "public" {
   count                   = 2
   vpc_id                  = aws_vpc.main.id
   cidr_block              = cidrsubnet(var.vpc_cidr, 8, count.index)
   availability_zone       = data.aws_availability_zones.available.names[count.index]
-  map_public_ip_on_launch = false
+  map_public_ip_on_launch = false # tfsec fix: Do not auto-assign public IPs
 }
 
 resource "aws_subnet" "private" {
-  count                   = 2
-  vpc_id                  = aws_vpc.main.id
-  cidr_block              = cidrsubnet(var.vpc_cidr, 8, count.index + 2)
-  availability_zone       = data.aws_availability_zones.available.names[count.index]
-  map_public_ip_on_launch = false
+  count             = 2
+  vpc_id            = aws_vpc.main.id
+  cidr_block        = cidrsubnet(var.vpc_cidr, 8, count.index + 2)
+  availability_zone = data.aws_availability_zones.available.names[count.index]
 }
 
+# internet gateway
 resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.main.id
 }
 
+# nat gateway and eip
 resource "aws_eip" "nat" {
   domain = "vpc"
 }
@@ -96,6 +42,7 @@ resource "aws_nat_gateway" "nat" {
   depends_on    = [aws_internet_gateway.igw]
 }
 
+# route tables
 resource "aws_route_table" "public" {
   vpc_id = aws_vpc.main.id
   route {
@@ -124,27 +71,25 @@ resource "aws_route_table_association" "private" {
   route_table_id = aws_route_table.private.id
 }
 
+# security groups
 resource "aws_security_group" "alb_sg" {
   name        = "alb-sg-${var.environment}"
-  description = "Security group for public Application Load Balancer"
+  description = "Security group for Application Load Balancer"
   vpc_id      = aws_vpc.main.id
 
   ingress {
-    description      = "Allow HTTP inbound traffic from internet"
-    from_port        = 80
-    to_port          = 80
-    protocol         = "tcp"
-    cidr_blocks      = ["0.0.0.0/0"]
-    ipv6_cidr_blocks = ["::/0"]
+    description = "Allow HTTP inbound traffic from specified IPs"
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = var.allowed_ingress_cidrs
   }
-
   egress {
-    description      = "Allow all outbound traffic"
-    from_port        = 0
-    to_port          = 0
-    protocol         = "-1"
-    cidr_blocks      = ["0.0.0.0/0"]
-    ipv6_cidr_blocks = ["::/0"]
+    description = "Allow outbound traffic only to VPC (ECS Tasks)"
+    from_port   = 8080
+    to_port     = 8080
+    protocol    = "tcp"
+    cidr_blocks = [var.vpc_cidr]
   }
 }
 
@@ -154,26 +99,24 @@ resource "aws_security_group" "ecs_sg" {
   vpc_id      = aws_vpc.main.id
 
   ingress {
-    description     = "Allow inbound traffic from ALB target group"
+    description     = "Allow inbound traffic from ALB"
     from_port       = 8080
     to_port         = 8080
     protocol        = "tcp"
     security_groups = [aws_security_group.alb_sg.id]
   }
-
   egress {
-    description      = "Allow outbound traffic for container updates and APIs"
-    from_port        = 0
-    to_port          = 0
-    protocol         = "-1"
-    cidr_blocks      = ["0.0.0.0/0"]
-    ipv6_cidr_blocks = ["::/0"]
+    description = "Allow outbound HTTPS traffic for pulling ECR/Docker images"
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 }
 
 resource "aws_security_group" "db_sg" {
   name        = "db-sg-${var.environment}"
-  description = "Security group for RDS PostgreSQL database"
+  description = "Allow traffic from ECS to RDS"
   vpc_id      = aws_vpc.main.id
 
   ingress {
@@ -185,13 +128,15 @@ resource "aws_security_group" "db_sg" {
   }
 }
 
+# load balancer
+# tfsec:ignore:aws-elbv2-alb-not-public
 resource "aws_lb" "app_alb" {
   name                       = "app-alb-${var.environment}"
-  internal                   = false
+  internal                   = false # Accepted risk: Required for portfolio visibility without VPN
   load_balancer_type         = "application"
   security_groups            = [aws_security_group.alb_sg.id]
   subnets                    = aws_subnet.public[*].id
-  drop_invalid_header_fields = true
+  drop_invalid_header_fields = true # tfsec fix: Drop invalid headers
 }
 
 resource "aws_lb_target_group" "app_tg" {
@@ -208,10 +153,11 @@ resource "aws_lb_target_group" "app_tg" {
   }
 }
 
+# tfsec:ignore:aws-elbv2-http-not-used
 resource "aws_lb_listener" "app_listener" {
   load_balancer_arn = aws_lb.app_alb.arn
   port              = 80
-  protocol          = "HTTP"
+  protocol          = "HTTP" # Accepted risk: TLS omitted for public testability (no ACM cert required)
 
   default_action {
     type             = "forward"
