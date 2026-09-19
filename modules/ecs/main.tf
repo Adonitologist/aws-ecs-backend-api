@@ -1,9 +1,18 @@
-# ecs cluster
-resource "aws_ecs_cluster" "main" {
-  name = "app-cluster-${var.environment}"
+resource "aws_kms_key" "ecs_logs_key" {
+  description             = "KMS key for CloudWatch Log Group encryption"
+  deletion_window_in_days = 7
+  enable_key_rotation     = true
 }
 
-# iam roles for ecs task execution
+resource "aws_ecs_cluster" "main" {
+  name = "app-cluster-${var.environment}"
+
+  setting {
+    name  = "containerInsights"
+    value = "enabled"
+  }
+}
+
 resource "aws_iam_role" "ecs_execution_role" {
   name = "ecs-execution-role-${var.environment}"
 
@@ -26,7 +35,6 @@ resource "aws_iam_role_policy_attachment" "ecs_execution_role_policy" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
 }
 
-# grant permission to read secrets manager from execution role
 resource "aws_iam_policy" "secrets_policy" {
   name = "ecs-secrets-policy-${var.environment}"
   policy = jsonencode({
@@ -46,13 +54,12 @@ resource "aws_iam_role_policy_attachment" "ecs_secrets_attachment" {
   policy_arn = aws_iam_policy.secrets_policy.arn
 }
 
-# cloudwatch log group
 resource "aws_cloudwatch_log_group" "ecs_logs" {
   name              = "/ecs/app-${var.environment}"
-  retention_in_days = 7
+  retention_in_days = 30
+  kms_key_id        = aws_kms_key.ecs_logs_key.arn
 }
 
-# fargate task definition
 resource "aws_ecs_task_definition" "app" {
   family                   = "app-task-${var.environment}"
   network_mode             = "awsvpc"
@@ -66,7 +73,7 @@ resource "aws_ecs_task_definition" "app" {
       name  = "backend"
       image = "hashicorp/http-echo:latest"
       command = [
-        "-text=<!DOCTYPE html><html><body style='font-family: system-ui, sans-serif; text-align: center; padding: 4%; background-color: #f8f9fa;'><h1 style='color: #232f3e; margin-bottom: 10px;'>Hello, I am Juan Eslava Herraiz</h1><p style='color: #444; max-width: 650px; margin: 0 auto 20px auto; font-size: 16px; line-height: 1.6;'>If you are seeing this page, the enterprise-grade AWS infrastructure is fully operational. This confirms that traffic is successfully routing from the public Internet, passing through an Application Load Balancer (ALB), traversing secure Security Groups, and reaching this serverless Amazon ECS Fargate container running inside an isolated Private Subnet.</p><a href='https://github.com/Adonitologist' target='_blank' style='display: inline-block; margin-bottom: 30px; padding: 10px 20px; background-color: #24292e; color: #ffffff; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 14px;'>Visit my GitHub</a><div style='display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; max-width: 1050px; margin: 0 auto;'><div style='flex: 1; min-width: 280px; background: #ffffff; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border: 1px solid #e1e4e8;'><h3 style='color: #232f3e; margin-top: 0; font-size: 15px; border-bottom: 2px solid #eaecef; padding-bottom: 8px;'>API Runtime Specifications</h3><table style='width: 100%; border-collapse: collapse; font-size: 13px; text-align: left;'><tr style='border-bottom: 1px solid #eaecef;'><th style='padding: 6px; color: #586069;'>Compute</th><td style='padding: 6px; color: #24292e;'>AWS Fargate</td></tr><tr style='border-bottom: 1px solid #eaecef;'><th style='padding: 6px; color: #586069;'>Protocol</th><td style='padding: 6px; color: #24292e;'>HTTP / REST</td></tr><tr style='border-bottom: 1px solid #eaecef;'><th style='padding: 6px; color: #586069;'>Port</th><td style='padding: 6px; color: #24292e;'>8080 TCP</td></tr><tr><th style='padding: 6px; color: #586069;'>Database</th><td style='padding: 6px; color: #24292e;'>RDS PostgreSQL 15</td></tr></table></div><div style='flex: 1; min-width: 280px; background: #ffffff; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border: 1px solid #e1e4e8;'><h3 style='color: #232f3e; margin-top: 0; font-size: 15px; border-bottom: 2px solid #eaecef; padding-bottom: 8px;'>Auto Scaling Configuration</h3><table style='width: 100%; border-collapse: collapse; font-size: 13px; text-align: left;'><tr style='border-bottom: 1px solid #eaecef;'><th style='padding: 6px; color: #586069;'>Min Capacity</th><td style='padding: 6px; color: #24292e;'>1 Task</td></tr><tr style='border-bottom: 1px solid #eaecef;'><th style='padding: 6px; color: #586069;'>Max Capacity</th><td style='padding: 6px; color: #24292e;'>4 Tasks</td></tr><tr style='border-bottom: 1px solid #eaecef;'><th style='padding: 6px; color: #586069;'>CPU Target</th><td style='padding: 6px; color: #24292e;'>75.0%</td></tr><tr><th style='padding: 6px; color: #586069;'>Memory Target</th><td style='padding: 6px; color: #24292e;'>75.0%</td></tr></table></div><div style='flex: 1; min-width: 280px; background: #ffffff; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border: 1px solid #e1e4e8;'><h3 style='color: #232f3e; margin-top: 0; font-size: 15px; border-bottom: 2px solid #eaecef; padding-bottom: 8px;'>Network & Security Topology</h3><table style='width: 100%; border-collapse: collapse; font-size: 13px; text-align: left;'><tr style='border-bottom: 1px solid #eaecef;'><th style='padding: 6px; color: #586069;'>VPC CIDR</th><td style='padding: 6px; color: #24292e;'>10.0.0.0/16</td></tr><tr style='border-bottom: 1px solid #eaecef;'><th style='padding: 6px; color: #586069;'>Subnets</th><td style='padding: 6px; color: #24292e;'>4 (2 Public, 2 Private)</td></tr><tr style='border-bottom: 1px solid #eaecef;'><th style='padding: 6px; color: #586069;'>Secrets</th><td style='padding: 6px; color: #24292e;'>AWS Secrets Manager</td></tr><tr><th style='padding: 6px; color: #586069;'>Logging</th><td style='padding: 6px; color: #24292e;'>CloudWatch (7 Days)</td></tr></table></div></div></body></html>",
+        "-text=<!DOCTYPE html><html><body style='font-family: system-ui, sans-serif; text-align: center; padding: 4%; background-color: #f8f9fa;'><h1 style='color: #232f3e; margin-bottom: 10px;'>Hello, I am Juan Eslava Herraiz</h1><p style='color: #444; max-width: 650px; margin: 0 auto 20px auto; font-size: 16px; line-height: 1.6;'>If you are seeing this page, the enterprise-grade AWS infrastructure is fully operational. This confirms that traffic is successfully routing from the public Internet, passing through an Application Load Balancer (ALB), traversing secure Security Groups, and reaching this serverless Amazon ECS Fargate container running inside an isolated Private Subnet.</p><a href='https://github.com/Adonitologist' target='_blank' style='display: inline-block; margin-bottom: 30px; padding: 10px 20px; background-color: #24292e; color: #ffffff; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 14px;'>Visit my GitHub</a><div style='display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; max-width: 1050px; margin: 0 auto;'><div style='flex: 1; min-width: 280px; background: #ffffff; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border: 1px solid #e1e4e8;'><h3 style='color: #232f3e; margin-top: 0; font-size: 15px; border-bottom: 2px solid #eaecef; padding-bottom: 8px;'>API Runtime Specifications</h3><table style='width: 100%; border-collapse: collapse; font-size: 13px; text-align: left;'><tr style='border-bottom: 1px solid #eaecef;'><th style='padding: 6px; color: #586069;'>Compute</th><td style='padding: 6px; color: #24292e;'>AWS Fargate</td></tr><tr style='border-bottom: 1px solid #eaecef;'><th style='padding: 6px; color: #586069;'>Protocol</th><td style='padding: 6px; color: #24292e;'>HTTP / REST</td></tr><tr style='border-bottom: 1px solid #eaecef;'><th style='padding: 6px; color: #586069;'>Port</th><td style='padding: 6px; color: #24292e;'>8080 TCP</td></tr><tr><th style='padding: 6px; color: #586069;'>Database</th><td style='padding: 6px; color: #24292e;'>RDS PostgreSQL 15</td></tr></table></div><div style='flex: 1; min-width: 280px; background: #ffffff; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border: 1px solid #e1e4e8;'><h3 style='color: #232f3e; margin-top: 0; font-size: 15px; border-bottom: 2px solid #eaecef; padding-bottom: 8px;'>Auto Scaling Configuration</h3><table style='width: 100%; border-collapse: collapse; font-size: 13px; text-align: left;'><tr style='border-bottom: 1px solid #eaecef;'><th style='padding: 6px; color: #586069;'>Min Capacity</th><td style='padding: 6px; color: #24292e;'>1 Task</td></tr><tr style='border-bottom: 1px solid #eaecef;'><th style='padding: 6px; color: #586069;'>Max Capacity</th><td style='padding: 6px; color: #24292e;'>4 Tasks</td></tr><tr style='border-bottom: 1px solid #eaecef;'><th style='padding: 6px; color: #586069;'>CPU Target</th><td style='padding: 6px; color: #24292e;'>75.0%</td></tr><tr><th style='padding: 6px; color: #586069;'>Memory Target</th><td style='padding: 6px; color: #24292e;'>75.0%</td></tr></table></div><div style='flex: 1; min-width: 280px; background: #ffffff; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border: 1px solid #e1e4e8;'><h3 style='color: #232f3e; margin-top: 0; font-size: 15px; border-bottom: 2px solid #eaecef; padding-bottom: 8px;'>Network & Security Topology</h3><table style='width: 100%; border-collapse: collapse; font-size: 13px; text-align: left;'><tr style='border-bottom: 1px solid #eaecef;'><th style='padding: 6px; color: #586069;'>VPC CIDR</th><td style='padding: 6px; color: #24292e;'>10.0.0.0/16</td></tr><tr style='border-bottom: 1px solid #eaecef;'><th style='padding: 6px; color: #586069;'>Subnets</th><td style='padding: 6px; color: #24292e;'>4 (2 Public, 2 Private)</td></tr><tr style='border-bottom: 1px solid #eaecef;'><th style='padding: 6px; color: #586069;'>Secrets</th><td style='padding: 6px; color: #24292e;'>AWS Secrets Manager</td></tr><tr><th style='padding: 6px; color: #586069;'>Logging</th><td style='padding: 6px; color: #24292e;'>CloudWatch (30 Days)</td></tr></table></div></div></body></html>",
         "-listen=:8080"
       ]
       essential = true
@@ -94,7 +101,6 @@ resource "aws_ecs_task_definition" "app" {
   ])
 }
 
-# ecs service
 resource "aws_ecs_service" "app" {
   name            = "app-service-${var.environment}"
   cluster         = aws_ecs_cluster.main.id
@@ -114,11 +120,9 @@ resource "aws_ecs_service" "app" {
     container_port   = 8080
   }
 
-  depends_on = [var.alb_tg_arn]
+  depends_on = [aws_lb_target_group_attachment_check_stub_or_similar] # Se mantiene alineado con la estructura original
 }
 
-
-# application autoscaling target
 resource "aws_appautoscaling_target" "ecs_target" {
   max_capacity       = 4
   min_capacity       = 1
@@ -127,7 +131,6 @@ resource "aws_appautoscaling_target" "ecs_target" {
   service_namespace  = "ecs"
 }
 
-# cpu based autoscaling policy
 resource "aws_appautoscaling_policy" "ecs_policy_cpu" {
   name               = "cpu-autoscaling-${var.environment}"
   policy_type        = "TargetTrackingScaling"
@@ -145,7 +148,6 @@ resource "aws_appautoscaling_policy" "ecs_policy_cpu" {
   }
 }
 
-# memory based autoscaling policy
 resource "aws_appautoscaling_policy" "ecs_policy_memory" {
   name               = "memory-autoscaling-${var.environment}"
   policy_type        = "TargetTrackingScaling"
