@@ -83,3 +83,12 @@ Execution Commands
 Cost Management Notice
 
     Zero-Cost Policy: This enterprise architecture provisions an Amazon RDS database and an AWS NAT Gateway which incur continuous hourly charges if left running. Always execute terraform destroy immediately after validation sessions.
+
+
+## Architectural Decisions & Security (tfsec)
+
+This repository is engineered to pass `tfsec` static analysis. However, specific security controls have been intentionally suppressed via inline exceptions to preserve a frictionless "clone-and-deploy" experience for reviewers:
+
+*   **TLS/HTTPS Termination (Ignored `aws-elbv2-http-not-used`):** The Application Load Balancer defaults to HTTP (Port 80). Enforcing HTTPS requires provisioning an AWS ACM Certificate, which mandates domain ownership and DNS validation. This was omitted so reviewers can deploy the infrastructure immediately without providing a custom domain.
+*   **Public ALB Exposure (Ignored `aws-elbv2-alb-not-public`):** The ALB is set to `internal = false`. While an enterprise backend API would typically reside behind a private API Gateway or CloudFront distribution, this ALB is public to allow direct browser verification of the Fargate containers without requiring the reviewer to configure a Client VPN or bastion host.
+*   **Parameterized Security Groups:** Ingress CIDR blocks are not hardcoded. Reviewers can scope ALB access strictly to their own IP by overriding the `allowed_ingress_cidrs` variable in a `terraform.tfvars` file.
