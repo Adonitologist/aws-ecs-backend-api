@@ -1,16 +1,50 @@
+data "aws_caller_identity" "current" {}
+
 resource "aws_kms_key" "ecs_logs_key" {
   description             = "KMS key for CloudWatch Log Group encryption"
   deletion_window_in_days = 7
   enable_key_rotation     = true
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Sid    = "Enable IAM User Permissions"
+        Effect = "Allow"
+        Principal = {
+          AWS = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:root"
+        }
+        Action   = "kms:*"
+        Resource = "*"
+      },
+      {
+        Sid    = "Allow CloudWatch Logs Encryption"
+        Effect = "Allow"
+        Principal = {
+          Service = "logs.us-east-1.amazonaws.com"
+        }
+        Action = [
+          "kms:Encrypt*",
+          "kms:Decrypt*",
+          "kms:ReEncrypt*",
+          "kms:GenerateDataKey*",
+          "kms:Describe*"
+        ]
+        Resource = "*"
+        Condition = {
+          ArnEquals = {
+            "kms:EncryptionContext:aws:logs:arn" = "arn:aws:logs:us-east-1:${data.aws_caller_identity.current.account_id}:log-group:/ecs/app-${var.environment}"
+          }
+        }
+      }
+    ]
+  })
 }
 
+# Container Insights is intentionally off: it creates a log group that Terraform does not manage and that survives destroy.
+# tfsec:ignore:aws-ecs-enable-container-insight
 resource "aws_ecs_cluster" "main" {
   name = "app-cluster-${var.environment}"
-
-  setting {
-    name  = "containerInsights"
-    value = "enabled"
-  }
 }
 
 resource "aws_iam_role" "ecs_execution_role" {
@@ -44,6 +78,11 @@ resource "aws_iam_policy" "secrets_policy" {
         Effect   = "Allow"
         Action   = ["secretsmanager:GetSecretValue"]
         Resource = var.secret_arn
+      },
+      {
+        Effect   = "Allow"
+        Action   = ["kms:Decrypt"]
+        Resource = var.kms_key_arn
       }
     ]
   })
@@ -54,9 +93,21 @@ resource "aws_iam_role_policy_attachment" "ecs_secrets_attachment" {
   policy_arn = aws_iam_policy.secrets_policy.arn
 }
 
+# Tags are immutable, so every new image needs a new image_tag.
+# tfsec:ignore:aws-ecr-repository-customer-key
+resource "aws_ecr_repository" "app" {
+  name                 = "app-${var.environment}"
+  image_tag_mutability = "IMMUTABLE"
+  force_delete         = true
+
+  image_scanning_configuration {
+    scan_on_push = true
+  }
+}
+
 resource "aws_cloudwatch_log_group" "ecs_logs" {
   name              = "/ecs/app-${var.environment}"
-  retention_in_days = 30
+  retention_in_days = 7
   kms_key_id        = aws_kms_key.ecs_logs_key.arn
 }
 
@@ -70,12 +121,8 @@ resource "aws_ecs_task_definition" "app" {
 
   container_definitions = jsonencode([
     {
-      name  = "backend"
-      image = "hashicorp/http-echo:latest"
-      command = [
-        "-text=<!DOCTYPE html><html><body style='font-family: system-ui, sans-serif; text-align: center; padding: 4%; background-color: #f8f9fa;'><h1 style='color: #232f3e; margin-bottom: 10px;'>Hello, I am Juan Eslava Herraiz</h1><p style='color: #444; max-width: 650px; margin: 0 auto 20px auto; font-size: 16px; line-height: 1.6;'>If you are seeing this page, the enterprise-grade AWS infrastructure is fully operational. This confirms that traffic is successfully routing from the public Internet, passing through an Application Load Balancer (ALB), traversing secure Security Groups, and reaching this serverless Amazon ECS Fargate container running inside an isolated Private Subnet.</p><a href='https://github.com/Adonitologist' target='_blank' style='display: inline-block; margin-bottom: 30px; padding: 10px 20px; background-color: #24292e; color: #ffffff; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 14px;'>Visit my GitHub</a><div style='display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; max-width: 1050px; margin: 0 auto;'><div style='flex: 1; min-width: 280px; background: #ffffff; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border: 1px solid #e1e4e8;'><h3 style='color: #232f3e; margin-top: 0; font-size: 15px; border-bottom: 2px solid #eaecef; padding-bottom: 8px;'>API Runtime Specifications</h3><table style='width: 100%; border-collapse: collapse; font-size: 13px; text-align: left;'><tr style='border-bottom: 1px solid #eaecef;'><th style='padding: 6px; color: #586069;'>Compute</th><td style='padding: 6px; color: #24292e;'>AWS Fargate</td></tr><tr style='border-bottom: 1px solid #eaecef;'><th style='padding: 6px; color: #586069;'>Protocol</th><td style='padding: 6px; color: #24292e;'>HTTP / REST</td></tr><tr style='border-bottom: 1px solid #eaecef;'><th style='padding: 6px; color: #586069;'>Port</th><td style='padding: 6px; color: #24292e;'>8080 TCP</td></tr><tr><th style='padding: 6px; color: #586069;'>Database</th><td style='padding: 6px; color: #24292e;'>RDS PostgreSQL 15</td></tr></table></div><div style='flex: 1; min-width: 280px; background: #ffffff; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border: 1px solid #e1e4e8;'><h3 style='color: #232f3e; margin-top: 0; font-size: 15px; border-bottom: 2px solid #eaecef; padding-bottom: 8px;'>Auto Scaling Configuration</h3><table style='width: 100%; border-collapse: collapse; font-size: 13px; text-align: left;'><tr style='border-bottom: 1px solid #eaecef;'><th style='padding: 6px; color: #586069;'>Min Capacity</th><td style='padding: 6px; color: #24292e;'>1 Task</td></tr><tr style='border-bottom: 1px solid #eaecef;'><th style='padding: 6px; color: #586069;'>Max Capacity</th><td style='padding: 6px; color: #24292e;'>4 Tasks</td></tr><tr style='border-bottom: 1px solid #eaecef;'><th style='padding: 6px; color: #586069;'>CPU Target</th><td style='padding: 6px; color: #24292e;'>75.0%</td></tr><tr><th style='padding: 6px; color: #586069;'>Memory Target</th><td style='padding: 6px; color: #24292e;'>75.0%</td></tr></table></div><div style='flex: 1; min-width: 280px; background: #ffffff; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border: 1px solid #e1e4e8;'><h3 style='color: #232f3e; margin-top: 0; font-size: 15px; border-bottom: 2px solid #eaecef; padding-bottom: 8px;'>Network & Security Topology</h3><table style='width: 100%; border-collapse: collapse; font-size: 13px; text-align: left;'><tr style='border-bottom: 1px solid #eaecef;'><th style='padding: 6px; color: #586069;'>VPC CIDR</th><td style='padding: 6px; color: #24292e;'>10.0.0.0/16</td></tr><tr style='border-bottom: 1px solid #eaecef;'><th style='padding: 6px; color: #586069;'>Subnets</th><td style='padding: 6px; color: #24292e;'>4 (2 Public, 2 Private)</td></tr><tr style='border-bottom: 1px solid #eaecef;'><th style='padding: 6px; color: #586069;'>Secrets</th><td style='padding: 6px; color: #24292e;'>AWS Secrets Manager</td></tr><tr><th style='padding: 6px; color: #586069;'>Logging</th><td style='padding: 6px; color: #24292e;'>CloudWatch (30 Days)</td></tr></table></div></div></body></html>",
-        "-listen=:8080"
-      ]
+      name      = "backend"
+      image     = "${aws_ecr_repository.app.repository_url}:${var.image_tag}"
       essential = true
       portMappings = [
         {
@@ -107,6 +154,10 @@ resource "aws_ecs_service" "app" {
   task_definition = aws_ecs_task_definition.app.arn
   desired_count   = 1
   launch_type     = "FARGATE"
+
+  # This line ensures that whenever the task definition or underlying secrets change, 
+  # ECS automatically rolls out a new deployment without manual CLI intervention.
+  force_new_deployment = true
 
   network_configuration {
     subnets          = var.private_subnet_ids

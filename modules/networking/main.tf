@@ -163,6 +163,13 @@ resource "aws_security_group" "ecs_sg" {
     security_groups = [aws_security_group.alb_sg.id]
   }
   egress {
+    description     = "Allow PostgreSQL traffic strictly to the RDS security group"
+    from_port       = 5432
+    to_port         = 5432
+    protocol        = "tcp"
+    security_groups = [aws_security_group.db_sg.id]
+  }
+  egress {
     description = "Allow outbound HTTPS traffic for pulling ECR/Docker images"
     from_port   = 443
     to_port     = 443
@@ -176,14 +183,16 @@ resource "aws_security_group" "db_sg" {
   name        = "db-sg-${var.environment}"
   description = "Allow traffic from ECS to RDS"
   vpc_id      = aws_vpc.main.id
+}
 
-  ingress {
-    description     = "Allow PostgreSQL traffic strictly from ECS tasks"
-    from_port       = 5432
-    to_port         = 5432
-    protocol        = "tcp"
-    security_groups = [aws_security_group.ecs_sg.id]
-  }
+# Standalone rule: an inline ingress here would make db_sg and ecs_sg reference each other (cycle).
+resource "aws_vpc_security_group_ingress_rule" "db_from_ecs" {
+  security_group_id            = aws_security_group.db_sg.id
+  description                  = "Allow PostgreSQL traffic strictly from ECS tasks"
+  from_port                    = 5432
+  to_port                      = 5432
+  ip_protocol                  = "tcp"
+  referenced_security_group_id = aws_security_group.ecs_sg.id
 }
 
 # load balancer
@@ -208,6 +217,9 @@ resource "aws_lb_target_group" "app_tg" {
     path                = "/health"
     healthy_threshold   = 2
     unhealthy_threshold = 10
+    interval            = 30
+    timeout             = 5
+    matcher             = "200"
   }
 }
 

@@ -25,3 +25,10 @@ output "alb_tg_arn" {
 output "alb_dns_name" {
   value = aws_lb.app_alb.dns_name
 }
+output "alb_arn_suffix" {
+  value = aws_lb.app_alb.arn_suffix
+}
+
+output "tg_arn_suffix" {
+  value = aws_lb_target_group.app_tg.arn_suffix
+}

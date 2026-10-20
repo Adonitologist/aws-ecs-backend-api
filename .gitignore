@@ -13,3 +13,6 @@ crash.log
 .idea/
 .vscode/
 *.swp
+
+# Saved plans
+tfplan

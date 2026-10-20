@@ -44,9 +44,23 @@ jobs:
         run: tflint -f compact
 
       - name: Run tfsec Security Scanner
-        uses: aquasecurity/tfsec-action@v1.0.3
+        uses: aquasecurity/tfsec-action@b466648d6e39e7c75324f25d83891162a721f2d6 # v1.0.3
 
-      - name: Run tfsec Security Scanner
-        uses: aquasecurity/tfsec-action@v1.0.3
+  container-scan:
+    name: "Docker Build & Trivy Scan"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Docker Build
+        run: docker build -t app:ci app/
+
+      - name: Trivy Image Scan
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
         with:
-          soft_fail: true
+          image-ref: app:ci
+          severity: HIGH,CRITICAL
+          ignore-unfixed: true
+          exit-code: "1"

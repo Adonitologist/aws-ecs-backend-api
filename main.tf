@@ -2,6 +2,8 @@ module "networking" {
   source      = "./modules/networking"
   vpc_cidr    = var.vpc_cidr
   environment = var.environment
+
+  allowed_ingress_cidrs = var.allowed_ingress_cidrs
 }
 
 module "database" {
@@ -19,4 +21,16 @@ module "ecs" {
   ecs_sg_id          = module.networking.ecs_sg_id
   alb_tg_arn         = module.networking.alb_tg_arn
   secret_arn         = module.database.secret_arn
+  kms_key_arn        = module.database.kms_key_arn
+  image_tag          = var.image_tag
+}
+
+module "monitoring" {
+  source         = "./modules/monitoring"
+  environment    = var.environment
+  alb_arn_suffix = module.networking.alb_arn_suffix
+  tg_arn_suffix  = module.networking.tg_arn_suffix
+  cluster_name   = module.ecs.cluster_name
+  service_name   = module.ecs.service_name
+  db_identifier  = module.database.db_identifier
 }

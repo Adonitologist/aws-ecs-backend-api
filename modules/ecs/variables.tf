@@ -21,3 +21,12 @@ variable "alb_tg_arn" {
 variable "secret_arn" {
   type = string
 }
+variable "kms_key_arn" {
+  description = "ARN of the KMS key that encrypts the database secret"
+  type        = string
+}
+
+variable "image_tag" {
+  description = "Tag of the application image in ECR"
+  type        = string
+}

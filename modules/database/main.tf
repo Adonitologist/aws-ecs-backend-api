@@ -1,7 +1,24 @@
+data "aws_caller_identity" "current" {}
+
 resource "aws_kms_key" "db_key" {
   description             = "KMS customer managed key for RDS and Secrets Manager"
   deletion_window_in_days = 7
   enable_key_rotation     = true
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Sid    = "Enable IAM User Permissions"
+        Effect = "Allow"
+        Principal = {
+          AWS = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:root"
+        }
+        Action   = "kms:*"
+        Resource = "*"
+      }
+    ]
+  })
 }
 
 resource "random_password" "db_password" {
@@ -32,6 +49,8 @@ resource "aws_db_subnet_group" "default" {
   subnet_ids = var.private_subnet_ids
 }
 
+# Accepted risk: the stack must be fully destroyable. No deletion protection, no automated backups, no final snapshot.
+# tfsec:ignore:aws-rds-specify-backup-retention
 resource "aws_db_instance" "postgres" {
   identifier                          = "ecs-backend-db-${var.environment}"
   engine                              = "postgres"
@@ -44,15 +63,15 @@ resource "aws_db_instance" "postgres" {
   password                            = random_password.db_password.result
   db_subnet_group_name                = aws_db_subnet_group.default.name
   vpc_security_group_ids              = [var.db_sg_id]
-  skip_final_snapshot                 = false
-  final_snapshot_identifier           = "ecs-backend-db-final-snapshot-${var.environment}"
+  skip_final_snapshot                 = true
   publicly_accessible                 = false
   storage_encrypted                   = true
   storage_type                        = "gp3"
   kms_key_id                          = aws_kms_key.db_key.arn
   iam_database_authentication_enabled = true
-  backup_retention_period             = 7
-  deletion_protection                 = true
-  performance_insights_enabled        = true
-  performance_insights_kms_key_id     = aws_kms_key.db_key.arn
+  backup_retention_period             = 0
+  # tfsec:ignore:aws-rds-enable-deletion-protection
+  deletion_protection             = false
+  performance_insights_enabled    = true
+  performance_insights_kms_key_id = aws_kms_key.db_key.arn
 }
