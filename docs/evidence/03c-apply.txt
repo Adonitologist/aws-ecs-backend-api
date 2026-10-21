@@ -1,0 +1,26 @@
+module.networking.aws_cloudwatch_log_group.vpc_flow_log: Creating...
+module.networking.aws_cloudwatch_log_group.vpc_flow_log: Creation complete after 1s [id=/aws/vpc/flow-log/production]
+module.networking.data.aws_iam_policy_document.vpc_flow_log_policy: Reading...
+module.networking.data.aws_iam_policy_document.vpc_flow_log_policy: Read complete after 0s [id=1556169649]
+module.networking.aws_flow_log.main: Creating...
+module.networking.aws_iam_role_policy.vpc_flow_log_policy_attachment: Creating...
+module.networking.aws_iam_role_policy.vpc_flow_log_policy_attachment: Creation complete after 1s [id=vpc-flow-log-role-production:vpc-flow-log-policy-production]
+module.networking.aws_flow_log.main: Creation complete after 1s [id=fl-02e2e121a7393f06d]
+
+Apply complete! Resources: 3 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+alarm_names = {
+  "ecs_cpu_high" = "ecs-cpu-high-production"
+  "rds_cpu_high" = "rds-cpu-high-production"
+  "rds_free_storage_low" = "rds-free-storage-low-production"
+  "target_5xx" = "alb-target-5xx-production"
+  "unhealthy_hosts" = "alb-unhealthy-hosts-production"
+}
+alb_dns_name = "app-alb-production-301842800.us-east-1.elb.amazonaws.com"
+cluster_name = "app-cluster-production"
+ecr_repository_url = "111111111111.dkr.ecr.us-east-1.amazonaws.com/app-production"
+service_name = "app-service-production"
+sns_topic_arn = "arn:aws:sns:us-east-1:111111111111:alarms-production"
+

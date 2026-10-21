@@ -7,6 +7,20 @@
 
 Terraform reference project: a small Python API on Amazon ECS Fargate behind an Application Load Balancer, backed by PostgreSQL on Amazon RDS, with database credentials injected from AWS Secrets Manager and CloudWatch alarms. CI is configured to validate the Terraform and to build and scan the container image. The stack is configured to be destroyed with one `terraform destroy`.
 
+## Verified
+
+One deployment in us-east-1 on 2026-10-20, then destroyed. Each item states only what the linked file shows.
+
+- **Endpoints through the ALB:** `GET /health` returned 200 ([08-health.txt](docs/evidence/08-health.txt)) and `GET /db-check` returned 200 ([09-db-check.txt](docs/evidence/09-db-check.txt)). `/db-check` read `DB_CREDENTIALS`, injected from Secrets Manager, and ran `SELECT 1`.
+- **Service state:** the ECS service was ACTIVE with 1 of 1 tasks running ([06-services-stable.txt](docs/evidence/06-services-stable.txt)) and the target was healthy ([07-target-health.txt](docs/evidence/07-target-health.txt)).
+- **Local container test:** the image ran as non-root (uid 999), `GET /health` returned 200 and `GET /db-check` returned 503 without a database, as expected ([00-local-docker.txt](docs/evidence/00-local-docker.txt)).
+- **Manual alarm test:** `alb-unhealthy-hosts-production` went OK -> ALARM -> OK ([10-alarm-manual-test.txt](docs/evidence/10-alarm-manual-test.txt)).
+- **Real trigger:** a bad health check path made the target unhealthy at 14:42:43 local time (UTC+2), and `alb-unhealthy-hosts-production` went OK -> ALARM at about 14:45 without `set-alarm-state` ([11b-real-trigger-bad-path.txt](docs/evidence/11b-real-trigger-bad-path.txt), [12-alarm-history.txt](docs/evidence/12-alarm-history.txt)). After `/health` was restored a healthy target appeared, but the alarm return to OK was **not observed**: the stack was destroyed afterwards.
+- **Other alarms:** the other four alarms exist and stayed OK; they were not triggered ([12-alarm-history.txt](docs/evidence/12-alarm-history.txt)).
+- **Destroy:** 51 resources destroyed ([13-destroy.txt](docs/evidence/13-destroy.txt)). The leftover check found remains of an earlier deployment ([14-leftovers.txt](docs/evidence/14-leftovers.txt)); they were cleaned manually. Afterwards only 3 KMS keys in PendingDeletion and an unrelated Lambda log group remained ([14b-leftovers-after-cleanup.txt](docs/evidence/14b-leftovers-after-cleanup.txt)).
+- **The apply ran in several steps:** the first attempt failed with `ResourceAlreadyExistsException` on a pre-existing log group ([03-apply.txt](docs/evidence/03-apply.txt)); 3 resources were completed in a later apply ([03c-apply.txt](docs/evidence/03c-apply.txt)).
+- **CI:** no CI run result is recorded in the evidence, so no CI status is claimed here.
+
 ## System Architecture
 
 ```mermaid
@@ -79,8 +93,10 @@ Credentials: no credentials are in the source files. The generated database pass
 
 ## Limitations
 
-- **Not deployed or verified yet:** nothing in this repository has been applied from the current code. See the "Verified" section once evidence exists.
 - **Terratest: NOT VERIFIED.** `tests/ecs_backend_test.go` runs a real `apply` and `destroy`, needs AWS credentials, has no `go.mod`, does not pass the required `allowed_ingress_cidrs` variable, and no CI job runs it.
+- **Single run:** everything in "Verified" comes from one deployment. Recovery of the alarm to OK after restoring the health check was not observed.
+- **Deployment role:** the deployment used an assumable role with service-level wildcard permissions in us-east-1, configured manually outside this repository.
+- **Not exercised:** autoscaling and the other four alarms.
 - HTTP only, no TLS. The ALB is public.
 - RDS is a single instance (`multi_az` is not set). Subnets span two AZs, but the service runs one task. No automated backups.
 - The app connects to RDS over TLS without verifying the server certificate.

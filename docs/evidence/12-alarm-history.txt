@@ -1,0 +1,14 @@
+== alb-unhealthy-hosts-production
+2026-10-20T14:45:05.538000+02:00	Alarm updated from OK to ALARM
+2026-10-20T14:28:05.539000+02:00	Alarm updated from ALARM to OK
+2026-10-20T14:27:14.005000+02:00	Alarm updated from OK to ALARM
+2026-10-20T14:06:18.880000+02:00	Alarm updated from INSUFFICIENT_DATA to OK
+== alb-target-5xx-production
+2026-10-20T14:06:01.795000+02:00	Alarm updated from INSUFFICIENT_DATA to OK
+== ecs-cpu-high-production
+2026-10-20T14:05:35.563000+02:00	Alarm updated from INSUFFICIENT_DATA to OK
+== rds-cpu-high-production
+2026-10-20T14:05:29.977000+02:00	Alarm updated from INSUFFICIENT_DATA to OK
+== rds-free-storage-low-production
+2026-10-20T14:06:02.730000+02:00	Alarm updated from INSUFFICIENT_DATA to OK
+

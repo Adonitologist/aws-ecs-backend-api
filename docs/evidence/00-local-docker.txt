@@ -1,0 +1,80 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 430B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.12-slim-bookworm
+#2 DONE 0.6s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 59B done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 DONE 0.0s
+
+#5 [1/6] FROM docker.io/library/python:3.12-slim-bookworm@sha256:34386ef0cb081344d7ec1c103ba398e6e9f64e9ab3a1509accc92a4e24a07258
+#5 resolve docker.io/library/python:3.12-slim-bookworm@sha256:34386ef0cb081344d7ec1c103ba398e6e9f64e9ab3a1509accc92a4e24a07258 0.1s done
+#5 DONE 0.1s
+
+#4 [internal] load build context
+#4 transferring context: 66B done
+#4 DONE 0.0s
+
+#6 [5/6] COPY server.py .
+#6 CACHED
+
+#7 [3/6] COPY requirements.txt .
+#7 CACHED
+
+#8 [2/6] WORKDIR /app
+#8 CACHED
+
+#9 [4/6] RUN pip install --no-cache-dir -r requirements.txt
+#9 CACHED
+
+#10 [6/6] RUN useradd --system --no-create-home appuser
+#10 CACHED
+
+#11 exporting to image
+#11 exporting layers done
+#11 exporting manifest sha256:9901ea0093727d4296f66480e28056c182c832f0df6931f9d636da72c136c27e done
+#11 exporting config sha256:f6090c191c300973b9bc14e8630a3c59e65ce5bd437a9dc620e3db4435404763 done
+#11 exporting attestation manifest sha256:cf9a210fd41b4c3e60c0779455bdf1fa58282c86814603a3742cfd137c3d304d
+#11 exporting attestation manifest sha256:cf9a210fd41b4c3e60c0779455bdf1fa58282c86814603a3742cfd137c3d304d 0.1s done
+#11 exporting manifest list sha256:c624f3156d84adb4c4f9d950c773e2757bc46c39f33413bdfe9189ab5a819859 0.1s done
+#11 naming to docker.io/library/app:test
+#11 naming to docker.io/library/app:test 0.0s done
+#11 unpacking to docker.io/library/app:test 0.0s done
+#11 DONE 0.3s
+HTTP/1.0 200 OK
+Server: BaseHTTP/0.6 Python/3.12.15
+Date: Tue, 20 Oct 2026 11:44:19 GMT
+Content-Type: application/json
+Content-Length: 16
+
+{"status": "ok"}
+HTTP/1.0 503 Service Unavailable
+Server: BaseHTTP/0.6 Python/3.12.15
+Date: Tue, 20 Oct 2026 11:44:19 GMT
+Content-Type: application/json
+Content-Length: 21
+
+{"db": "unavailable"}
+uid=999(appuser) gid=999(appuser) groups=999(appuser)
+WARNING: The directory '/home/appuser/.cache/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.
+Name: pg8000
+Version: 1.31.5
+Summary: PostgreSQL interface library
+Home-page: https://codeberg.org/tlocke/pg8000
+Author: The Contributors
+Author-email: 
+License: BSD 3-Clause License
+Location: /usr/local/lib/python3.12/site-packages
+Requires: python-dateutil, scramp
+Required-by: 
+db-check failed: KeyError
+203.0.113.1 - - [20/Oct/2026 11:44:19] "GET /health HTTP/1.1" 200 -
+203.0.113.1 - - [20/Oct/2026 11:44:19] "GET /db-check HTTP/1.1" 503 -
+

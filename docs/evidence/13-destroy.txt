@@ -1,0 +1,1800 @@
+== destroy intento 1 2026-10-20T15:00:17
+module.database.random_password.db_password: Refreshing state... [id=none]
+module.database.data.aws_caller_identity.current: Reading...
+module.networking.data.aws_availability_zones.available: Reading...
+module.monitoring.data.aws_caller_identity.current: Reading...
+module.networking.data.aws_iam_policy_document.vpc_flow_log_assume_role: Reading...
+module.networking.aws_cloudwatch_log_group.vpc_flow_log: Refreshing state... [id=/aws/vpc/flow-log/production]
+module.networking.aws_vpc.main: Refreshing state... [id=vpc-00e53f2879cf6c719]
+module.networking.aws_eip.nat: Refreshing state... [id=eipalloc-0b90189fc93fd3b8d]
+module.ecs.aws_ecr_repository.app: Refreshing state... [id=app-production]
+module.ecs.aws_ecs_cluster.main: Refreshing state... [id=arn:aws:ecs:us-east-1:111111111111:cluster/app-cluster-production]
+module.ecs.aws_iam_role.ecs_execution_role: Refreshing state... [id=ecs-execution-role-production]
+module.networking.data.aws_iam_policy_document.vpc_flow_log_assume_role: Read complete after 0s [id=2717921857]
+module.ecs.data.aws_caller_identity.current: Reading...
+module.database.data.aws_caller_identity.current: Read complete after 0s [id=111111111111]
+module.networking.aws_iam_role.vpc_flow_log_role: Refreshing state... [id=vpc-flow-log-role-production]
+module.monitoring.data.aws_caller_identity.current: Read complete after 0s [id=111111111111]
+module.database.aws_kms_key.db_key: Refreshing state... [id=dc4f9d35-2788-473d-83f7-d5db83dd0a57]
+module.ecs.data.aws_caller_identity.current: Read complete after 1s [id=111111111111]
+module.networking.data.aws_availability_zones.available: Read complete after 1s [id=us-east-1]
+module.monitoring.aws_kms_key.sns: Refreshing state... [id=3869bcdb-e453-4f96-9a22-9dcac1f88c2b]
+module.ecs.aws_kms_key.ecs_logs_key: Refreshing state... [id=e9a93bec-1250-4f5d-9b46-7f91ae796d83]
+module.networking.data.aws_iam_policy_document.vpc_flow_log_policy: Reading...
+module.networking.data.aws_iam_policy_document.vpc_flow_log_policy: Read complete after 0s [id=1556169649]
+module.ecs.aws_iam_role_policy_attachment.ecs_execution_role_policy: Refreshing state... [id=ecs-execution-role-production-20261020115935988200000001]
+module.networking.aws_iam_role_policy.vpc_flow_log_policy_attachment: Refreshing state... [id=vpc-flow-log-role-production:vpc-flow-log-policy-production]
+module.database.aws_secretsmanager_secret.db_credentials: Refreshing state... [id=arn:aws:secretsmanager:us-east-1:111111111111:secret:rds-db-credentials-production-fxnvmA]
+module.monitoring.aws_sns_topic.alarms: Refreshing state... [id=arn:aws:sns:us-east-1:111111111111:alarms-production]
+module.ecs.aws_cloudwatch_log_group.ecs_logs: Refreshing state... [id=/ecs/app-production]
+module.networking.aws_flow_log.main: Refreshing state... [id=fl-02e2e121a7393f06d]
+module.networking.aws_subnet.private[0]: Refreshing state... [id=subnet-051934c073502cae5]
+module.networking.aws_security_group.db_sg: Refreshing state... [id=sg-03d1a0192534e0c1e]
+module.networking.aws_subnet.private[1]: Refreshing state... [id=subnet-0fd7f9b160bb32ce3]
+module.networking.aws_subnet.public[0]: Refreshing state... [id=subnet-0d7e96ca359f70691]
+module.networking.aws_security_group.alb_sg: Refreshing state... [id=sg-0d75577aecdeb1534]
+module.networking.aws_lb_target_group.app_tg: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:111111111111:targetgroup/app-tg-production/a29bad310cfbfcbf]
+module.networking.aws_subnet.public[1]: Refreshing state... [id=subnet-0dbd11767ba292601]
+module.networking.aws_internet_gateway.igw: Refreshing state... [id=igw-088af43cbd33911a1]
+module.ecs.aws_iam_policy.secrets_policy: Refreshing state... [id=arn:aws:iam::111111111111:policy/ecs-secrets-policy-production]
+module.ecs.aws_ecs_task_definition.app: Refreshing state... [id=app-task-production]
+module.database.aws_db_subnet_group.default: Refreshing state... [id=main-db-subnet-group-production]
+module.networking.aws_security_group.ecs_sg: Refreshing state... [id=sg-06266e73f4c71fd4c]
+module.ecs.aws_iam_role_policy_attachment.ecs_secrets_attachment: Refreshing state... [id=ecs-execution-role-production-20261020115953649500000005]
+module.networking.aws_lb.app_alb: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:111111111111:loadbalancer/app/app-alb-production/20682b08fa1ea082]
+module.networking.aws_nat_gateway.nat: Refreshing state... [id=nat-010bb842a778d9ccd]
+module.networking.aws_route_table.public: Refreshing state... [id=rtb-09f57462ed98a97d8]
+module.networking.aws_vpc_security_group_ingress_rule.db_from_ecs: Refreshing state... [id=sgr-07d9b83dde771b878]
+module.networking.aws_route_table.private: Refreshing state... [id=rtb-0964dc109b2146c00]
+module.networking.aws_route_table_association.public[0]: Refreshing state... [id=rtbassoc-0938fb533fd40fd8b]
+module.networking.aws_route_table_association.public[1]: Refreshing state... [id=rtbassoc-0c783c3df474fb21b]
+module.networking.aws_route_table_association.private[1]: Refreshing state... [id=rtbassoc-089d4d84737884351]
+module.networking.aws_route_table_association.private[0]: Refreshing state... [id=rtbassoc-0aed500ae637e40ce]
+module.ecs.aws_ecs_service.app: Refreshing state... [id=arn:aws:ecs:us-east-1:111111111111:service/app-cluster-production/app-service-production]
+module.database.aws_db_instance.postgres: Refreshing state... [id=db-IXOBLJHIIWM53POCSNPZ4TLRRQ]
+module.ecs.aws_appautoscaling_target.ecs_target: Refreshing state... [id=service/app-cluster-production/app-service-production]
+module.database.aws_secretsmanager_secret_version.db_credentials_version: Refreshing state... [id=arn:aws:secretsmanager:us-east-1:111111111111:secret:rds-db-credentials-production-fxnvmA|terraform-20261020120452039300000008]
+module.networking.aws_lb_listener.app_listener: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:111111111111:listener/app/app-alb-production/20682b08fa1ea082/e4cf8e71f97cad61]
+module.monitoring.aws_cloudwatch_metric_alarm.this["rds_free_storage_low"]: Refreshing state... [id=rds-free-storage-low-production]
+module.monitoring.aws_cloudwatch_metric_alarm.this["ecs_cpu_high"]: Refreshing state... [id=ecs-cpu-high-production]
+module.monitoring.aws_cloudwatch_metric_alarm.this["unhealthy_hosts"]: Refreshing state... [id=alb-unhealthy-hosts-production]
+module.monitoring.aws_cloudwatch_metric_alarm.this["rds_cpu_high"]: Refreshing state... [id=rds-cpu-high-production]
+module.monitoring.aws_cloudwatch_metric_alarm.this["target_5xx"]: Refreshing state... [id=alb-target-5xx-production]
+module.ecs.aws_appautoscaling_policy.ecs_policy_memory: Refreshing state... [id=memory-autoscaling-production]
+module.ecs.aws_appautoscaling_policy.ecs_policy_cpu: Refreshing state... [id=cpu-autoscaling-production]
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  - destroy
+
+Terraform will perform the following actions:
+
+  # module.database.aws_db_instance.postgres will be destroyed
+  - resource "aws_db_instance" "postgres" {
+      - address                               = "ecs-backend-db-production.c4dks8wiur6c.us-east-1.rds.amazonaws.com" -> null
+      - allocated_storage                     = 20 -> null
+      - apply_immediately                     = false -> null
+      - arn                                   = "arn:aws:rds:us-east-1:111111111111:db:ecs-backend-db-production" -> null
+      - auto_minor_version_upgrade            = true -> null
+      - availability_zone                     = "us-east-1a" -> null
+      - backup_retention_period               = 0 -> null
+      - backup_target                         = "region" -> null
+      - backup_window                         = "09:08-09:38" -> null
+      - ca_cert_identifier                    = "rds-ca-rsa2048-g1" -> null
+      - copy_tags_to_snapshot                 = false -> null
+      - customer_owned_ip_enabled             = false -> null
+      - database_insights_mode                = "standard" -> null
+      - db_name                               = "appdb" -> null
+      - db_subnet_group_name                  = "main-db-subnet-group-production" -> null
+      - dedicated_log_volume                  = false -> null
+      - delete_automated_backups              = true -> null
+      - deletion_protection                   = false -> null
+      - domain_dns_ips                        = [] -> null
+      - enabled_cloudwatch_logs_exports       = [] -> null
+      - endpoint                              = "ecs-backend-db-production.c4dks8wiur6c.us-east-1.rds.amazonaws.com:5432" -> null
+      - engine                                = "postgres" -> null
+      - engine_lifecycle_support              = "open-source-rds-extended-support" -> null
+      - engine_version                        = "15.8" -> null
+      - engine_version_actual                 = "15.8" -> null
+      - hosted_zone_id                        = "Z2R2ITUGPM61AM" -> null
+      - iam_database_authentication_enabled   = true -> null
+      - id                                    = "db-IXOBLJHIIWM53POCSNPZ4TLRRQ" -> null
+      - identifier                            = "ecs-backend-db-production" -> null
+      - instance_class                        = "db.t3.micro" -> null
+      - iops                                  = 3000 -> null
+      - kms_key_id                            = "arn:aws:kms:us-east-1:111111111111:key/dc4f9d35-2788-473d-83f7-d5db83dd0a57" -> null
+      - license_model                         = "postgresql-license" -> null
+      - listener_endpoint                     = [] -> null
+      - maintenance_window                    = "fri:10:28-fri:10:58" -> null
+      - master_user_secret                    = [] -> null
+      - max_allocated_storage                 = 100 -> null
+      - monitoring_interval                   = 0 -> null
+      - multi_az                              = false -> null
+      - network_type                          = "IPV4" -> null
+      - option_group_name                     = "default:postgres-15" -> null
+      - parameter_group_name                  = "default.postgres15" -> null
+      - password                              = (sensitive value) -> null
+      - password_wo                           = (write-only attribute) -> null
+      - performance_insights_enabled          = true -> null
+      - performance_insights_kms_key_id       = "arn:aws:kms:us-east-1:111111111111:key/dc4f9d35-2788-473d-83f7-d5db83dd0a57" -> null
+      - performance_insights_retention_period = 7 -> null
+      - port                                  = 5432 -> null
+      - publicly_accessible                   = false -> null
+      - replicas                              = [] -> null
+      - resource_id                           = "db-IXOBLJHIIWM53POCSNPZ4TLRRQ" -> null
+      - skip_final_snapshot                   = true -> null
+      - status                                = "available" -> null
+      - storage_encrypted                     = true -> null
+      - storage_throughput                    = 125 -> null
+      - storage_type                          = "gp3" -> null
+      - tags                                  = {} -> null
+      - tags_all                              = {
+          - "Environment" = "production"
+          - "ManagedBy"   = "Terraform"
+          - "Project"     = "ecs-backend-api"
+        } -> null
+      - username                              = "dbadmin" -> null
+      - vpc_security_group_ids                = [
+          - "sg-03d1a0192534e0c1e",
+        ] -> null
+        # (14 unchanged attributes hidden)
+    }
+
+  # module.database.aws_db_subnet_group.default will be destroyed
+  - resource "aws_db_subnet_group" "default" {
+      - arn                     = "arn:aws:rds:us-east-1:111111111111:subgrp:main-db-subnet-group-production" -> null
+      - description             = "Managed by Terraform" -> null
+      - id                      = "main-db-subnet-group-production" -> null
+      - name                    = "main-db-subnet-group-production" -> null
+      - subnet_ids              = [
+          - "subnet-051934c073502cae5",
+          - "subnet-0fd7f9b160bb32ce3",
+        ] -> null
+      - supported_network_types = [
+          - "IPV4",
+        ] -> null
+      - tags                    = {} -> null
+      - tags_all                = {
+          - "Environment" = "production"
+          - "ManagedBy"   = "Terraform"
+          - "Project"     = "ecs-backend-api"
+        } -> null
+      - vpc_id                  = "vpc-00e53f2879cf6c719" -> null
+        # (1 unchanged attribute hidden)
+    }
+
+  # module.database.aws_kms_key.db_key will be destroyed
+  - resource "aws_kms_key" "db_key" {
+      - arn                                = "arn:aws:kms:us-east-1:111111111111:key/dc4f9d35-2788-473d-83f7-d5db83dd0a57" -> null
+      - bypass_policy_lockout_safety_check = false -> null
+      - customer_master_key_spec           = "SYMMETRIC_DEFAULT" -> null
+      - deletion_window_in_days            = 7 -> null
+      - description                        = "KMS customer managed key for RDS and Secrets Manager" -> null
+      - enable_key_rotation                = true -> null
+      - id                                 = "dc4f9d35-2788-473d-83f7-d5db83dd0a57" -> null
+      - is_enabled                         = true -> null
+      - key_id                             = "dc4f9d35-2788-473d-83f7-d5db83dd0a57" -> null
+      - key_usage                          = "ENCRYPT_DECRYPT" -> null
+      - multi_region                       = false -> null
+      - policy                             = jsonencode(
+            {
+              - Statement = [
+                  - {
+                      - Action    = "kms:*"
+                      - Effect    = "Allow"
+                      - Principal = {
+                          - AWS = "arn:aws:iam::111111111111:root"
+                        }
+                      - Resource  = "*"
+                      - Sid       = "Enable IAM User Permissions"
+                    },
+                ]
+              - Version   = "2012-10-17"
+            }
+        ) -> null
+      - rotation_period_in_days            = 365 -> null
+      - tags                               = {} -> null
+      - tags_all                           = {
+          - "Environment" = "production"
+          - "ManagedBy"   = "Terraform"
+          - "Project"     = "ecs-backend-api"
+        } -> null
+        # (2 unchanged attributes hidden)
+    }
+
+  # module.database.aws_secretsmanager_secret.db_credentials will be destroyed
+  - resource "aws_secretsmanager_secret" "db_credentials" {
+      - arn                            = "arn:aws:secretsmanager:us-east-1:111111111111:secret:rds-db-credentials-production-fxnvmA" -> null
+      - force_overwrite_replica_secret = false -> null
+      - id                             = "arn:aws:secretsmanager:us-east-1:111111111111:secret:rds-db-credentials-production-fxnvmA" -> null
+      - kms_key_id                     = "arn:aws:kms:us-east-1:111111111111:key/dc4f9d35-2788-473d-83f7-d5db83dd0a57" -> null
+      - name                           = "rds-db-credentials-production" -> null
+      - recovery_window_in_days        = 0 -> null
+      - tags                           = {} -> null
+      - tags_all                       = {
+          - "Environment" = "production"
+          - "ManagedBy"   = "Terraform"
+          - "Project"     = "ecs-backend-api"
+        } -> null
+        # (3 unchanged attributes hidden)
+    }
+
+  # module.database.aws_secretsmanager_secret_version.db_credentials_version will be destroyed
+  - resource "aws_secretsmanager_secret_version" "db_credentials_version" {
+      - arn              = "arn:aws:secretsmanager:us-east-1:111111111111:secret:rds-db-credentials-production-fxnvmA" -> null
+      - id               = "arn:aws:secretsmanager:us-east-1:111111111111:secret:rds-db-credentials-production-fxnvmA|terraform-20261020120452039300000008" -> null
+      - secret_id        = "arn:aws:secretsmanager:us-east-1:111111111111:secret:rds-db-credentials-production-fxnvmA" -> null
+      - secret_string    = (sensitive value) -> null
+      - secret_string_wo = (write-only attribute) -> null
+      - version_id       = "terraform-20261020120452039300000008" -> null
+      - version_stages   = [
+          - "AWSCURRENT",
+        ] -> null
+        # (1 unchanged attribute hidden)
+    }
+
+  # module.database.random_password.db_password will be destroyed
+  - resource "random_password" "db_password" {
+      - bcrypt_hash      = (sensitive value) -> null
+      - id               = "none" -> null
+      - length           = 16 -> null
+      - lower            = true -> null
+      - min_lower        = 0 -> null
+      - min_numeric      = 0 -> null
+      - min_special      = 0 -> null
+      - min_upper        = 0 -> null
+      - number           = true -> null
+      - numeric          = true -> null
+      - override_special = "!#$%&*()-_=+[]{}<>:?" -> null
+      - result           = (sensitive value) -> null
+      - special          = true -> null
+      - upper            = true -> null
+    }
+
+  # module.ecs.aws_appautoscaling_policy.ecs_policy_cpu will be destroyed
+  - resource "aws_appautoscaling_policy" "ecs_policy_cpu" {
+      - alarm_arns         = [
+          - "arn:aws:cloudwatch:us-east-1:111111111111:alarm:TargetTracking-service/app-cluster-production/app-service-production-AlarmHigh-190f7ecf-f232-41d5-9b8b-0d04fadda408",
+          - "arn:aws:cloudwatch:us-east-1:111111111111:alarm:TargetTracking-service/app-cluster-production/app-service-production-AlarmLow-0becfb39-30d2-4752-a960-f006b810061b",
+        ] -> null
+      - arn                = "arn:aws:autoscaling:us-east-1:111111111111:scalingPolicy:7fad100e-8414-4904-880c-fceab178a20e:resource/ecs/service/app-cluster-production/app-service-production:policyName/cpu-autoscaling-production" -> null
+      - id                 = "cpu-autoscaling-production" -> null
+      - name               = "cpu-autoscaling-production" -> null
+      - policy_type        = "TargetTrackingScaling" -> null
+      - resource_id        = "service/app-cluster-production/app-service-production" -> null
+      - scalable_dimension = "ecs:service:DesiredCount" -> null
+      - service_namespace  = "ecs" -> null
+
+      - target_tracking_scaling_policy_configuration {
+          - disable_scale_in   = false -> null
+          - scale_in_cooldown  = 300 -> null
+          - scale_out_cooldown = 60 -> null
+          - target_value       = 75 -> null
+
+          - predefined_metric_specification {
+              - predefined_metric_type = "ECSServiceAverageCPUUtilization" -> null
+                # (1 unchanged attribute hidden)
+            }
+        }
+    }
+
+  # module.ecs.aws_appautoscaling_policy.ecs_policy_memory will be destroyed
+  - resource "aws_appautoscaling_policy" "ecs_policy_memory" {
+      - alarm_arns         = [
+          - "arn:aws:cloudwatch:us-east-1:111111111111:alarm:TargetTracking-service/app-cluster-production/app-service-production-AlarmHigh-ea287458-3962-4758-9af7-91ae9d6c8ef1",
+          - "arn:aws:cloudwatch:us-east-1:111111111111:alarm:TargetTracking-service/app-cluster-production/app-service-production-AlarmLow-cf004b71-22e3-4556-83fa-a8fe7c1f461b",
+        ] -> null
+      - arn                = "arn:aws:autoscaling:us-east-1:111111111111:scalingPolicy:7fad100e-8414-4904-880c-fceab178a20e:resource/ecs/service/app-cluster-production/app-service-production:policyName/memory-autoscaling-production" -> null
+      - id                 = "memory-autoscaling-production" -> null
+      - name               = "memory-autoscaling-production" -> null
+      - policy_type        = "TargetTrackingScaling" -> null
+      - resource_id        = "service/app-cluster-production/app-service-production" -> null
+      - scalable_dimension = "ecs:service:DesiredCount" -> null
+      - service_namespace  = "ecs" -> null
+
+      - target_tracking_scaling_policy_configuration {
+          - disable_scale_in   = false -> null
+          - scale_in_cooldown  = 300 -> null
+          - scale_out_cooldown = 60 -> null
+          - target_value       = 75 -> null
+
+          - predefined_metric_specification {
+              - predefined_metric_type = "ECSServiceAverageMemoryUtilization" -> null
+                # (1 unchanged attribute hidden)
+            }
+        }
+    }
+
+  # module.ecs.aws_appautoscaling_target.ecs_target will be destroyed
+  - resource "aws_appautoscaling_target" "ecs_target" {
+      - arn                = "arn:aws:application-autoscaling:us-east-1:111111111111:scalable-target/0ec57fad100e84144904880cfceab178a20e" -> null
+      - id                 = "service/app-cluster-production/app-service-production" -> null
+      - max_capacity       = 4 -> null
+      - min_capacity       = 1 -> null
+      - resource_id        = "service/app-cluster-production/app-service-production" -> null
+      - role_arn           = "arn:aws:iam::111111111111:role/aws-service-role/ecs.application-autoscaling.amazonaws.com/AWSServiceRoleForApplicationAutoScaling_ECSService" -> null
+      - scalable_dimension = "ecs:service:DesiredCount" -> null
+      - service_namespace  = "ecs" -> null
+      - tags               = {} -> null
+      - tags_all           = {
+          - "Environment" = "production"
+          - "ManagedBy"   = "Terraform"
+          - "Project"     = "ecs-backend-api"
+        } -> null
+
+      - suspended_state {
+          - dynamic_scaling_in_suspended  = false -> null
+          - dynamic_scaling_out_suspended = false -> null
+          - scheduled_scaling_suspended   = false -> null
+        }
+    }
+
+  # module.ecs.aws_cloudwatch_log_group.ecs_logs will be destroyed
+  - resource "aws_cloudwatch_log_group" "ecs_logs" {
+      - arn               = "arn:aws:logs:us-east-1:111111111111:log-group:/ecs/app-production" -> null
+      - id                = "/ecs/app-production" -> null
+      - kms_key_id        = "arn:aws:kms:us-east-1:111111111111:key/e9a93bec-1250-4f5d-9b46-7f91ae796d83" -> null
+      - log_group_class   = "STANDARD" -> null
+      - name              = "/ecs/app-production" -> null
+      - retention_in_days = 7 -> null
+      - skip_destroy      = false -> null
+      - tags              = {} -> null
+      - tags_all          = {
+          - "Environment" = "production"
+          - "ManagedBy"   = "Terraform"
+          - "Project"     = "ecs-backend-api"
+        } -> null
+        # (1 unchanged attribute hidden)
+    }
+
+  # module.ecs.aws_ecr_repository.app will be destroyed
+  - resource "aws_ecr_repository" "app" {
+      - arn                  = "arn:aws:ecr:us-east-1:111111111111:repository/app-production" -> null
+      - force_delete         = true -> null
+      - id                   = "app-production" -> null
+      - image_tag_mutability = "IMMUTABLE" -> null
+      - name                 = "app-production" -> null
+      - registry_id          = "111111111111" -> null
+      - repository_url       = "111111111111.dkr.ecr.us-east-1.amazonaws.com/app-production" -> null
+      - tags                 = {} -> null
+      - tags_all             = {
+          - "Environment" = "production"
+          - "ManagedBy"   = "Terraform"
+          - "Project"     = "ecs-backend-api"
+        } -> null
+
+      - encryption_configuration {
+          - encryption_type = "AES256" -> null
+            # (1 unchanged attribute hidden)
+        }
+
+      - image_scanning_configuration {
+          - scan_on_push = true -> null
+        }
+    }
+
+  # module.ecs.aws_ecs_cluster.main will be destroyed
+  - resource "aws_ecs_cluster" "main" {
+      - arn      = "arn:aws:ecs:us-east-1:111111111111:cluster/app-cluster-production" -> null
+      - id       = "arn:aws:ecs:us-east-1:111111111111:cluster/app-cluster-production" -> null
+      - name     = "app-cluster-production" -> null
+      - tags     = {} -> null
+      - tags_all = {
+          - "Environment" = "production"
+          - "ManagedBy"   = "Terraform"
+          - "Project"     = "ecs-backend-api"
+        } -> null
+
+      - setting {
+          - name  = "containerInsights" -> null
+          - value = "disabled" -> null
+        }
+    }
+
+  # module.ecs.aws_ecs_service.app will be destroyed
+  - resource "aws_ecs_service" "app" {
+      - availability_zone_rebalancing      = "DISABLED" -> null
+      - cluster                            = "arn:aws:ecs:us-east-1:111111111111:cluster/app-cluster-production" -> null
+      - deployment_maximum_percent         = 200 -> null
+      - deployment_minimum_healthy_percent = 100 -> null
+      - desired_count                      = 1 -> null
+      - enable_ecs_managed_tags            = false -> null
+      - enable_execute_command             = false -> null
+      - force_new_deployment               = true -> null
+      - health_check_grace_period_seconds  = 0 -> null
+      - iam_role                           = "/aws-service-role/ecs.amazonaws.com/AWSServiceRoleForECS" -> null
+      - id                                 = "arn:aws:ecs:us-east-1:111111111111:service/app-cluster-production/app-service-production" -> null
+      - launch_type                        = "FARGATE" -> null
+      - name                               = "app-service-production" -> null
+      - platform_version                   = "LATEST" -> null
+      - propagate_tags                     = "NONE" -> null
+      - scheduling_strategy                = "REPLICA" -> null
+      - tags                               = {} -> null
+      - tags_all                           = {
+          - "Environment" = "production"
+          - "ManagedBy"   = "Terraform"
+          - "Project"     = "ecs-backend-api"
+        } -> null
+      - task_definition                    = "arn:aws:ecs:us-east-1:111111111111:task-definition/app-task-production:9" -> null
+      - triggers                           = {} -> null
+      - wait_for_steady_state              = false -> null
+
+      - deployment_circuit_breaker {
+          - enable   = false -> null
+          - rollback = false -> null
+        }
+
+      - deployment_controller {
+          - type = "ECS" -> null
+        }
+
+      - load_balancer {
+          - container_name   = "backend" -> null
+          - container_port   = 8080 -> null
+          - target_group_arn = "arn:aws:elasticloadbalancing:us-east-1:111111111111:targetgroup/app-tg-production/a29bad310cfbfcbf" -> null
+            # (1 unchanged attribute hidden)
+        }
+
+      - network_configuration {
+          - assign_public_ip = false -> null
+          - security_groups  = [
+              - "sg-06266e73f4c71fd4c",
+            ] -> null
+          - subnets          = [
+              - "subnet-051934c073502cae5",
+              - "subnet-0fd7f9b160bb32ce3",
+            ] -> null
+        }
+    }
+
+  # module.ecs.aws_ecs_task_definition.app will be destroyed
+  - resource "aws_ecs_task_definition" "app" {
+      - arn                      = "arn:aws:ecs:us-east-1:111111111111:task-definition/app-task-production:9" -> null
+      - arn_without_revision     = "arn:aws:ecs:us-east-1:111111111111:task-definition/app-task-production" -> null
+      - container_definitions    = jsonencode(
+            [
+              - {
+                  - environment      = []
+                  - essential        = true
+                  - image            = "111111111111.dkr.ecr.us-east-1.amazonaws.com/app-production:v1"
+                  - logConfiguration = {
+                      - logDriver = "awslogs"
+                      - options   = {
+                          - awslogs-group         = "/ecs/app-production"
+                          - awslogs-region        = "us-east-1"
+                          - awslogs-stream-prefix = "ecs"
+                        }
+                    }
+                  - mountPoints      = []
+                  - name             = "backend"
+                  - portMappings     = [
+                      - {
+                          - containerPort = 8080
+                          - hostPort      = 8080
+                          - protocol      = "tcp"
+                        },
+                    ]
+                  - secrets          = [
+                      - {
+                          - name      = "DB_CREDENTIALS"
+                          - valueFrom = "arn:aws:secretsmanager:us-east-1:111111111111:secret:rds-db-credentials-production-fxnvmA"
+                        },
+                    ]
+                  - systemControls   = []
+                  - volumesFrom      = []
+                },
+            ]
+        ) -> null
+      - cpu                      = "256" -> null
+      - enable_fault_injection   = false -> null
+      - execution_role_arn       = "arn:aws:iam::111111111111:role/ecs-execution-role-production" -> null
+      - family                   = "app-task-production" -> null
+      - id                       = "app-task-production" -> null
+      - memory                   = "512" -> null
+      - network_mode             = "awsvpc" -> null
+      - requires_compatibilities = [
+          - "FARGATE",
+        ] -> null
+      - revision                 = 9 -> null
+      - skip_destroy             = false -> null
+      - tags                     = {} -> null
+      - tags_all                 = {
+          - "Environment" = "production"
+          - "ManagedBy"   = "Terraform"
+          - "Project"     = "ecs-backend-api"
+        } -> null
+      - track_latest             = false -> null
+        # (3 unchanged attributes hidden)
+    }
+
+  # module.ecs.aws_iam_policy.secrets_policy will be destroyed
+  - resource "aws_iam_policy" "secrets_policy" {
+      - arn              = "arn:aws:iam::111111111111:policy/ecs-secrets-policy-production" -> null
+      - attachment_count = 1 -> null
+      - id               = "arn:aws:iam::111111111111:policy/ecs-secrets-policy-production" -> null
+      - name             = "ecs-secrets-policy-production" -> null
+      - path             = "/" -> null
+      - policy           = jsonencode(
+            {
+              - Statement = [
+                  - {
+                      - Action   = [
+                          - "secretsmanager:GetSecretValue",
+                        ]
+                      - Effect   = "Allow"
+                      - Resource = "arn:aws:secretsmanager:us-east-1:111111111111:secret:rds-db-credentials-production-fxnvmA"
+                    },
+                  - {
+                      - Action   = [
+                          - "kms:Decrypt",
+                        ]
+                      - Effect   = "Allow"
+                      - Resource = "arn:aws:kms:us-east-1:111111111111:key/dc4f9d35-2788-473d-83f7-d5db83dd0a57"
+                    },
+                ]
+              - Version   = "2012-10-17"
+            }
+        ) -> null
+      - policy_id        = "ANPASIEVQV3MTF6DVOSV7" -> null
+      - tags             = {} -> null
+      - tags_all         = {
+          - "Environment" = "production"
+          - "ManagedBy"   = "Terraform"
+          - "Project"     = "ecs-backend-api"
+        } -> null
+        # (2 unchanged attributes hidden)
+    }
+
+  # module.ecs.aws_iam_role.ecs_execution_role will be destroyed
+  - resource "aws_iam_role" "ecs_execution_role" {
+      - arn                   = "arn:aws:iam::111111111111:role/ecs-execution-role-production" -> null
+      - assume_role_policy    = jsonencode(
+            {
+              - Statement = [
+                  - {
+                      - Action    = "sts:AssumeRole"
+                      - Effect    = "Allow"
+                      - Principal = {
+                          - Service = "ecs-tasks.amazonaws.com"
+                        }
+                    },
+                ]
+              - Version   = "2012-10-17"
+            }
+        ) -> null
+      - create_date           = "2026-10-20T11:59:33Z" -> null
+      - force_detach_policies = false -> null
+      - id                    = "ecs-execution-role-production" -> null
+      - managed_policy_arns   = [
+          - "arn:aws:iam::111111111111:policy/ecs-secrets-policy-production",
+          - "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy",
+        ] -> null
+      - max_session_duration  = 3600 -> null
+      - name                  = "ecs-execution-role-production" -> null
+      - path                  = "/" -> null
+      - tags                  = {} -> null
+      - tags_all              = {
+          - "Environment" = "production"
+          - "ManagedBy"   = "Terraform"
+          - "Project"     = "ecs-backend-api"
+        } -> null
+      - unique_id             = "AROASIEVQV3M4RIOZT5UL" -> null
+        # (3 unchanged attributes hidden)
+    }
+
+  # module.ecs.aws_iam_role_policy_attachment.ecs_execution_role_policy will be destroyed
+  - resource "aws_iam_role_policy_attachment" "ecs_execution_role_policy" {
+      - id         = "ecs-execution-role-production-20261020115935988200000001" -> null
+      - policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy" -> null
+      - role       = "ecs-execution-role-production" -> null
+    }
+
+  # module.ecs.aws_iam_role_policy_attachment.ecs_secrets_attachment will be destroyed
+  - resource "aws_iam_role_policy_attachment" "ecs_secrets_attachment" {
+      - id         = "ecs-execution-role-production-20261020115953649500000005" -> null
+      - policy_arn = "arn:aws:iam::111111111111:policy/ecs-secrets-policy-production" -> null
+      - role       = "ecs-execution-role-production" -> null
+    }
+
+  # module.ecs.aws_kms_key.ecs_logs_key will be destroyed
+  - resource "aws_kms_key" "ecs_logs_key" {
+      - arn                                = "arn:aws:kms:us-east-1:111111111111:key/e9a93bec-1250-4f5d-9b46-7f91ae796d83" -> null
+      - bypass_policy_lockout_safety_check = false -> null
+      - customer_master_key_spec           = "SYMMETRIC_DEFAULT" -> null
+      - deletion_window_in_days            = 7 -> null
+      - description                        = "KMS key for CloudWatch Log Group encryption" -> null
+      - enable_key_rotation                = true -> null
+      - id                                 = "e9a93bec-1250-4f5d-9b46-7f91ae796d83" -> null
+      - is_enabled                         = true -> null
+      - key_id                             = "e9a93bec-1250-4f5d-9b46-7f91ae796d83" -> null
+      - key_usage                          = "ENCRYPT_DECRYPT" -> null
+      - multi_region                       = false -> null
+      - policy                             = jsonencode(
+            {
+              - Statement = [
+                  - {
+                      - Action    = "kms:*"
+                      - Effect    = "Allow"
+                      - Principal = {
+                          - AWS = "arn:aws:iam::111111111111:root"
+                        }
+                      - Resource  = "*"
+                      - Sid       = "Enable IAM User Permissions"
+                    },
+                  - {
+                      - Action    = [
+                          - "kms:Encrypt*",
+                          - "kms:Decrypt*",
+                          - "kms:ReEncrypt*",
+                          - "kms:GenerateDataKey*",
+                          - "kms:Describe*",
+                        ]
+                      - Condition = {
+                          - ArnEquals = {
+                              - "kms:EncryptionContext:aws:logs:arn" = "arn:aws:logs:us-east-1:111111111111:log-group:/ecs/app-production"
+                            }
+                        }
+                      - Effect    = "Allow"
+                      - Principal = {
+                          - Service = "logs.us-east-1.amazonaws.com"
+                        }
+                      - Resource  = "*"
+                      - Sid       = "Allow CloudWatch Logs Encryption"
+                    },
+                ]
+              - Version   = "2012-10-17"
+            }
+        ) -> null
+      - rotation_period_in_days            = 365 -> null
+      - tags                               = {} -> null
+      - tags_all                           = {
+          - "Environment" = "production"
+          - "ManagedBy"   = "Terraform"
+          - "Project"     = "ecs-backend-api"
+        } -> null
+        # (2 unchanged attributes hidden)
+    }
+
+  # module.monitoring.aws_cloudwatch_metric_alarm.this["ecs_cpu_high"] will be destroyed
+  - resource "aws_cloudwatch_metric_alarm" "this" {
+      - actions_enabled                       = true -> null
+      - alarm_actions                         = [
+          - "arn:aws:sns:us-east-1:111111111111:alarms-production",
+        ] -> null
+      - alarm_name                            = "ecs-cpu-high-production" -> null
+      - arn                                   = "arn:aws:cloudwatch:us-east-1:111111111111:alarm:ecs-cpu-high-production" -> null
+      - comparison_operator                   = "GreaterThanThreshold" -> null
+      - datapoints_to_alarm                   = 0 -> null
+      - dimensions                            = {
+          - "ClusterName" = "app-cluster-production"
+          - "ServiceName" = "app-service-production"
+        } -> null
+      - evaluation_periods                    = 2 -> null
+      - id                                    = "ecs-cpu-high-production" -> null
+      - insufficient_data_actions             = [] -> null
+      - metric_name                           = "CPUUtilization" -> null
+      - namespace                             = "AWS/ECS" -> null
+      - ok_actions                            = [] -> null
+      - period                                = 60 -> null
+      - statistic                             = "Average" -> null
+      - tags                                  = {} -> null
+      - tags_all                              = {
+          - "Environment" = "production"
+          - "ManagedBy"   = "Terraform"
+          - "Project"     = "ecs-backend-api"
+        } -> null
+      - threshold                             = 80 -> null
+      - treat_missing_data                    = "notBreaching" -> null
+        # (5 unchanged attributes hidden)
+    }
+
+  # module.monitoring.aws_cloudwatch_metric_alarm.this["rds_cpu_high"] will be destroyed
+  - resource "aws_cloudwatch_metric_alarm" "this" {
+      - actions_enabled                       = true -> null
+      - alarm_actions                         = [
+          - "arn:aws:sns:us-east-1:111111111111:alarms-production",
+        ] -> null
+      - alarm_name                            = "rds-cpu-high-production" -> null
+      - arn                                   = "arn:aws:cloudwatch:us-east-1:111111111111:alarm:rds-cpu-high-production" -> null
+      - comparison_operator                   = "GreaterThanThreshold" -> null
+      - datapoints_to_alarm                   = 0 -> null
+      - dimensions                            = {
+          - "DBInstanceIdentifier" = "ecs-backend-db-production"
+        } -> null
+      - evaluation_periods                    = 2 -> null
+      - id                                    = "rds-cpu-high-production" -> null
+      - insufficient_data_actions             = [] -> null
+      - metric_name                           = "CPUUtilization" -> null
+      - namespace                             = "AWS/RDS" -> null
+      - ok_actions                            = [] -> null
+      - period                                = 60 -> null
+      - statistic                             = "Average" -> null
+      - tags                                  = {} -> null
+      - tags_all                              = {
+          - "Environment" = "production"
+          - "ManagedBy"   = "Terraform"
+          - "Project"     = "ecs-backend-api"
+        } -> null
+      - threshold                             = 80 -> null
+      - treat_missing_data                    = "notBreaching" -> null
+        # (5 unchanged attributes hidden)
+    }
+
+  # module.monitoring.aws_cloudwatch_metric_alarm.this["rds_free_storage_low"] will be destroyed
+  - resource "aws_cloudwatch_metric_alarm" "this" {
+      - actions_enabled                       = true -> null
+      - alarm_actions                         = [
+          - "arn:aws:sns:us-east-1:111111111111:alarms-production",
+        ] -> null
+      - alarm_name                            = "rds-free-storage-low-production" -> null
+      - arn                                   = "arn:aws:cloudwatch:us-east-1:111111111111:alarm:rds-free-storage-low-production" -> null
+      - comparison_operator                   = "LessThanThreshold" -> null
+      - datapoints_to_alarm                   = 0 -> null
+      - dimensions                            = {
+          - "DBInstanceIdentifier" = "ecs-backend-db-production"
+        } -> null
+      - evaluation_periods                    = 1 -> null
+      - id                                    = "rds-free-storage-low-production" -> null
+      - insufficient_data_actions             = [] -> null
+      - metric_name                           = "FreeStorageSpace" -> null
+      - namespace                             = "AWS/RDS" -> null
+      - ok_actions                            = [] -> null
+      - period                                = 60 -> null
+      - statistic                             = "Minimum" -> null
+      - tags                                  = {} -> null
+      - tags_all                              = {
+          - "Environment" = "production"
+          - "ManagedBy"   = "Terraform"
+          - "Project"     = "ecs-backend-api"
+        } -> null
+      - threshold                             = 2147483648 -> null
+      - treat_missing_data                    = "notBreaching" -> null
+        # (5 unchanged attributes hidden)
+    }
+
+  # module.monitoring.aws_cloudwatch_metric_alarm.this["target_5xx"] will be destroyed
+  - resource "aws_cloudwatch_metric_alarm" "this" {
+      - actions_enabled                       = true -> null
+      - alarm_actions                         = [
+          - "arn:aws:sns:us-east-1:111111111111:alarms-production",
+        ] -> null
+      - alarm_name                            = "alb-target-5xx-production" -> null
+      - arn                                   = "arn:aws:cloudwatch:us-east-1:111111111111:alarm:alb-target-5xx-production" -> null
+      - comparison_operator                   = "GreaterThanThreshold" -> null
+      - datapoints_to_alarm                   = 0 -> null
+      - dimensions                            = {
+          - "LoadBalancer" = "app/app-alb-production/20682b08fa1ea082"
+          - "TargetGroup"  = "targetgroup/app-tg-production/a29bad310cfbfcbf"
+        } -> null
+      - evaluation_periods                    = 1 -> null
+      - id                                    = "alb-target-5xx-production" -> null
+      - insufficient_data_actions             = [] -> null
+      - metric_name                           = "HTTPCode_Target_5XX_Count" -> null
+      - namespace                             = "AWS/ApplicationELB" -> null
+      - ok_actions                            = [] -> null
+      - period                                = 60 -> null
+      - statistic                             = "Sum" -> null
+      - tags                                  = {} -> null
+      - tags_all                              = {
+          - "Environment" = "production"
+          - "ManagedBy"   = "Terraform"
+          - "Project"     = "ecs-backend-api"
+        } -> null
+      - threshold                             = 5 -> null
+      - treat_missing_data                    = "notBreaching" -> null
+        # (5 unchanged attributes hidden)
+    }
+
+  # module.monitoring.aws_cloudwatch_metric_alarm.this["unhealthy_hosts"] will be destroyed
+  - resource "aws_cloudwatch_metric_alarm" "this" {
+      - actions_enabled                       = true -> null
+      - alarm_actions                         = [
+          - "arn:aws:sns:us-east-1:111111111111:alarms-production",
+        ] -> null
+      - alarm_name                            = "alb-unhealthy-hosts-production" -> null
+      - arn                                   = "arn:aws:cloudwatch:us-east-1:111111111111:alarm:alb-unhealthy-hosts-production" -> null
+      - comparison_operator                   = "GreaterThanThreshold" -> null
+      - datapoints_to_alarm                   = 0 -> null
+      - dimensions                            = {
+          - "LoadBalancer" = "app/app-alb-production/20682b08fa1ea082"
+          - "TargetGroup"  = "targetgroup/app-tg-production/a29bad310cfbfcbf"
+        } -> null
+      - evaluation_periods                    = 1 -> null
+      - id                                    = "alb-unhealthy-hosts-production" -> null
+      - insufficient_data_actions             = [] -> null
+      - metric_name                           = "UnHealthyHostCount" -> null
+      - namespace                             = "AWS/ApplicationELB" -> null
+      - ok_actions                            = [] -> null
+      - period                                = 60 -> null
+      - statistic                             = "Maximum" -> null
+      - tags                                  = {} -> null
+      - tags_all                              = {
+          - "Environment" = "production"
+          - "ManagedBy"   = "Terraform"
+          - "Project"     = "ecs-backend-api"
+        } -> null
+      - threshold                             = 0 -> null
+      - treat_missing_data                    = "notBreaching" -> null
+        # (5 unchanged attributes hidden)
+    }
+
+  # module.monitoring.aws_kms_key.sns will be destroyed
+  - resource "aws_kms_key" "sns" {
+      - arn                                = "arn:aws:kms:us-east-1:111111111111:key/3869bcdb-e453-4f96-9a22-9dcac1f88c2b" -> null
+      - bypass_policy_lockout_safety_check = false -> null
+      - customer_master_key_spec           = "SYMMETRIC_DEFAULT" -> null
+      - deletion_window_in_days            = 7 -> null
+      - description                        = "KMS key for the alarms SNS topic" -> null
+      - enable_key_rotation                = true -> null
+      - id                                 = "3869bcdb-e453-4f96-9a22-9dcac1f88c2b" -> null
+      - is_enabled                         = true -> null
+      - key_id                             = "3869bcdb-e453-4f96-9a22-9dcac1f88c2b" -> null
+      - key_usage                          = "ENCRYPT_DECRYPT" -> null
+      - multi_region                       = false -> null
+      - policy                             = jsonencode(
+            {
+              - Statement = [
+                  - {
+                      - Action    = "kms:*"
+                      - Effect    = "Allow"
+                      - Principal = {
+                          - AWS = "arn:aws:iam::111111111111:root"
+                        }
+                      - Resource  = "*"
+                      - Sid       = "Enable IAM User Permissions"
+                    },
+                  - {
+                      - Action    = [
+                          - "kms:Decrypt",
+                          - "kms:GenerateDataKey*",
+                        ]
+                      - Effect    = "Allow"
+                      - Principal = {
+                          - Service = "cloudwatch.amazonaws.com"
+                        }
+                      - Resource  = "*"
+                      - Sid       = "Allow CloudWatch Alarms to publish"
+                    },
+                ]
+              - Version   = "2012-10-17"
+            }
+        ) -> null
+      - rotation_period_in_days            = 365 -> null
+      - tags                               = {} -> null
+      - tags_all                           = {
+          - "Environment" = "production"
+          - "ManagedBy"   = "Terraform"
+          - "Project"     = "ecs-backend-api"
+        } -> null
+        # (2 unchanged attributes hidden)
+    }
+
+  # module.monitoring.aws_sns_topic.alarms will be destroyed
+  - resource "aws_sns_topic" "alarms" {
+      - application_success_feedback_sample_rate = 0 -> null
+      - arn                                      = "arn:aws:sns:us-east-1:111111111111:alarms-production" -> null
+      - content_based_deduplication              = false -> null
+      - fifo_topic                               = false -> null
+      - firehose_success_feedback_sample_rate    = 0 -> null
+      - http_success_feedback_sample_rate        = 0 -> null
+      - id                                       = "arn:aws:sns:us-east-1:111111111111:alarms-production" -> null
+      - kms_master_key_id                        = "3869bcdb-e453-4f96-9a22-9dcac1f88c2b" -> null
+      - lambda_success_feedback_sample_rate      = 0 -> null
+      - name                                     = "alarms-production" -> null
+      - owner                                    = "111111111111" -> null
+      - policy                                   = jsonencode(
+            {
+              - Id        = "__default_policy_ID"
+              - Statement = [
+                  - {
+                      - Action    = [
+                          - "SNS:GetTopicAttributes",
+                          - "SNS:SetTopicAttributes",
+                          - "SNS:AddPermission",
+                          - "SNS:RemovePermission",
+                          - "SNS:DeleteTopic",
+                          - "SNS:Subscribe",
+                          - "SNS:ListSubscriptionsByTopic",
+                          - "SNS:Publish",
+                        ]
+                      - Condition = {
+                          - StringEquals = {
+                              - "AWS:SourceOwner" = "111111111111"
+                            }
+                        }
+                      - Effect    = "Allow"
+                      - Principal = {
+                          - AWS = "*"
+                        }
+                      - Resource  = "arn:aws:sns:us-east-1:111111111111:alarms-production"
+                      - Sid       = "__default_statement_ID"
+                    },
+                ]
+              - Version   = "2008-10-17"
+            }
+        ) -> null
+      - signature_version                        = 0 -> null
+      - sqs_success_feedback_sample_rate         = 0 -> null
+      - tags                                     = {} -> null
+      - tags_all                                 = {
+          - "Environment" = "production"
+          - "ManagedBy"   = "Terraform"
+          - "Project"     = "ecs-backend-api"
+        } -> null
+        # (17 unchanged attributes hidden)
+    }
+
+  # module.networking.aws_cloudwatch_log_group.vpc_flow_log will be destroyed
+  - resource "aws_cloudwatch_log_group" "vpc_flow_log" {
+      - arn               = "arn:aws:logs:us-east-1:111111111111:log-group:/aws/vpc/flow-log/production" -> null
+      - id                = "/aws/vpc/flow-log/production" -> null
+      - log_group_class   = "STANDARD" -> null
+      - name              = "/aws/vpc/flow-log/production" -> null
+      - retention_in_days = 7 -> null
+      - skip_destroy      = false -> null
+      - tags              = {} -> null
+      - tags_all          = {
+          - "Environment" = "production"
+          - "ManagedBy"   = "Terraform"
+          - "Project"     = "ecs-backend-api"
+        } -> null
+        # (2 unchanged attributes hidden)
+    }
+
+  # module.networking.aws_eip.nat will be destroyed
+  - resource "aws_eip" "nat" {
+      - allocation_id            = "eipalloc-0b90189fc93fd3b8d" -> null
+      - arn                      = "arn:aws:ec2:us-east-1:111111111111:elastic-ip/eipalloc-0b90189fc93fd3b8d" -> null
+      - association_id           = "eipassoc-0cf02397ee5bd0b4d" -> null
+      - domain                   = "vpc" -> null
+      - id                       = "eipalloc-0b90189fc93fd3b8d" -> null
+      - network_border_group     = "us-east-1" -> null
+      - network_interface        = "eni-01bd1d74e8c022ae5" -> null
+      - private_dns              = "ip-10-0-0-58.ec2.internal" -> null
+      - private_ip               = "10.0.0.58" -> null
+      - public_dns               = "ec2-54-243-191-108.compute-1.amazonaws.com" -> null
+      - public_ip                = "203.0.113.1" -> null
+      - public_ipv4_pool         = "amazon" -> null
+      - tags                     = {} -> null
+      - tags_all                 = {
+          - "Environment" = "production"
+          - "ManagedBy"   = "Terraform"
+          - "Project"     = "ecs-backend-api"
+        } -> null
+      - vpc                      = true -> null
+        # (5 unchanged attributes hidden)
+    }
+
+  # module.networking.aws_flow_log.main will be destroyed
+  - resource "aws_flow_log" "main" {
+      - arn                        = "arn:aws:ec2:us-east-1:111111111111:vpc-flow-log/fl-02e2e121a7393f06d" -> null
+      - iam_role_arn               = "arn:aws:iam::111111111111:role/vpc-flow-log-role-production" -> null
+      - id                         = "fl-02e2e121a7393f06d" -> null
+      - log_destination            = "arn:aws:logs:us-east-1:111111111111:log-group:/aws/vpc/flow-log/production" -> null
+      - log_destination_type       = "cloud-watch-logs" -> null
+      - log_format                 = "${version} ${account-id} ${interface-id} ${srcaddr} ${dstaddr} ${srcport} ${dstport} ${protocol} ${packets} ${bytes} ${start} ${end} ${action} ${log-status}" -> null
+      - log_group_name             = "/aws/vpc/flow-log/production" -> null
+      - max_aggregation_interval   = 600 -> null
+      - tags                       = {} -> null
+      - tags_all                   = {
+          - "Environment" = "production"
+          - "ManagedBy"   = "Terraform"
+          - "Project"     = "ecs-backend-api"
+        } -> null
+      - traffic_type               = "ALL" -> null
+      - vpc_id                     = "vpc-00e53f2879cf6c719" -> null
+        # (1 unchanged attribute hidden)
+    }
+
+  # module.networking.aws_iam_role.vpc_flow_log_role will be destroyed
+  - resource "aws_iam_role" "vpc_flow_log_role" {
+      - arn                   = "arn:aws:iam::111111111111:role/vpc-flow-log-role-production" -> null
+      - assume_role_policy    = jsonencode(
+            {
+              - Statement = [
+                  - {
+                      - Action    = "sts:AssumeRole"
+                      - Effect    = "Allow"
+                      - Principal = {
+                          - Service = "vpc-flow-logs.amazonaws.com"
+                        }
+                    },
+                ]
+              - Version   = "2012-10-17"
+            }
+        ) -> null
+      - create_date           = "2026-10-20T11:59:33Z" -> null
+      - force_detach_policies = false -> null
+      - id                    = "vpc-flow-log-role-production" -> null
+      - managed_policy_arns   = [] -> null
+      - max_session_duration  = 3600 -> null
+      - name                  = "vpc-flow-log-role-production" -> null
+      - path                  = "/" -> null
+      - tags                  = {} -> null
+      - tags_all              = {
+          - "Environment" = "production"
+          - "ManagedBy"   = "Terraform"
+          - "Project"     = "ecs-backend-api"
+        } -> null
+      - unique_id             = "AROASIEVQV3MRU72GRKIU" -> null
+        # (3 unchanged attributes hidden)
+
+      - inline_policy {
+          - name   = "vpc-flow-log-policy-production" -> null
+          - policy = jsonencode(
+                {
+                  - Statement = [
+                      - {
+                          - Action   = [
+                              - "logs:PutLogEvents",
+                              - "logs:DescribeLogStreams",
+                              - "logs:DescribeLogGroups",
+                              - "logs:CreateLogStream",
+                              - "logs:CreateLogGroup",
+                            ]
+                          - Effect   = "Allow"
+                          - Resource = [
+                              - "arn:aws:logs:us-east-1:111111111111:log-group:/aws/vpc/flow-log/production:*",
+                              - "arn:aws:logs:us-east-1:111111111111:log-group:/aws/vpc/flow-log/production",
+                            ]
+                        },
+                    ]
+                  - Version   = "2012-10-17"
+                }
+            ) -> null
+        }
+    }
+
+  # module.networking.aws_iam_role_policy.vpc_flow_log_policy_attachment will be destroyed
+  - resource "aws_iam_role_policy" "vpc_flow_log_policy_attachment" {
+      - id          = "vpc-flow-log-role-production:vpc-flow-log-policy-production" -> null
+      - name        = "vpc-flow-log-policy-production" -> null
+      - policy      = jsonencode(
+            {
+              - Statement = [
+                  - {
+                      - Action   = [
+                          - "logs:PutLogEvents",
+                          - "logs:DescribeLogStreams",
+                          - "logs:DescribeLogGroups",
+                          - "logs:CreateLogStream",
+                          - "logs:CreateLogGroup",
+                        ]
+                      - Effect   = "Allow"
+                      - Resource = [
+                          - "arn:aws:logs:us-east-1:111111111111:log-group:/aws/vpc/flow-log/production:*",
+                          - "arn:aws:logs:us-east-1:111111111111:log-group:/aws/vpc/flow-log/production",
+                        ]
+                    },
+                ]
+              - Version   = "2012-10-17"
+            }
+        ) -> null
+      - role        = "vpc-flow-log-role-production" -> null
+        # (1 unchanged attribute hidden)
+    }
+
+  # module.networking.aws_internet_gateway.igw will be destroyed
+  - resource "aws_internet_gateway" "igw" {
+      - arn      = "arn:aws:ec2:us-east-1:111111111111:internet-gateway/igw-088af43cbd33911a1" -> null
+      - id       = "igw-088af43cbd33911a1" -> null
+      - owner_id = "111111111111" -> null
+      - tags     = {} -> null
+      - tags_all = {
+          - "Environment" = "production"
+          - "ManagedBy"   = "Terraform"
+          - "Project"     = "ecs-backend-api"
+        } -> null
+      - vpc_id   = "vpc-00e53f2879cf6c719" -> null
+    }
+
+  # module.networking.aws_lb.app_alb will be destroyed
+  - resource "aws_lb" "app_alb" {
+      - arn                                                          = "arn:aws:elasticloadbalancing:us-east-1:111111111111:loadbalancer/app/app-alb-production/20682b08fa1ea082" -> null
+      - arn_suffix                                                   = "app/app-alb-production/20682b08fa1ea082" -> null
+      - client_keep_alive                                            = 3600 -> null
+      - desync_mitigation_mode                                       = "defensive" -> null
+      - dns_name                                                     = "app-alb-production-301842800.us-east-1.elb.amazonaws.com" -> null
+      - drop_invalid_header_fields                                   = true -> null
+      - enable_cross_zone_load_balancing                             = true -> null
+      - enable_deletion_protection                                   = false -> null
+      - enable_http2                                                 = true -> null
+      - enable_tls_version_and_cipher_suite_headers                  = false -> null
+      - enable_waf_fail_open                                         = false -> null
+      - enable_xff_client_port                                       = false -> null
+      - enable_zonal_shift                                           = false -> null
+      - id                                                           = "arn:aws:elasticloadbalancing:us-east-1:111111111111:loadbalancer/app/app-alb-production/20682b08fa1ea082" -> null
+      - idle_timeout                                                 = 60 -> null
+      - internal                                                     = false -> null
+      - ip_address_type                                              = "ipv4" -> null
+      - load_balancer_type                                           = "application" -> null
+      - name                                                         = "app-alb-production" -> null
+      - preserve_host_header                                         = false -> null
+      - security_groups                                              = [
+          - "sg-0d75577aecdeb1534",
+        ] -> null
+      - subnets                                                      = [
+          - "subnet-0d7e96ca359f70691",
+          - "subnet-0dbd11767ba292601",
+        ] -> null
+      - tags                                                         = {} -> null
+      - tags_all                                                     = {
+          - "Environment" = "production"
+          - "ManagedBy"   = "Terraform"
+          - "Project"     = "ecs-backend-api"
+        } -> null
+      - vpc_id                                                       = "vpc-00e53f2879cf6c719" -> null
+      - xff_header_processing_mode                                   = "append" -> null
+      - zone_id                                                      = "Z35SXDOTRQ7X7K" -> null
+        # (3 unchanged attributes hidden)
+
+      - access_logs {
+          - enabled = false -> null
+            # (2 unchanged attributes hidden)
+        }
+
+      - connection_logs {
+          - enabled = false -> null
+            # (2 unchanged attributes hidden)
+        }
+
+      - subnet_mapping {
+          - subnet_id            = "subnet-0d7e96ca359f70691" -> null
+            # (4 unchanged attributes hidden)
+        }
+      - subnet_mapping {
+          - subnet_id            = "subnet-0dbd11767ba292601" -> null
+            # (4 unchanged attributes hidden)
+        }
+    }
+
+  # module.networking.aws_lb_listener.app_listener will be destroyed
+  - resource "aws_lb_listener" "app_listener" {
+      - arn                                                                 = "arn:aws:elasticloadbalancing:us-east-1:111111111111:listener/app/app-alb-production/20682b08fa1ea082/e4cf8e71f97cad61" -> null
+      - id                                                                  = "arn:aws:elasticloadbalancing:us-east-1:111111111111:listener/app/app-alb-production/20682b08fa1ea082/e4cf8e71f97cad61" -> null
+      - load_balancer_arn                                                   = "arn:aws:elasticloadbalancing:us-east-1:111111111111:loadbalancer/app/app-alb-production/20682b08fa1ea082" -> null
+      - port                                                                = 80 -> null
+      - protocol                                                            = "HTTP" -> null
+      - routing_http_response_server_enabled                                = true -> null
+      - tags                                                                = {} -> null
+      - tags_all                                                            = {
+          - "Environment" = "production"
+          - "ManagedBy"   = "Terraform"
+          - "Project"     = "ecs-backend-api"
+        } -> null
+        # (11 unchanged attributes hidden)
+
+      - default_action {
+          - order            = 1 -> null
+          - target_group_arn = "arn:aws:elasticloadbalancing:us-east-1:111111111111:targetgroup/app-tg-production/a29bad310cfbfcbf" -> null
+          - type             = "forward" -> null
+        }
+    }
+
+  # module.networking.aws_lb_target_group.app_tg will be destroyed
+  - resource "aws_lb_target_group" "app_tg" {
+      - arn                                = "arn:aws:elasticloadbalancing:us-east-1:111111111111:targetgroup/app-tg-production/a29bad310cfbfcbf" -> null
+      - arn_suffix                         = "targetgroup/app-tg-production/a29bad310cfbfcbf" -> null
+      - deregistration_delay               = "300" -> null
+      - id                                 = "arn:aws:elasticloadbalancing:us-east-1:111111111111:targetgroup/app-tg-production/a29bad310cfbfcbf" -> null
+      - ip_address_type                    = "ipv4" -> null
+      - lambda_multi_value_headers_enabled = false -> null
+      - load_balancer_arns                 = [
+          - "arn:aws:elasticloadbalancing:us-east-1:111111111111:loadbalancer/app/app-alb-production/20682b08fa1ea082",
+        ] -> null
+      - load_balancing_algorithm_type      = "round_robin" -> null
+      - load_balancing_anomaly_mitigation  = "off" -> null
+      - load_balancing_cross_zone_enabled  = "use_load_balancer_configuration" -> null
+      - name                               = "app-tg-production" -> null
+      - port                               = 8080 -> null
+      - protocol                           = "HTTP" -> null
+      - protocol_version                   = "HTTP1" -> null
+      - proxy_protocol_v2                  = false -> null
+      - slow_start                         = 0 -> null
+      - tags                               = {} -> null
+      - tags_all                           = {
+          - "Environment" = "production"
+          - "ManagedBy"   = "Terraform"
+          - "Project"     = "ecs-backend-api"
+        } -> null
+      - target_type                        = "ip" -> null
+      - vpc_id                             = "vpc-00e53f2879cf6c719" -> null
+        # (1 unchanged attribute hidden)
+
+      - health_check {
+          - enabled             = true -> null
+          - healthy_threshold   = 2 -> null
+          - interval            = 30 -> null
+          - matcher             = "200" -> null
+          - path                = "/health" -> null
+          - port                = "traffic-port" -> null
+          - protocol            = "HTTP" -> null
+          - timeout             = 5 -> null
+          - unhealthy_threshold = 10 -> null
+        }
+
+      - stickiness {
+          - cookie_duration = 86400 -> null
+          - enabled         = false -> null
+          - type            = "lb_cookie" -> null
+            # (1 unchanged attribute hidden)
+        }
+
+      - target_failover {}
+
+      - target_group_health {
+          - dns_failover {
+              - minimum_healthy_targets_count      = "1" -> null
+              - minimum_healthy_targets_percentage = "off" -> null
+            }
+          - unhealthy_state_routing {
+              - minimum_healthy_targets_count      = 1 -> null
+              - minimum_healthy_targets_percentage = "off" -> null
+            }
+        }
+
+      - target_health_state {}
+    }
+
+  # module.networking.aws_nat_gateway.nat will be destroyed
+  - resource "aws_nat_gateway" "nat" {
+      - allocation_id                      = "eipalloc-0b90189fc93fd3b8d" -> null
+      - association_id                     = "eipassoc-0cf02397ee5bd0b4d" -> null
+      - connectivity_type                  = "public" -> null
+      - id                                 = "nat-010bb842a778d9ccd" -> null
+      - network_interface_id               = "eni-01bd1d74e8c022ae5" -> null
+      - private_ip                         = "10.0.0.58" -> null
+      - public_ip                          = "203.0.113.1" -> null
+      - secondary_allocation_ids           = [] -> null
+      - secondary_private_ip_address_count = 0 -> null
+      - secondary_private_ip_addresses     = [] -> null
+      - subnet_id                          = "subnet-0d7e96ca359f70691" -> null
+      - tags                               = {} -> null
+      - tags_all                           = {
+          - "Environment" = "production"
+          - "ManagedBy"   = "Terraform"
+          - "Project"     = "ecs-backend-api"
+        } -> null
+    }
+
+  # module.networking.aws_route_table.private will be destroyed
+  - resource "aws_route_table" "private" {
+      - arn              = "arn:aws:ec2:us-east-1:111111111111:route-table/rtb-0964dc109b2146c00" -> null
+      - id               = "rtb-0964dc109b2146c00" -> null
+      - owner_id         = "111111111111" -> null
+      - propagating_vgws = [] -> null
+      - route            = [
+          - {
+              - cidr_block                 = "0.0.0.0/0"
+              - nat_gateway_id             = "nat-010bb842a778d9ccd"
+                # (11 unchanged attributes hidden)
+            },
+        ] -> null
+      - tags             = {} -> null
+      - tags_all         = {
+          - "Environment" = "production"
+          - "ManagedBy"   = "Terraform"
+          - "Project"     = "ecs-backend-api"
+        } -> null
+      - vpc_id           = "vpc-00e53f2879cf6c719" -> null
+    }
+
+  # module.networking.aws_route_table.public will be destroyed
+  - resource "aws_route_table" "public" {
+      - arn              = "arn:aws:ec2:us-east-1:111111111111:route-table/rtb-09f57462ed98a97d8" -> null
+      - id               = "rtb-09f57462ed98a97d8" -> null
+      - owner_id         = "111111111111" -> null
+      - propagating_vgws = [] -> null
+      - route            = [
+          - {
+              - cidr_block                 = "0.0.0.0/0"
+              - gateway_id                 = "igw-088af43cbd33911a1"
+                # (11 unchanged attributes hidden)
+            },
+        ] -> null
+      - tags             = {} -> null
+      - tags_all         = {
+          - "Environment" = "production"
+          - "ManagedBy"   = "Terraform"
+          - "Project"     = "ecs-backend-api"
+        } -> null
+      - vpc_id           = "vpc-00e53f2879cf6c719" -> null
+    }
+
+  # module.networking.aws_route_table_association.private[0] will be destroyed
+  - resource "aws_route_table_association" "private" {
+      - id             = "rtbassoc-0aed500ae637e40ce" -> null
+      - route_table_id = "rtb-0964dc109b2146c00" -> null
+      - subnet_id      = "subnet-051934c073502cae5" -> null
+        # (1 unchanged attribute hidden)
+    }
+
+  # module.networking.aws_route_table_association.private[1] will be destroyed
+  - resource "aws_route_table_association" "private" {
+      - id             = "rtbassoc-089d4d84737884351" -> null
+      - route_table_id = "rtb-0964dc109b2146c00" -> null
+      - subnet_id      = "subnet-0fd7f9b160bb32ce3" -> null
+        # (1 unchanged attribute hidden)
+    }
+
+  # module.networking.aws_route_table_association.public[0] will be destroyed
+  - resource "aws_route_table_association" "public" {
+      - id             = "rtbassoc-0938fb533fd40fd8b" -> null
+      - route_table_id = "rtb-09f57462ed98a97d8" -> null
+      - subnet_id      = "subnet-0d7e96ca359f70691" -> null
+        # (1 unchanged attribute hidden)
+    }
+
+  # module.networking.aws_route_table_association.public[1] will be destroyed
+  - resource "aws_route_table_association" "public" {
+      - id             = "rtbassoc-0c783c3df474fb21b" -> null
+      - route_table_id = "rtb-09f57462ed98a97d8" -> null
+      - subnet_id      = "subnet-0dbd11767ba292601" -> null
+        # (1 unchanged attribute hidden)
+    }
+
+  # module.networking.aws_security_group.alb_sg will be destroyed
+  - resource "aws_security_group" "alb_sg" {
+      - arn                    = "arn:aws:ec2:us-east-1:111111111111:security-group/sg-0d75577aecdeb1534" -> null
+      - description            = "Security group for Application Load Balancer" -> null
+      - egress                 = [
+          - {
+              - cidr_blocks      = [
+                  - "10.0.0.0/16",
+                ]
+              - description      = "Allow outbound traffic only to VPC (ECS Tasks)"
+              - from_port        = 8080
+              - ipv6_cidr_blocks = []
+              - prefix_list_ids  = []
+              - protocol         = "tcp"
+              - security_groups  = []
+              - self             = false
+              - to_port          = 8080
+            },
+        ] -> null
+      - id                     = "sg-0d75577aecdeb1534" -> null
+      - ingress                = [
+          - {
+              - cidr_blocks      = [
+                  - "203.0.113.1/32",
+                ]
+              - description      = "Allow HTTP inbound traffic from specified IPs"
+              - from_port        = 80
+              - ipv6_cidr_blocks = []
+              - prefix_list_ids  = []
+              - protocol         = "tcp"
+              - security_groups  = []
+              - self             = false
+              - to_port          = 80
+            },
+        ] -> null
+      - name                   = "alb-sg-production" -> null
+      - owner_id               = "111111111111" -> null
+      - revoke_rules_on_delete = false -> null
+      - tags                   = {} -> null
+      - tags_all               = {
+          - "Environment" = "production"
+          - "ManagedBy"   = "Terraform"
+          - "Project"     = "ecs-backend-api"
+        } -> null
+      - vpc_id                 = "vpc-00e53f2879cf6c719" -> null
+        # (1 unchanged attribute hidden)
+    }
+
+  # module.networking.aws_security_group.db_sg will be destroyed
+  - resource "aws_security_group" "db_sg" {
+      - arn                    = "arn:aws:ec2:us-east-1:111111111111:security-group/sg-03d1a0192534e0c1e" -> null
+      - description            = "Allow traffic from ECS to RDS" -> null
+      - egress                 = [] -> null
+      - id                     = "sg-03d1a0192534e0c1e" -> null
+      - ingress                = [
+          - {
+              - cidr_blocks      = []
+              - description      = "Allow PostgreSQL traffic strictly from ECS tasks"
+              - from_port        = 5432
+              - ipv6_cidr_blocks = []
+              - prefix_list_ids  = []
+              - protocol         = "tcp"
+              - security_groups  = [
+                  - "sg-06266e73f4c71fd4c",
+                ]
+              - self             = false
+              - to_port          = 5432
+            },
+        ] -> null
+      - name                   = "db-sg-production" -> null
+      - owner_id               = "111111111111" -> null
+      - revoke_rules_on_delete = false -> null
+      - tags                   = {} -> null
+      - tags_all               = {
+          - "Environment" = "production"
+          - "ManagedBy"   = "Terraform"
+          - "Project"     = "ecs-backend-api"
+        } -> null
+      - vpc_id                 = "vpc-00e53f2879cf6c719" -> null
+        # (1 unchanged attribute hidden)
+    }
+
+  # module.networking.aws_security_group.ecs_sg will be destroyed
+  - resource "aws_security_group" "ecs_sg" {
+      - arn                    = "arn:aws:ec2:us-east-1:111111111111:security-group/sg-06266e73f4c71fd4c" -> null
+      - description            = "Security group for ECS Fargate tasks" -> null
+      - egress                 = [
+          - {
+              - cidr_blocks      = [
+                  - "0.0.0.0/0",
+                ]
+              - description      = "Allow outbound HTTPS traffic for pulling ECR/Docker images"
+              - from_port        = 443
+              - ipv6_cidr_blocks = []
+              - prefix_list_ids  = []
+              - protocol         = "tcp"
+              - security_groups  = []
+              - self             = false
+              - to_port          = 443
+            },
+          - {
+              - cidr_blocks      = []
+              - description      = "Allow PostgreSQL traffic strictly to the RDS security group"
+              - from_port        = 5432
+              - ipv6_cidr_blocks = []
+              - prefix_list_ids  = []
+              - protocol         = "tcp"
+              - security_groups  = [
+                  - "sg-03d1a0192534e0c1e",
+                ]
+              - self             = false
+              - to_port          = 5432
+            },
+        ] -> null
+      - id                     = "sg-06266e73f4c71fd4c" -> null
+      - ingress                = [
+          - {
+              - cidr_blocks      = []
+              - description      = "Allow inbound traffic from ALB"
+              - from_port        = 8080
+              - ipv6_cidr_blocks = []
+              - prefix_list_ids  = []
+              - protocol         = "tcp"
+              - security_groups  = [
+                  - "sg-0d75577aecdeb1534",
+                ]
+              - self             = false
+              - to_port          = 8080
+            },
+        ] -> null
+      - name                   = "ecs-sg-production" -> null
+      - owner_id               = "111111111111" -> null
+      - revoke_rules_on_delete = false -> null
+      - tags                   = {} -> null
+      - tags_all               = {
+          - "Environment" = "production"
+          - "ManagedBy"   = "Terraform"
+          - "Project"     = "ecs-backend-api"
+        } -> null
+      - vpc_id                 = "vpc-00e53f2879cf6c719" -> null
+        # (1 unchanged attribute hidden)
+    }
+
+  # module.networking.aws_subnet.private[0] will be destroyed
+  - resource "aws_subnet" "private" {
+      - arn                                            = "arn:aws:ec2:us-east-1:111111111111:subnet/subnet-051934c073502cae5" -> null
+      - assign_ipv6_address_on_creation                = false -> null
+      - availability_zone                              = "us-east-1a" -> null
+      - availability_zone_id                           = "use1-az1" -> null
+      - cidr_block                                     = "10.0.2.0/24" -> null
+      - enable_dns64                                   = false -> null
+      - enable_lni_at_device_index                     = 0 -> null
+      - enable_resource_name_dns_a_record_on_launch    = false -> null
+      - enable_resource_name_dns_aaaa_record_on_launch = false -> null
+      - id                                             = "subnet-051934c073502cae5" -> null
+      - ipv6_native                                    = false -> null
+      - map_customer_owned_ip_on_launch                = false -> null
+      - map_public_ip_on_launch                        = false -> null
+      - owner_id                                       = "111111111111" -> null
+      - private_dns_hostname_type_on_launch            = "ip-name" -> null
+      - tags                                           = {} -> null
+      - tags_all                                       = {
+          - "Environment" = "production"
+          - "ManagedBy"   = "Terraform"
+          - "Project"     = "ecs-backend-api"
+        } -> null
+      - vpc_id                                         = "vpc-00e53f2879cf6c719" -> null
+        # (4 unchanged attributes hidden)
+    }
+
+  # module.networking.aws_subnet.private[1] will be destroyed
+  - resource "aws_subnet" "private" {
+      - arn                                            = "arn:aws:ec2:us-east-1:111111111111:subnet/subnet-0fd7f9b160bb32ce3" -> null
+      - assign_ipv6_address_on_creation                = false -> null
+      - availability_zone                              = "us-east-1b" -> null
+      - availability_zone_id                           = "use1-az2" -> null
+      - cidr_block                                     = "10.0.3.0/24" -> null
+      - enable_dns64                                   = false -> null
+      - enable_lni_at_device_index                     = 0 -> null
+      - enable_resource_name_dns_a_record_on_launch    = false -> null
+      - enable_resource_name_dns_aaaa_record_on_launch = false -> null
+      - id                                             = "subnet-0fd7f9b160bb32ce3" -> null
+      - ipv6_native                                    = false -> null
+      - map_customer_owned_ip_on_launch                = false -> null
+      - map_public_ip_on_launch                        = false -> null
+      - owner_id                                       = "111111111111" -> null
+      - private_dns_hostname_type_on_launch            = "ip-name" -> null
+      - tags                                           = {} -> null
+      - tags_all                                       = {
+          - "Environment" = "production"
+          - "ManagedBy"   = "Terraform"
+          - "Project"     = "ecs-backend-api"
+        } -> null
+      - vpc_id                                         = "vpc-00e53f2879cf6c719" -> null
+        # (4 unchanged attributes hidden)
+    }
+
+  # module.networking.aws_subnet.public[0] will be destroyed
+  - resource "aws_subnet" "public" {
+      - arn                                            = "arn:aws:ec2:us-east-1:111111111111:subnet/subnet-0d7e96ca359f70691" -> null
+      - assign_ipv6_address_on_creation                = false -> null
+      - availability_zone                              = "us-east-1a" -> null
+      - availability_zone_id                           = "use1-az1" -> null
+      - cidr_block                                     = "10.0.0.0/24" -> null
+      - enable_dns64                                   = false -> null
+      - enable_lni_at_device_index                     = 0 -> null
+      - enable_resource_name_dns_a_record_on_launch    = false -> null
+      - enable_resource_name_dns_aaaa_record_on_launch = false -> null
+      - id                                             = "subnet-0d7e96ca359f70691" -> null
+      - ipv6_native                                    = false -> null
+      - map_customer_owned_ip_on_launch                = false -> null
+      - map_public_ip_on_launch                        = false -> null
+      - owner_id                                       = "111111111111" -> null
+      - private_dns_hostname_type_on_launch            = "ip-name" -> null
+      - tags                                           = {} -> null
+      - tags_all                                       = {
+          - "Environment" = "production"
+          - "ManagedBy"   = "Terraform"
+          - "Project"     = "ecs-backend-api"
+        } -> null
+      - vpc_id                                         = "vpc-00e53f2879cf6c719" -> null
+        # (4 unchanged attributes hidden)
+    }
+
+  # module.networking.aws_subnet.public[1] will be destroyed
+  - resource "aws_subnet" "public" {
+      - arn                                            = "arn:aws:ec2:us-east-1:111111111111:subnet/subnet-0dbd11767ba292601" -> null
+      - assign_ipv6_address_on_creation                = false -> null
+      - availability_zone                              = "us-east-1b" -> null
+      - availability_zone_id                           = "use1-az2" -> null
+      - cidr_block                                     = "10.0.1.0/24" -> null
+      - enable_dns64                                   = false -> null
+      - enable_lni_at_device_index                     = 0 -> null
+      - enable_resource_name_dns_a_record_on_launch    = false -> null
+      - enable_resource_name_dns_aaaa_record_on_launch = false -> null
+      - id                                             = "subnet-0dbd11767ba292601" -> null
+      - ipv6_native                                    = false -> null
+      - map_customer_owned_ip_on_launch                = false -> null
+      - map_public_ip_on_launch                        = false -> null
+      - owner_id                                       = "111111111111" -> null
+      - private_dns_hostname_type_on_launch            = "ip-name" -> null
+      - tags                                           = {} -> null
+      - tags_all                                       = {
+          - "Environment" = "production"
+          - "ManagedBy"   = "Terraform"
+          - "Project"     = "ecs-backend-api"
+        } -> null
+      - vpc_id                                         = "vpc-00e53f2879cf6c719" -> null
+        # (4 unchanged attributes hidden)
+    }
+
+  # module.networking.aws_vpc.main will be destroyed
+  - resource "aws_vpc" "main" {
+      - arn                                  = "arn:aws:ec2:us-east-1:111111111111:vpc/vpc-00e53f2879cf6c719" -> null
+      - assign_generated_ipv6_cidr_block     = false -> null
+      - cidr_block                           = "10.0.0.0/16" -> null
+      - default_network_acl_id               = "acl-04b39c2b9980b695d" -> null
+      - default_route_table_id               = "rtb-0cb5c781876086965" -> null
+      - default_security_group_id            = "sg-06cb742dc0436bdcb" -> null
+      - dhcp_options_id                      = "dopt-0899dbeef8b8d3ed0" -> null
+      - enable_dns_hostnames                 = true -> null
+      - enable_dns_support                   = true -> null
+      - enable_network_address_usage_metrics = false -> null
+      - id                                   = "vpc-00e53f2879cf6c719" -> null
+      - instance_tenancy                     = "default" -> null
+      - ipv6_netmask_length                  = 0 -> null
+      - main_route_table_id                  = "rtb-0cb5c781876086965" -> null
+      - owner_id                             = "111111111111" -> null
+      - tags                                 = {} -> null
+      - tags_all                             = {
+          - "Environment" = "production"
+          - "ManagedBy"   = "Terraform"
+          - "Project"     = "ecs-backend-api"
+        } -> null
+        # (4 unchanged attributes hidden)
+    }
+
+  # module.networking.aws_vpc_security_group_ingress_rule.db_from_ecs will be destroyed
+  - resource "aws_vpc_security_group_ingress_rule" "db_from_ecs" {
+      - arn                          = "arn:aws:ec2:us-east-1:111111111111:security-group-rule/sgr-07d9b83dde771b878" -> null
+      - description                  = "Allow PostgreSQL traffic strictly from ECS tasks" -> null
+      - from_port                    = 5432 -> null
+      - id                           = "sgr-07d9b83dde771b878" -> null
+      - ip_protocol                  = "tcp" -> null
+      - referenced_security_group_id = "sg-06266e73f4c71fd4c" -> null
+      - security_group_id            = "sg-03d1a0192534e0c1e" -> null
+      - security_group_rule_id       = "sgr-07d9b83dde771b878" -> null
+      - tags_all                     = {
+          - "Environment" = "production"
+          - "ManagedBy"   = "Terraform"
+          - "Project"     = "ecs-backend-api"
+        } -> null
+      - to_port                      = 5432 -> null
+    }
+
+Plan: 0 to add, 0 to change, 51 to destroy.
+
+Changes to Outputs:
+  - alarm_names        = {
+      - ecs_cpu_high         = "ecs-cpu-high-production"
+      - rds_cpu_high         = "rds-cpu-high-production"
+      - rds_free_storage_low = "rds-free-storage-low-production"
+      - target_5xx           = "alb-target-5xx-production"
+      - unhealthy_hosts      = "alb-unhealthy-hosts-production"
+    } -> null
+  - alb_dns_name       = "app-alb-production-301842800.us-east-1.elb.amazonaws.com" -> null
+  - cluster_name       = "app-cluster-production" -> null
+  - ecr_repository_url = "111111111111.dkr.ecr.us-east-1.amazonaws.com/app-production" -> null
+  - service_name       = "app-service-production" -> null
+  - sns_topic_arn      = "arn:aws:sns:us-east-1:111111111111:alarms-production" -> null
+module.ecs.aws_iam_role_policy_attachment.ecs_execution_role_policy: Destroying... [id=ecs-execution-role-production-20261020115935988200000001]
+module.networking.aws_route_table_association.private[0]: Destroying... [id=rtbassoc-0aed500ae637e40ce]
+module.networking.aws_iam_role_policy.vpc_flow_log_policy_attachment: Destroying... [id=vpc-flow-log-role-production:vpc-flow-log-policy-production]
+module.networking.aws_route_table_association.public[0]: Destroying... [id=rtbassoc-0938fb533fd40fd8b]
+module.database.aws_secretsmanager_secret_version.db_credentials_version: Destroying... [id=arn:aws:secretsmanager:us-east-1:111111111111:secret:rds-db-credentials-production-fxnvmA|terraform-20261020120452039300000008]
+module.monitoring.aws_cloudwatch_metric_alarm.this["ecs_cpu_high"]: Destroying... [id=ecs-cpu-high-production]
+module.networking.aws_route_table_association.private[1]: Destroying... [id=rtbassoc-089d4d84737884351]
+module.monitoring.aws_cloudwatch_metric_alarm.this["unhealthy_hosts"]: Destroying... [id=alb-unhealthy-hosts-production]
+module.ecs.aws_appautoscaling_policy.ecs_policy_memory: Destroying... [id=memory-autoscaling-production]
+module.networking.aws_lb_listener.app_listener: Destroying... [id=arn:aws:elasticloadbalancing:us-east-1:111111111111:listener/app/app-alb-production/20682b08fa1ea082/e4cf8e71f97cad61]
+module.database.aws_secretsmanager_secret_version.db_credentials_version: Destruction complete after 1s
+module.monitoring.aws_cloudwatch_metric_alarm.this["rds_cpu_high"]: Destroying... [id=rds-cpu-high-production]
+module.monitoring.aws_cloudwatch_metric_alarm.this["ecs_cpu_high"]: Destruction complete after 1s
+module.ecs.aws_appautoscaling_policy.ecs_policy_cpu: Destroying... [id=cpu-autoscaling-production]
+module.monitoring.aws_cloudwatch_metric_alarm.this["unhealthy_hosts"]: Destruction complete after 1s
+module.networking.aws_iam_role_policy.vpc_flow_log_policy_attachment: Destruction complete after 1s
+module.networking.aws_flow_log.main: Destroying... [id=fl-02e2e121a7393f06d]
+module.monitoring.aws_cloudwatch_metric_alarm.this["rds_free_storage_low"]: Destroying... [id=rds-free-storage-low-production]
+module.ecs.aws_iam_role_policy_attachment.ecs_execution_role_policy: Destruction complete after 1s
+module.networking.aws_lb_listener.app_listener: Destruction complete after 1s
+module.networking.aws_route_table_association.public[1]: Destroying... [id=rtbassoc-0c783c3df474fb21b]
+module.ecs.aws_iam_role_policy_attachment.ecs_secrets_attachment: Destroying... [id=ecs-execution-role-production-20261020115953649500000005]
+module.ecs.aws_appautoscaling_policy.ecs_policy_memory: Destruction complete after 1s
+module.monitoring.aws_cloudwatch_metric_alarm.this["target_5xx"]: Destroying... [id=alb-target-5xx-production]
+module.monitoring.aws_cloudwatch_metric_alarm.this["rds_cpu_high"]: Destruction complete after 0s
+module.networking.aws_vpc_security_group_ingress_rule.db_from_ecs: Destroying... [id=sgr-07d9b83dde771b878]
+module.monitoring.aws_cloudwatch_metric_alarm.this["rds_free_storage_low"]: Destruction complete after 0s
+module.ecs.aws_iam_role_policy_attachment.ecs_secrets_attachment: Destruction complete after 0s
+module.ecs.aws_iam_policy.secrets_policy: Destroying... [id=arn:aws:iam::111111111111:policy/ecs-secrets-policy-production]
+module.networking.aws_route_table_association.public[0]: Destruction complete after 1s
+module.monitoring.aws_cloudwatch_metric_alarm.this["target_5xx"]: Destruction complete after 0s
+module.networking.aws_flow_log.main: Destruction complete after 0s
+module.ecs.aws_appautoscaling_policy.ecs_policy_cpu: Destruction complete after 0s
+module.networking.aws_cloudwatch_log_group.vpc_flow_log: Destroying... [id=/aws/vpc/flow-log/production]
+module.monitoring.aws_sns_topic.alarms: Destroying... [id=arn:aws:sns:us-east-1:111111111111:alarms-production]
+module.networking.aws_lb.app_alb: Destroying... [id=arn:aws:elasticloadbalancing:us-east-1:111111111111:loadbalancer/app/app-alb-production/20682b08fa1ea082]
+module.database.aws_db_instance.postgres: Destroying... [id=db-IXOBLJHIIWM53POCSNPZ4TLRRQ]
+module.networking.aws_iam_role.vpc_flow_log_role: Destroying... [id=vpc-flow-log-role-production]
+module.networking.aws_route_table_association.private[0]: Destruction complete after 2s
+module.ecs.aws_appautoscaling_target.ecs_target: Destroying... [id=service/app-cluster-production/app-service-production]
+module.networking.aws_route_table_association.private[1]: Destruction complete after 2s
+module.networking.aws_route_table_association.public[1]: Destruction complete after 1s
+module.networking.aws_route_table.public: Destroying... [id=rtb-09f57462ed98a97d8]
+module.networking.aws_route_table.private: Destroying... [id=rtb-0964dc109b2146c00]
+module.networking.aws_vpc_security_group_ingress_rule.db_from_ecs: Destruction complete after 1s
+module.ecs.aws_iam_policy.secrets_policy: Destruction complete after 1s
+module.ecs.aws_appautoscaling_target.ecs_target: Destruction complete after 0s
+module.ecs.aws_ecs_service.app: Destroying... [id=arn:aws:ecs:us-east-1:111111111111:service/app-cluster-production/app-service-production]
+module.networking.aws_cloudwatch_log_group.vpc_flow_log: Destruction complete after 1s
+module.monitoring.aws_sns_topic.alarms: Destruction complete after 1s
+module.monitoring.aws_kms_key.sns: Destroying... [id=3869bcdb-e453-4f96-9a22-9dcac1f88c2b]
+module.networking.aws_iam_role.vpc_flow_log_role: Destruction complete after 1s
+module.networking.aws_route_table.public: Destruction complete after 1s
+module.networking.aws_route_table.private: Destruction complete after 1s
+module.networking.aws_nat_gateway.nat: Destroying... [id=nat-010bb842a778d9ccd]
+module.monitoring.aws_kms_key.sns: Destruction complete after 1s
+module.database.aws_db_instance.postgres: Still destroying... [id=db-IXOBLJHIIWM53POCSNPZ4TLRRQ, 00m10s elapsed]
+module.networking.aws_lb.app_alb: Still destroying... [id=arn:aws:elasticloadbalancing:us-east-1:...pp/app-alb-production/20682b08fa1ea082, 00m10s elapsed]
+module.ecs.aws_ecs_service.app: Still destroying... [id=arn:aws:ecs:us-east-1:111111111111:serv...ster-production/app-service-production, 00m10s elapsed]
+module.networking.aws_nat_gateway.nat: Still destroying... [id=nat-010bb842a778d9ccd, 00m10s elapsed]
+module.database.aws_db_instance.postgres: Still destroying... [id=db-IXOBLJHIIWM53POCSNPZ4TLRRQ, 00m20s elapsed]
+module.networking.aws_lb.app_alb: Still destroying... [id=arn:aws:elasticloadbalancing:us-east-1:...pp/app-alb-production/20682b08fa1ea082, 00m20s elapsed]
+module.ecs.aws_ecs_service.app: Still destroying... [id=arn:aws:ecs:us-east-1:111111111111:serv...ster-production/app-service-production, 00m20s elapsed]
+module.networking.aws_nat_gateway.nat: Still destroying... [id=nat-010bb842a778d9ccd, 00m20s elapsed]
+module.networking.aws_lb.app_alb: Destruction complete after 29s
+module.database.aws_db_instance.postgres: Still destroying... [id=db-IXOBLJHIIWM53POCSNPZ4TLRRQ, 00m30s elapsed]
+module.ecs.aws_ecs_service.app: Still destroying... [id=arn:aws:ecs:us-east-1:111111111111:serv...ster-production/app-service-production, 00m30s elapsed]
+module.networking.aws_nat_gateway.nat: Still destroying... [id=nat-010bb842a778d9ccd, 00m30s elapsed]
+module.database.aws_db_instance.postgres: Still destroying... [id=db-IXOBLJHIIWM53POCSNPZ4TLRRQ, 00m40s elapsed]
+module.ecs.aws_ecs_service.app: Still destroying... [id=arn:aws:ecs:us-east-1:111111111111:serv...ster-production/app-service-production, 00m40s elapsed]
+module.networking.aws_nat_gateway.nat: Still destroying... [id=nat-010bb842a778d9ccd, 00m40s elapsed]
+module.networking.aws_nat_gateway.nat: Destruction complete after 41s
+module.networking.aws_internet_gateway.igw: Destroying... [id=igw-088af43cbd33911a1]
+module.networking.aws_eip.nat: Destroying... [id=eipalloc-0b90189fc93fd3b8d]
+module.networking.aws_subnet.public[0]: Destroying... [id=subnet-0d7e96ca359f70691]
+module.networking.aws_subnet.public[1]: Destroying... [id=subnet-0dbd11767ba292601]
+module.networking.aws_subnet.public[1]: Destruction complete after 1s
+module.networking.aws_subnet.public[0]: Destruction complete after 1s
+module.networking.aws_internet_gateway.igw: Destruction complete after 1s
+module.networking.aws_eip.nat: Destruction complete after 2s
+module.database.aws_db_instance.postgres: Still destroying... [id=db-IXOBLJHIIWM53POCSNPZ4TLRRQ, 00m50s elapsed]
+module.ecs.aws_ecs_service.app: Still destroying... [id=arn:aws:ecs:us-east-1:111111111111:serv...ster-production/app-service-production, 00m50s elapsed]
+module.database.aws_db_instance.postgres: Still destroying... [id=db-IXOBLJHIIWM53POCSNPZ4TLRRQ, 01m00s elapsed]
+module.ecs.aws_ecs_service.app: Still destroying... [id=arn:aws:ecs:us-east-1:111111111111:serv...ster-production/app-service-production, 01m00s elapsed]
+module.database.aws_db_instance.postgres: Still destroying... [id=db-IXOBLJHIIWM53POCSNPZ4TLRRQ, 01m10s elapsed]
+module.ecs.aws_ecs_service.app: Still destroying... [id=arn:aws:ecs:us-east-1:111111111111:serv...ster-production/app-service-production, 01m10s elapsed]
+module.database.aws_db_instance.postgres: Still destroying... [id=db-IXOBLJHIIWM53POCSNPZ4TLRRQ, 01m20s elapsed]
+module.ecs.aws_ecs_service.app: Still destroying... [id=arn:aws:ecs:us-east-1:111111111111:serv...ster-production/app-service-production, 01m20s elapsed]
+module.database.aws_db_instance.postgres: Still destroying... [id=db-IXOBLJHIIWM53POCSNPZ4TLRRQ, 01m30s elapsed]
+module.ecs.aws_ecs_service.app: Still destroying... [id=arn:aws:ecs:us-east-1:111111111111:serv...ster-production/app-service-production, 01m30s elapsed]
+module.database.aws_db_instance.postgres: Still destroying... [id=db-IXOBLJHIIWM53POCSNPZ4TLRRQ, 01m40s elapsed]
+module.ecs.aws_ecs_service.app: Still destroying... [id=arn:aws:ecs:us-east-1:111111111111:serv...ster-production/app-service-production, 01m40s elapsed]
+module.database.aws_db_instance.postgres: Still destroying... [id=db-IXOBLJHIIWM53POCSNPZ4TLRRQ, 01m50s elapsed]
+module.ecs.aws_ecs_service.app: Still destroying... [id=arn:aws:ecs:us-east-1:111111111111:serv...ster-production/app-service-production, 01m50s elapsed]
+module.database.aws_db_instance.postgres: Destruction complete after 1m54s
+module.database.aws_db_subnet_group.default: Destroying... [id=main-db-subnet-group-production]
+module.database.random_password.db_password: Destroying... [id=none]
+module.database.random_password.db_password: Destruction complete after 0s
+module.database.aws_db_subnet_group.default: Destruction complete after 0s
+module.ecs.aws_ecs_service.app: Still destroying... [id=arn:aws:ecs:us-east-1:111111111111:serv...ster-production/app-service-production, 02m00s elapsed]
+module.ecs.aws_ecs_service.app: Still destroying... [id=arn:aws:ecs:us-east-1:111111111111:serv...ster-production/app-service-production, 02m10s elapsed]
+module.ecs.aws_ecs_service.app: Still destroying... [id=arn:aws:ecs:us-east-1:111111111111:serv...ster-production/app-service-production, 02m20s elapsed]
+module.ecs.aws_ecs_service.app: Still destroying... [id=arn:aws:ecs:us-east-1:111111111111:serv...ster-production/app-service-production, 02m30s elapsed]
+module.ecs.aws_ecs_service.app: Still destroying... [id=arn:aws:ecs:us-east-1:111111111111:serv...ster-production/app-service-production, 02m40s elapsed]
+module.ecs.aws_ecs_service.app: Still destroying... [id=arn:aws:ecs:us-east-1:111111111111:serv...ster-production/app-service-production, 02m50s elapsed]
+module.ecs.aws_ecs_service.app: Still destroying... [id=arn:aws:ecs:us-east-1:111111111111:serv...ster-production/app-service-production, 03m00s elapsed]
+module.ecs.aws_ecs_service.app: Still destroying... [id=arn:aws:ecs:us-east-1:111111111111:serv...ster-production/app-service-production, 03m10s elapsed]
+module.ecs.aws_ecs_service.app: Still destroying... [id=arn:aws:ecs:us-east-1:111111111111:serv...ster-production/app-service-production, 03m20s elapsed]
+module.ecs.aws_ecs_service.app: Still destroying... [id=arn:aws:ecs:us-east-1:111111111111:serv...ster-production/app-service-production, 03m30s elapsed]
+module.ecs.aws_ecs_service.app: Still destroying... [id=arn:aws:ecs:us-east-1:111111111111:serv...ster-production/app-service-production, 03m40s elapsed]
+module.ecs.aws_ecs_service.app: Still destroying... [id=arn:aws:ecs:us-east-1:111111111111:serv...ster-production/app-service-production, 03m50s elapsed]
+module.ecs.aws_ecs_service.app: Still destroying... [id=arn:aws:ecs:us-east-1:111111111111:serv...ster-production/app-service-production, 04m00s elapsed]
+module.ecs.aws_ecs_service.app: Still destroying... [id=arn:aws:ecs:us-east-1:111111111111:serv...ster-production/app-service-production, 04m10s elapsed]
+module.ecs.aws_ecs_service.app: Still destroying... [id=arn:aws:ecs:us-east-1:111111111111:serv...ster-production/app-service-production, 04m20s elapsed]
+module.ecs.aws_ecs_service.app: Still destroying... [id=arn:aws:ecs:us-east-1:111111111111:serv...ster-production/app-service-production, 04m30s elapsed]
+module.ecs.aws_ecs_service.app: Still destroying... [id=arn:aws:ecs:us-east-1:111111111111:serv...ster-production/app-service-production, 04m40s elapsed]
+module.ecs.aws_ecs_service.app: Still destroying... [id=arn:aws:ecs:us-east-1:111111111111:serv...ster-production/app-service-production, 04m50s elapsed]
+module.ecs.aws_ecs_service.app: Still destroying... [id=arn:aws:ecs:us-east-1:111111111111:serv...ster-production/app-service-production, 05m00s elapsed]
+module.ecs.aws_ecs_service.app: Still destroying... [id=arn:aws:ecs:us-east-1:111111111111:serv...ster-production/app-service-production, 05m10s elapsed]
+module.ecs.aws_ecs_service.app: Still destroying... [id=arn:aws:ecs:us-east-1:111111111111:serv...ster-production/app-service-production, 05m20s elapsed]
+module.ecs.aws_ecs_service.app: Still destroying... [id=arn:aws:ecs:us-east-1:111111111111:serv...ster-production/app-service-production, 05m30s elapsed]
+module.ecs.aws_ecs_service.app: Destruction complete after 5m36s
+module.ecs.aws_ecs_cluster.main: Destroying... [id=arn:aws:ecs:us-east-1:111111111111:cluster/app-cluster-production]
+module.networking.aws_subnet.private[1]: Destroying... [id=subnet-0fd7f9b160bb32ce3]
+module.networking.aws_subnet.private[0]: Destroying... [id=subnet-051934c073502cae5]
+module.ecs.aws_ecs_task_definition.app: Destroying... [id=app-task-production]
+module.networking.aws_security_group.ecs_sg: Destroying... [id=sg-06266e73f4c71fd4c]
+module.networking.aws_lb_target_group.app_tg: Destroying... [id=arn:aws:elasticloadbalancing:us-east-1:111111111111:targetgroup/app-tg-production/a29bad310cfbfcbf]
+module.ecs.aws_ecs_task_definition.app: Destruction complete after 1s
+module.ecs.aws_cloudwatch_log_group.ecs_logs: Destroying... [id=/ecs/app-production]
+module.database.aws_secretsmanager_secret.db_credentials: Destroying... [id=arn:aws:secretsmanager:us-east-1:111111111111:secret:rds-db-credentials-production-fxnvmA]
+module.ecs.aws_ecr_repository.app: Destroying... [id=app-production]
+module.ecs.aws_iam_role.ecs_execution_role: Destroying... [id=ecs-execution-role-production]
+module.networking.aws_lb_target_group.app_tg: Destruction complete after 1s
+module.ecs.aws_ecs_cluster.main: Destruction complete after 1s
+module.ecs.aws_cloudwatch_log_group.ecs_logs: Destruction complete after 1s
+module.ecs.aws_kms_key.ecs_logs_key: Destroying... [id=e9a93bec-1250-4f5d-9b46-7f91ae796d83]
+module.networking.aws_subnet.private[1]: Destruction complete after 2s
+module.database.aws_secretsmanager_secret.db_credentials: Destruction complete after 1s
+module.database.aws_kms_key.db_key: Destroying... [id=dc4f9d35-2788-473d-83f7-d5db83dd0a57]
+module.networking.aws_subnet.private[0]: Destruction complete after 2s
+module.networking.aws_security_group.ecs_sg: Destruction complete after 2s
+module.networking.aws_security_group.db_sg: Destroying... [id=sg-03d1a0192534e0c1e]
+module.networking.aws_security_group.alb_sg: Destroying... [id=sg-0d75577aecdeb1534]
+module.ecs.aws_ecr_repository.app: Destruction complete after 1s
+module.ecs.aws_iam_role.ecs_execution_role: Destruction complete after 1s
+module.ecs.aws_kms_key.ecs_logs_key: Destruction complete after 0s
+module.database.aws_kms_key.db_key: Destruction complete after 1s
+module.networking.aws_security_group.db_sg: Destruction complete after 1s
+module.networking.aws_security_group.alb_sg: Destruction complete after 1s
+module.networking.aws_vpc.main: Destroying... [id=vpc-00e53f2879cf6c719]
+module.networking.aws_vpc.main: Destruction complete after 2s
+
+Destroy complete! Resources: 51 destroyed.
+

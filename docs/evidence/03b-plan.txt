@@ -1,0 +1,142 @@
+module.database.random_password.db_password: Refreshing state... [id=none]
+module.networking.data.aws_availability_zones.available: Reading...
+module.networking.data.aws_iam_policy_document.vpc_flow_log_assume_role: Reading...
+module.monitoring.data.aws_caller_identity.current: Reading...
+module.ecs.data.aws_caller_identity.current: Reading...
+module.database.data.aws_caller_identity.current: Reading...
+module.ecs.aws_ecs_cluster.main: Refreshing state... [id=arn:aws:ecs:us-east-1:111111111111:cluster/app-cluster-production]
+module.ecs.aws_iam_role.ecs_execution_role: Refreshing state... [id=ecs-execution-role-production]
+module.networking.aws_vpc.main: Refreshing state... [id=vpc-00e53f2879cf6c719]
+module.networking.aws_eip.nat: Refreshing state... [id=eipalloc-0b90189fc93fd3b8d]
+module.networking.data.aws_iam_policy_document.vpc_flow_log_assume_role: Read complete after 0s [id=2717921857]
+module.networking.aws_iam_role.vpc_flow_log_role: Refreshing state... [id=vpc-flow-log-role-production]
+module.ecs.aws_ecr_repository.app: Refreshing state... [id=app-production]
+module.monitoring.data.aws_caller_identity.current: Read complete after 0s [id=111111111111]
+module.monitoring.aws_kms_key.sns: Refreshing state... [id=3869bcdb-e453-4f96-9a22-9dcac1f88c2b]
+module.database.data.aws_caller_identity.current: Read complete after 0s [id=111111111111]
+module.database.aws_kms_key.db_key: Refreshing state... [id=dc4f9d35-2788-473d-83f7-d5db83dd0a57]
+module.ecs.data.aws_caller_identity.current: Read complete after 1s [id=111111111111]
+module.ecs.aws_kms_key.ecs_logs_key: Refreshing state... [id=e9a93bec-1250-4f5d-9b46-7f91ae796d83]
+module.networking.data.aws_availability_zones.available: Read complete after 1s [id=us-east-1]
+module.ecs.aws_iam_role_policy_attachment.ecs_execution_role_policy: Refreshing state... [id=ecs-execution-role-production-20261020115935988200000001]
+module.monitoring.aws_sns_topic.alarms: Refreshing state... [id=arn:aws:sns:us-east-1:111111111111:alarms-production]
+module.database.aws_secretsmanager_secret.db_credentials: Refreshing state... [id=arn:aws:secretsmanager:us-east-1:111111111111:secret:rds-db-credentials-production-fxnvmA]
+module.ecs.aws_cloudwatch_log_group.ecs_logs: Refreshing state... [id=/ecs/app-production]
+module.networking.aws_internet_gateway.igw: Refreshing state... [id=igw-088af43cbd33911a1]
+module.networking.aws_security_group.db_sg: Refreshing state... [id=sg-03d1a0192534e0c1e]
+module.networking.aws_subnet.private[0]: Refreshing state... [id=subnet-051934c073502cae5]
+module.networking.aws_security_group.alb_sg: Refreshing state... [id=sg-0d75577aecdeb1534]
+module.networking.aws_subnet.private[1]: Refreshing state... [id=subnet-0fd7f9b160bb32ce3]
+module.networking.aws_subnet.public[1]: Refreshing state... [id=subnet-0dbd11767ba292601]
+module.networking.aws_lb_target_group.app_tg: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:111111111111:targetgroup/app-tg-production/a29bad310cfbfcbf]
+module.networking.aws_subnet.public[0]: Refreshing state... [id=subnet-0d7e96ca359f70691]
+module.ecs.aws_iam_policy.secrets_policy: Refreshing state... [id=arn:aws:iam::111111111111:policy/ecs-secrets-policy-production]
+module.ecs.aws_ecs_task_definition.app: Refreshing state... [id=app-task-production]
+module.networking.aws_route_table.public: Refreshing state... [id=rtb-09f57462ed98a97d8]
+module.database.aws_db_subnet_group.default: Refreshing state... [id=main-db-subnet-group-production]
+module.ecs.aws_iam_role_policy_attachment.ecs_secrets_attachment: Refreshing state... [id=ecs-execution-role-production-20261020115953649500000005]
+module.networking.aws_nat_gateway.nat: Refreshing state... [id=nat-010bb842a778d9ccd]
+module.networking.aws_route_table_association.public[1]: Refreshing state... [id=rtbassoc-0c783c3df474fb21b]
+module.networking.aws_route_table_association.public[0]: Refreshing state... [id=rtbassoc-0938fb533fd40fd8b]
+module.networking.aws_security_group.ecs_sg: Refreshing state... [id=sg-06266e73f4c71fd4c]
+module.networking.aws_lb.app_alb: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:111111111111:loadbalancer/app/app-alb-production/20682b08fa1ea082]
+module.networking.aws_route_table.private: Refreshing state... [id=rtb-0964dc109b2146c00]
+module.networking.aws_vpc_security_group_ingress_rule.db_from_ecs: Refreshing state... [id=sgr-07d9b83dde771b878]
+module.networking.aws_route_table_association.private[1]: Refreshing state... [id=rtbassoc-089d4d84737884351]
+module.networking.aws_route_table_association.private[0]: Refreshing state... [id=rtbassoc-0aed500ae637e40ce]
+module.ecs.aws_ecs_service.app: Refreshing state... [id=arn:aws:ecs:us-east-1:111111111111:service/app-cluster-production/app-service-production]
+module.ecs.aws_appautoscaling_target.ecs_target: Refreshing state... [id=service/app-cluster-production/app-service-production]
+module.database.aws_db_instance.postgres: Refreshing state... [id=db-IXOBLJHIIWM53POCSNPZ4TLRRQ]
+module.networking.aws_lb_listener.app_listener: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:111111111111:listener/app/app-alb-production/20682b08fa1ea082/e4cf8e71f97cad61]
+module.database.aws_secretsmanager_secret_version.db_credentials_version: Refreshing state... [id=arn:aws:secretsmanager:us-east-1:111111111111:secret:rds-db-credentials-production-fxnvmA|terraform-20261020120452039300000008]
+module.monitoring.aws_cloudwatch_metric_alarm.this["unhealthy_hosts"]: Refreshing state... [id=alb-unhealthy-hosts-production]
+module.monitoring.aws_cloudwatch_metric_alarm.this["target_5xx"]: Refreshing state... [id=alb-target-5xx-production]
+module.monitoring.aws_cloudwatch_metric_alarm.this["rds_cpu_high"]: Refreshing state... [id=rds-cpu-high-production]
+module.monitoring.aws_cloudwatch_metric_alarm.this["rds_free_storage_low"]: Refreshing state... [id=rds-free-storage-low-production]
+module.monitoring.aws_cloudwatch_metric_alarm.this["ecs_cpu_high"]: Refreshing state... [id=ecs-cpu-high-production]
+module.ecs.aws_appautoscaling_policy.ecs_policy_cpu: Refreshing state... [id=cpu-autoscaling-production]
+module.ecs.aws_appautoscaling_policy.ecs_policy_memory: Refreshing state... [id=memory-autoscaling-production]
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+ <= read (data resources)
+
+Terraform will perform the following actions:
+
+  # module.networking.data.aws_iam_policy_document.vpc_flow_log_policy will be read during apply
+  # (config refers to values not yet known)
+ <= data "aws_iam_policy_document" "vpc_flow_log_policy" {
+      + id            = (known after apply)
+      + json          = (known after apply)
+      + minified_json = (known after apply)
+
+      + statement {
+          + actions   = [
+              + "logs:CreateLogGroup",
+              + "logs:CreateLogStream",
+              + "logs:DescribeLogGroups",
+              + "logs:DescribeLogStreams",
+              + "logs:PutLogEvents",
+            ]
+          + effect    = "Allow"
+          + resources = [
+              + (known after apply),
+              + (known after apply),
+            ]
+        }
+    }
+
+  # module.networking.aws_cloudwatch_log_group.vpc_flow_log will be created
+  + resource "aws_cloudwatch_log_group" "vpc_flow_log" {
+      + arn               = (known after apply)
+      + id                = (known after apply)
+      + log_group_class   = (known after apply)
+      + name              = "/aws/vpc/flow-log/production"
+      + name_prefix       = (known after apply)
+      + retention_in_days = 7
+      + skip_destroy      = false
+      + tags_all          = {
+          + "Environment" = "production"
+          + "ManagedBy"   = "Terraform"
+          + "Project"     = "ecs-backend-api"
+        }
+    }
+
+  # module.networking.aws_flow_log.main will be created
+  + resource "aws_flow_log" "main" {
+      + arn                      = (known after apply)
+      + iam_role_arn             = "arn:aws:iam::111111111111:role/vpc-flow-log-role-production"
+      + id                       = (known after apply)
+      + log_destination          = (known after apply)
+      + log_destination_type     = "cloud-watch-logs"
+      + log_format               = (known after apply)
+      + log_group_name           = (known after apply)
+      + max_aggregation_interval = 600
+      + tags_all                 = {
+          + "Environment" = "production"
+          + "ManagedBy"   = "Terraform"
+          + "Project"     = "ecs-backend-api"
+        }
+      + traffic_type             = "ALL"
+      + vpc_id                   = "vpc-00e53f2879cf6c719"
+    }
+
+  # module.networking.aws_iam_role_policy.vpc_flow_log_policy_attachment will be created
+  + resource "aws_iam_role_policy" "vpc_flow_log_policy_attachment" {
+      + id          = (known after apply)
+      + name        = "vpc-flow-log-policy-production"
+      + name_prefix = (known after apply)
+      + policy      = (known after apply)
+      + role        = "vpc-flow-log-role-production"
+    }
+
+Plan: 3 to add, 0 to change, 0 to destroy.
+
+--------------------
+
+Saved the plan to: tfplan
+
+To perform exactly these actions, run the following command to apply:
+    terraform apply "tfplan"
+

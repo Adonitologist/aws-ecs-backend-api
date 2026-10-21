@@ -1,0 +1,2 @@
+terraform state list at 2026-10-21T13:21:33: empty output = no resources in state
+
