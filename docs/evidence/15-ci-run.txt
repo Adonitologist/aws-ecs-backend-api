@@ -1,0 +1,28 @@
+
+Γ£ô main Terraform Validation & Security Pipeline ┬╖ 39592749299
+Triggered via push about 2 minutes ago
+
+JOBS
+Γ£ô Validate & Security Scan in 27s (ID 111111111111)
+Γ£ô Docker Build & Trivy Scan in 40s (ID 111111111111)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, hashicorp/setup-terraform@v3, terraform-linters/setup-tflint@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Validate & Security Scan: .github#2
+
+- Consider setting a GITHUB_TOKEN to prevent GitHub api rate limits
+Validate & Security Scan: .github#13
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+Validate & Security Scan: .github#1
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Docker Build & Trivy Scan: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+Docker Build & Trivy Scan: .github#1
+
+
+For more information about a job, try: gh run view --job=<job-id>
+View this run on GitHub: https://github.com/Adonitologist/aws-ecs-backend-api/actions/runs/39592749299
+

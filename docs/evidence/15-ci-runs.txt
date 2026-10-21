@@ -1,0 +1,6 @@
+completed	success	Add verified section and deployment evidence	Terraform Validation & Security Pipeline	main	push	39592749299	43s	2026-10-21T11:32:48Z
+completed	success	Bump pg8000 to 1.31.5 (CVE-2025-61385)	Terraform Validation & Security Pipeline	main	push	39417112689	43s	2026-10-20T11:44:30Z
+completed	failure	Add app, ECR, alarms, runbook and CI image scan	Terraform Validation & Security Pipeline	main	push	39416358028	34s	2026-10-20T11:38:11Z
+completed	success	fix(networking): implement vpc flow logs, strict IAM scoping, and doc...	Terraform Validation & Security Pipeline	main	push	35443673128	34s	2026-09-19T12:43:21Z
+completed	failure	fix(networking): implement parameterized security groups and document...	Terraform Validation & Security Pipeline	main	push	35443108942	38s	2026-09-19T12:31:33Z
+
