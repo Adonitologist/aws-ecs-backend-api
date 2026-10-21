@@ -19,7 +19,7 @@ One deployment in us-east-1 on 2026-10-20, then destroyed. Each item states only
 - **Other alarms:** the other four alarms exist and stayed OK; they were not triggered ([12-alarm-history.txt](docs/evidence/12-alarm-history.txt)).
 - **Destroy:** 51 resources destroyed ([13-destroy.txt](docs/evidence/13-destroy.txt)). The leftover check found remains of an earlier deployment ([14-leftovers.txt](docs/evidence/14-leftovers.txt)); they were cleaned manually. Afterwards only 3 KMS keys in PendingDeletion and an unrelated Lambda log group remained ([14b-leftovers-after-cleanup.txt](docs/evidence/14b-leftovers-after-cleanup.txt)).
 - **The apply ran in several steps:** the first attempt failed with `ResourceAlreadyExistsException` on a pre-existing log group ([03-apply.txt](docs/evidence/03-apply.txt)); 3 resources were completed in a later apply ([03c-apply.txt](docs/evidence/03c-apply.txt)).
-- **CI:** the validation and container-scan workflow (fmt, validate, tflint, tfsec, docker build, Trivy) completed successfully on the commit that added this section ([15-ci-run.txt](docs/evidence/15-ci-run.txt), [15-ci-runs.txt](docs/evidence/15-ci-runs.txt)).
+- **CI:** the validation and container-scan workflow (jobs: Validate & Security Scan, Docker Build & Trivy Scan) completed successfully on the commit that added this section ([15-ci-run.txt](docs/evidence/15-ci-run.txt), [15-ci-runs.txt](docs/evidence/15-ci-runs.txt)).
 
 ## System Architecture
 
