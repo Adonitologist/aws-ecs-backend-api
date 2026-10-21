@@ -1,0 +1,7 @@
+NOTE: tail of the first terraform destroy, copied from the terminal. The full log was overwritten by a second no-op run (see 06b-destroy-rerun-noop.txt).
+module.ecs.aws_kms_key.ecs_logs_key: Destruction complete after 1s
+module.database.aws_kms_key.db_key: Destruction complete after 0s
+module.networking.aws_security_group.db_sg: Destruction complete after 1s
+module.networking.aws_security_group.alb_sg: Destruction complete after 1s
+module.networking.aws_vpc.main: Destruction complete after 1s
+Destroy complete! Resources: 51 destroyed.

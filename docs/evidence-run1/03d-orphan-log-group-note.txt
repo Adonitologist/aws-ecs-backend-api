@@ -1,0 +1,4 @@
+Note written on 2026-10-21 after the fact, from the operator's terminal output of 2026-10-20.
+The apply failed because log group /aws/vpc/flow-log/production already existed (ResourceAlreadyExistsException).
+Before deleting it the operator checked: created 2026-09-20, 167 bytes, no tags, no flow log attached (count 0).
+It was deleted with aws logs delete-log-group and the apply was resumed (see 03c-apply.txt).

@@ -18,7 +18,7 @@ alarm_names = {
   "target_5xx" = "alb-target-5xx-production"
   "unhealthy_hosts" = "alb-unhealthy-hosts-production"
 }
-alb_dns_name = "app-alb-production-301842800.us-east-1.elb.amazonaws.com"
+alb_dns_name = "ALB-DNS-REDACTED"
 cluster_name = "app-cluster-production"
 ecr_repository_url = "111111111111.dkr.ecr.us-east-1.amazonaws.com/app-production"
 service_name = "app-service-production"

@@ -2,8 +2,8 @@ Login Succeeded
 #0 building with "desktop-linux" instance using docker driver
 
 #1 [internal] load build definition from Dockerfile
-#1 transferring dockerfile: 430B done
-#1 DONE 0.0s
+#1 transferring dockerfile: 430B 0.0s done
+#1 DONE 0.1s
 
 #2 [internal] load metadata for docker.io/library/python:3.12-slim-bookworm
 #2 ...
@@ -12,117 +12,188 @@ Login Succeeded
 #3 DONE 0.0s
 
 #2 [internal] load metadata for docker.io/library/python:3.12-slim-bookworm
-#2 DONE 1.1s
+#2 DONE 2.0s
 
 #4 [internal] load .dockerignore
-#4 transferring context: 59B done
+#4 transferring context: 59B 0.0s done
 #4 DONE 0.1s
 
 #5 [internal] load build context
 #5 DONE 0.0s
 
-#6 [1/6] FROM docker.io/library/python:3.12-slim-bookworm@sha256:34386ef0cb081344d7ec1c103ba398e6e9f64e9ab3a1509accc92a4e24a07258
-#6 resolve docker.io/library/python:3.12-slim-bookworm@sha256:34386ef0cb081344d7ec1c103ba398e6e9f64e9ab3a1509accc92a4e24a07258 0.1s done
-#6 DONE 0.1s
+#6 [1/6] FROM docker.io/library/python:3.12-slim-bookworm@sha256:6a0e06f5ba0b373d051aabd3fffb9b873f27f9a2a3a14bcbe37dee6f0e3bbc70
+#6 resolve docker.io/library/python:3.12-slim-bookworm@sha256:6a0e06f5ba0b373d051aabd3fffb9b873f27f9a2a3a14bcbe37dee6f0e3bbc70 0.1s done
+#6 ...
 
 #5 [internal] load build context
 #5 transferring context: 66B done
-#5 DONE 0.0s
+#5 DONE 0.1s
+
+#6 [1/6] FROM docker.io/library/python:3.12-slim-bookworm@sha256:6a0e06f5ba0b373d051aabd3fffb9b873f27f9a2a3a14bcbe37dee6f0e3bbc70
+#6 DONE 0.4s
+
+#6 [1/6] FROM docker.io/library/python:3.12-slim-bookworm@sha256:6a0e06f5ba0b373d051aabd3fffb9b873f27f9a2a3a14bcbe37dee6f0e3bbc70
+#6 sha256:b52d28f2ade3944bb78458d2d77f25816d73cb5566d86dd897c9b8829a853ad8 0B / 249B 0.2s
+#6 sha256:b52d28f2ade3944bb78458d2d77f25816d73cb5566d86dd897c9b8829a853ad8 249B / 249B 0.2s done
+#6 sha256:87463122edacdc60df8c7840549960acce4dfb91a2b2aa36f563f62e0cd991db 0B / 13.68MB 0.3s
+#6 sha256:fd4548892b7d74acf5f52391380b45441b4ec55f6c2e1506030c2af26fd3e3f6 0B / 3.34MB 0.2s
+#6 sha256:11422d7ca1a44390a32bd8d8d9dc5946b4d053b3bbd9507d682e35584ba84a26 0B / 28.25MB 0.2s
+#6 sha256:87463122edacdc60df8c7840549960acce4dfb91a2b2aa36f563f62e0cd991db 1.05MB / 13.68MB 0.5s
+#6 sha256:87463122edacdc60df8c7840549960acce4dfb91a2b2aa36f563f62e0cd991db 4.19MB / 13.68MB 0.6s
+#6 sha256:87463122edacdc60df8c7840549960acce4dfb91a2b2aa36f563f62e0cd991db 6.29MB / 13.68MB 0.8s
+#6 sha256:87463122edacdc60df8c7840549960acce4dfb91a2b2aa36f563f62e0cd991db 8.39MB / 13.68MB 0.9s
+#6 sha256:fd4548892b7d74acf5f52391380b45441b4ec55f6c2e1506030c2af26fd3e3f6 1.05MB / 3.34MB 0.8s
+#6 sha256:11422d7ca1a44390a32bd8d8d9dc5946b4d053b3bbd9507d682e35584ba84a26 2.10MB / 28.25MB 0.8s
+#6 sha256:fd4548892b7d74acf5f52391380b45441b4ec55f6c2e1506030c2af26fd3e3f6 3.34MB / 3.34MB 1.0s done
+#6 sha256:11422d7ca1a44390a32bd8d8d9dc5946b4d053b3bbd9507d682e35584ba84a26 5.24MB / 28.25MB 0.9s
+#6 sha256:87463122edacdc60df8c7840549960acce4dfb91a2b2aa36f563f62e0cd991db 11.53MB / 13.68MB 1.1s
+#6 sha256:11422d7ca1a44390a32bd8d8d9dc5946b4d053b3bbd9507d682e35584ba84a26 7.34MB / 28.25MB 1.1s
+#6 sha256:87463122edacdc60df8c7840549960acce4dfb91a2b2aa36f563f62e0cd991db 13.68MB / 13.68MB 1.2s
+#6 sha256:11422d7ca1a44390a32bd8d8d9dc5946b4d053b3bbd9507d682e35584ba84a26 10.49MB / 28.25MB 1.2s
+#6 sha256:11422d7ca1a44390a32bd8d8d9dc5946b4d053b3bbd9507d682e35584ba84a26 13.63MB / 28.25MB 1.4s
+#6 sha256:87463122edacdc60df8c7840549960acce4dfb91a2b2aa36f563f62e0cd991db 13.68MB / 13.68MB 1.4s done
+#6 sha256:11422d7ca1a44390a32bd8d8d9dc5946b4d053b3bbd9507d682e35584ba84a26 16.78MB / 28.25MB 1.5s
+#6 sha256:11422d7ca1a44390a32bd8d8d9dc5946b4d053b3bbd9507d682e35584ba84a26 20.97MB / 28.25MB 1.7s
+#6 sha256:11422d7ca1a44390a32bd8d8d9dc5946b4d053b3bbd9507d682e35584ba84a26 24.12MB / 28.25MB 1.8s
+#6 sha256:11422d7ca1a44390a32bd8d8d9dc5946b4d053b3bbd9507d682e35584ba84a26 27.26MB / 28.25MB 2.0s
+#6 sha256:11422d7ca1a44390a32bd8d8d9dc5946b4d053b3bbd9507d682e35584ba84a26 28.25MB / 28.25MB 2.7s done
+#6 extracting sha256:11422d7ca1a44390a32bd8d8d9dc5946b4d053b3bbd9507d682e35584ba84a26
+#6 extracting sha256:11422d7ca1a44390a32bd8d8d9dc5946b4d053b3bbd9507d682e35584ba84a26 0.9s done
+#6 DONE 4.1s
+
+#6 [1/6] FROM docker.io/library/python:3.12-slim-bookworm@sha256:6a0e06f5ba0b373d051aabd3fffb9b873f27f9a2a3a14bcbe37dee6f0e3bbc70
+#6 extracting sha256:fd4548892b7d74acf5f52391380b45441b4ec55f6c2e1506030c2af26fd3e3f6
+#6 extracting sha256:fd4548892b7d74acf5f52391380b45441b4ec55f6c2e1506030c2af26fd3e3f6 0.2s done
+#6 DONE 4.3s
+
+#6 [1/6] FROM docker.io/library/python:3.12-slim-bookworm@sha256:6a0e06f5ba0b373d051aabd3fffb9b873f27f9a2a3a14bcbe37dee6f0e3bbc70
+#6 extracting sha256:87463122edacdc60df8c7840549960acce4dfb91a2b2aa36f563f62e0cd991db
+#6 extracting sha256:87463122edacdc60df8c7840549960acce4dfb91a2b2aa36f563f62e0cd991db 0.5s done
+#6 DONE 4.8s
+
+#6 [1/6] FROM docker.io/library/python:3.12-slim-bookworm@sha256:6a0e06f5ba0b373d051aabd3fffb9b873f27f9a2a3a14bcbe37dee6f0e3bbc70
+#6 extracting sha256:b52d28f2ade3944bb78458d2d77f25816d73cb5566d86dd897c9b8829a853ad8 0.1s done
+#6 DONE 4.9s
 
 #7 [2/6] WORKDIR /app
-#7 CACHED
+#7 DONE 1.7s
 
-#8 [5/6] COPY server.py .
-#8 CACHED
+#8 [3/6] COPY requirements.txt .
+#8 DONE 0.1s
 
-#9 [3/6] COPY requirements.txt .
-#9 CACHED
+#9 [4/6] RUN pip install --no-cache-dir -r requirements.txt
+#9 1.926 Collecting pg8000==1.31.5 (from -r requirements.txt (line 1))
+#9 2.042   Downloading pg8000-1.31.5-py3-none-any.whl.metadata (88 kB)
+#9 2.113 Collecting python-dateutil>=2.8.2 (from pg8000==1.31.5->-r requirements.txt (line 1))
+#9 2.128   Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+#9 2.168 Collecting scramp>=1.4.5 (from pg8000==1.31.5->-r requirements.txt (line 1))
+#9 2.188   Downloading scramp-1.4.17-py3-none-any.whl.metadata (22 kB)
+#9 2.233 Collecting six>=1.5 (from python-dateutil>=2.8.2->pg8000==1.31.5->-r requirements.txt (line 1))
+#9 2.249   Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+#9 2.284 Collecting asn1crypto>=1.5.1 (from scramp>=1.4.5->pg8000==1.31.5->-r requirements.txt (line 1))
+#9 2.300   Downloading asn1crypto-1.5.1-py2.py3-none-any.whl.metadata (13 kB)
+#9 2.321 Downloading pg8000-1.31.5-py3-none-any.whl (57 kB)
+#9 2.348 Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+#9 2.392 Downloading scramp-1.4.17-py3-none-any.whl (16 kB)
+#9 2.418 Downloading asn1crypto-1.5.1-py2.py3-none-any.whl (105 kB)
+#9 2.445 Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+#9 2.473 Installing collected packages: asn1crypto, six, scramp, python-dateutil, pg8000
+#9 2.727 Successfully installed asn1crypto-1.5.1 pg8000-1.31.5 python-dateutil-2.9.0.post0 scramp-1.4.17 six-1.17.0
+#9 2.728 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+#9 2.888 
+#9 2.888 [notice] A new release of pip is available: 25.0.1 -> 26.2.2
+#9 2.888 [notice] To update, run: pip install --upgrade pip
+#9 DONE 3.1s
 
-#10 [4/6] RUN pip install --no-cache-dir -r requirements.txt
-#10 CACHED
+#10 [5/6] COPY server.py .
+#10 DONE 0.1s
 
 #11 [6/6] RUN useradd --system --no-create-home appuser
-#11 CACHED
+#11 DONE 0.4s
 
 #12 exporting to image
-#12 exporting layers done
-#12 exporting manifest sha256:9901ea0093727d4296f66480e28056c182c832f0df6931f9d636da72c136c27e 0.0s done
-#12 exporting config sha256:f6090c191c300973b9bc14e8630a3c59e65ce5bd437a9dc620e3db4435404763
-#12 exporting config sha256:f6090c191c300973b9bc14e8630a3c59e65ce5bd437a9dc620e3db4435404763 done
-#12 exporting attestation manifest sha256:acea1bf00f60afcb9318f1ae7c56bca05bc2b1b8b493667b9b11ba7e42544a35
-#12 exporting attestation manifest sha256:acea1bf00f60afcb9318f1ae7c56bca05bc2b1b8b493667b9b11ba7e42544a35 0.1s done
-#12 exporting manifest list sha256:6fadf72c545df5a06e43ac5d0ee347c3d924d02da7cad32e0442c44bc5b27205
-#12 exporting manifest list sha256:6fadf72c545df5a06e43ac5d0ee347c3d924d02da7cad32e0442c44bc5b27205 0.0s done
-#12 naming to docker.io/library/app:v1 done
-#12 unpacking to docker.io/library/app:v1 0.0s done
-#12 DONE 0.4s
+#12 exporting layers
+#12 exporting layers 1.2s done
+#12 exporting manifest sha256:be775aa886dba01258bf3dbfd20e7efd18c9dd62f2b5d58493139a71d4d209c4 0.1s done
+#12 exporting config sha256:2df526e42cd6ab02eece637f25cbb9b1deca6da40bf52ddc3e8e423c1a59e117
+#12 exporting config sha256:2df526e42cd6ab02eece637f25cbb9b1deca6da40bf52ddc3e8e423c1a59e117 0.0s done
+#12 exporting attestation manifest sha256:aa81cbbb0565b49bd1e58adbcf3f5ef5c70c3c76870adb09f9bd0e384de1e7ff 0.1s done
+#12 exporting manifest list sha256:db67167c1dc86663230122bbb2870b8f204ae740f771b86b2a03f979b3be22ed
+#12 exporting manifest list sha256:db67167c1dc86663230122bbb2870b8f204ae740f771b86b2a03f979b3be22ed 0.0s done
+#12 naming to docker.io/library/app:v1 0.0s done
+#12 unpacking to docker.io/library/app:v1
+#12 unpacking to docker.io/library/app:v1 1.9s done
+#12 DONE 3.5s
 The push refers to repository [111111111111.dkr.ecr.us-east-1.amazonaws.com/app-production]
+11422d7ca1a4: Waiting
+fd4548892b7d: Waiting
+e0f453b76988: Waiting
 44136fa355b3: Waiting
-7fd1ebe418b5: Waiting
-6e0ba8ba0487: Waiting
-2a0e62f5771d: Waiting
+fd4548892b7d: Waiting
+e0f453b76988: Waiting
 44136fa355b3: Waiting
-7fd1ebe418b5: Waiting
-6e0ba8ba0487: Waiting
-2a0e62f5771d: Waiting
+11422d7ca1a4: Waiting
+fd4548892b7d: Waiting
+e0f453b76988: Waiting
 44136fa355b3: Waiting
-7fd1ebe418b5: Waiting
-6e0ba8ba0487: Waiting
-2a0e62f5771d: Waiting
-6e0ba8ba0487: Waiting
-2a0e62f5771d: Waiting
+11422d7ca1a4: Waiting
 44136fa355b3: Waiting
-7fd1ebe418b5: Waiting
-7fd1ebe418b5: Waiting
-6e0ba8ba0487: Waiting
-2a0e62f5771d: Waiting
+11422d7ca1a4: Waiting
+fd4548892b7d: Waiting
+e0f453b76988: Waiting
+fd4548892b7d: Waiting
+e0f453b76988: Waiting
 44136fa355b3: Waiting
-7fd1ebe418b5: Waiting
-6e0ba8ba0487: Waiting
+11422d7ca1a4: Waiting
+e0f453b76988: Waiting
+44136fa355b3: Waiting
+11422d7ca1a4: Waiting
+fd4548892b7d: Waiting
+fd4548892b7d: Waiting
+e0f453b76988: Waiting
+44136fa355b3: Waiting
+11422d7ca1a4: Waiting
+fd4548892b7d: Waiting
 44136fa355b3: Waiting
 44136fa355b3: Waiting
-7fd1ebe418b5: Waiting
-6e0ba8ba0487: Waiting
-7fd1ebe418b5: Waiting
-6e0ba8ba0487: Waiting
-2a0e62f5771d: Pushed
-86a9e13e035d: Waiting
+87463122edac: Waiting
+b52d28f2ade3: Waiting
+e0f453b76988: Pushed
+87463122edac: Waiting
+87463122edac: Waiting
+b52d28f2ade3: Waiting
+4b2151668def: Waiting
 44136fa355b3: Pushed
-f9d2fb07d6f0: Waiting
-86a9e13e035d: Waiting
-d6e810fb420c: Waiting
-f9d2fb07d6f0: Waiting
-86a9e13e035d: Waiting
-d6e810fb420c: Waiting
-d6e810fb420c: Waiting
-f9d2fb07d6f0: Waiting
-86a9e13e035d: Waiting
-d6e810fb420c: Waiting
-6e0ba8ba0487: Pushed
-f9d2fb07d6f0: Pushed
-2d33952fdd56: Waiting
-e48d4e1cdb95: Waiting
-e48d4e1cdb95: Waiting
-0029e95dc937: Waiting
-d6e810fb420c: Pushed
-2d33952fdd56: Waiting
-e48d4e1cdb95: Waiting
-0029e95dc937: Waiting
-2d33952fdd56: Waiting
-2d33952fdd56: Waiting
-e48d4e1cdb95: Waiting
-0029e95dc937: Waiting
-0029e95dc937: Waiting
-0029e95dc937: Waiting
-a744ed491684: Waiting
-e48d4e1cdb95: Pushed
-7fd1ebe418b5: Pushed
-a744ed491684: Waiting
-0029e95dc937: Pushed
-a744ed491684: Waiting
-a744ed491684: Waiting
-86a9e13e035d: Pushed
-2d33952fdd56: Pushed
-a744ed491684: Pushed
-v1: digest: sha256:6fadf72c545df5a06e43ac5d0ee347c3d924d02da7cad32e0442c44bc5b27205 size: 856
-
+4b2151668def: Waiting
+87463122edac: Waiting
+b52d28f2ade3: Waiting
+b52d28f2ade3: Waiting
+4b2151668def: Waiting
+87463122edac: Waiting
+4b2151668def: Waiting
+fd4548892b7d: Pushed
+111111111111: Waiting
+111111111111: Waiting
+111111111111: Waiting
+111111111111: Waiting
+b52d28f2ade3: Pushed
+135b6c4a06e3: Waiting
+b2d1d0876eb8: Waiting
+4b2151668def: Pushed
+135b6c4a06e3: Waiting
+b2d1d0876eb8: Waiting
+b2d1d0876eb8: Waiting
+135b6c4a06e3: Waiting
+135b6c4a06e3: Waiting
+b2d1d0876eb8: Waiting
+1fe22a15e5a4: Waiting
+11422d7ca1a4: Pushed
+1fe22a15e5a4: Waiting
+111111111111: Pushed
+1fe22a15e5a4: Waiting
+135b6c4a06e3: Pushed
+1fe22a15e5a4: Waiting
+87463122edac: Pushed
+1fe22a15e5a4: Pushed
+b2d1d0876eb8: Pushed
+v1: digest: sha256:db67167c1dc86663230122bbb2870b8f204ae740f771b86b2a03f979b3be22ed size: 856

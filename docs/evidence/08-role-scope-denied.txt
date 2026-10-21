@@ -1,0 +1,4 @@
+Operator observation, 2026-10-21: with the deploy role (terraform-ecs-backend-deploy), the command
+  aws lambda list-functions
+failed with AccessDeniedException: not authorized to perform lambda:ListFunctions,
+no identity-based policy allows the action.

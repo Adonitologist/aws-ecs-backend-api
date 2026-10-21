@@ -1,0 +1,20 @@
+== ECS clusters
+== ECS services
+== Load balancers
+== Target groups
+== RDS instances
+== RDS snapshots
+== ECR repositories
+== Secrets
+== Log groups
+/aws/lambda/event-processor-production
+== NAT gateways (not deleted)
+== Elastic IPs
+== VPCs
+== SNS topics
+== CloudWatch alarms
+== IAM roles
+== KMS keys of this project (PendingDeletion is expected for 7 days)
+3869bcdb-e453-4f96-9a22-9dcac1f88c2b	PendingDeletion	KMS key for the alarms SNS topic
+dc4f9d35-2788-473d-83f7-d5db83dd0a57	PendingDeletion	KMS customer managed key for RDS and Secrets Manager
+e9a93bec-1250-4f5d-9b46-7f91ae796d83	PendingDeletion	KMS key for CloudWatch Log Group encryption

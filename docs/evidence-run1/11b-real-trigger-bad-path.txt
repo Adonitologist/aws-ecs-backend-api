@@ -1,0 +1,116 @@
+== set bad path
+/does-not-exist
+2026-10-20T14:42:04
+healthy
+1	0
+alb-unhealthy-hosts-production	OK
+2026-10-20T14:42:43
+unhealthy
+1	1
+alb-unhealthy-hosts-production	OK
+2026-10-20T14:43:21
+unhealthy	initial
+2	0
+alb-unhealthy-hosts-production	OK
+2026-10-20T14:44:00
+unhealthy	initial
+2	0
+alb-unhealthy-hosts-production	OK
+2026-10-20T14:44:38
+unhealthy	initial
+2	0
+alb-unhealthy-hosts-production	OK
+2026-10-20T14:45:16
+unhealthy	initial
+2	0
+alb-unhealthy-hosts-production	ALARM
+2026-10-20T14:45:55
+unhealthy	initial
+2	0
+alb-unhealthy-hosts-production	ALARM
+2026-10-20T14:46:33
+unhealthy	initial
+2	0
+alb-unhealthy-hosts-production	ALARM
+2026-10-20T14:47:12
+unhealthy	initial
+2	0
+alb-unhealthy-hosts-production	ALARM
+2026-10-20T14:47:50
+unhealthy	unhealthy
+2	0
+alb-unhealthy-hosts-production	ALARM
+2026-10-20T14:48:29
+unhealthy	draining
+1	0
+alb-unhealthy-hosts-production	ALARM
+2026-10-20T14:49:07
+unhealthy	draining
+1	0
+alb-unhealthy-hosts-production	ALARM
+2026-10-20T14:49:46
+unhealthy	draining
+1	0
+alb-unhealthy-hosts-production	ALARM
+2026-10-20T14:50:24
+unhealthy	draining
+1	0
+alb-unhealthy-hosts-production	ALARM
+2026-10-20T14:51:03
+unhealthy	draining
+1	0
+alb-unhealthy-hosts-production	ALARM
+2026-10-20T14:51:41
+unhealthy	draining
+1	0
+alb-unhealthy-hosts-production	ALARM
+2026-10-20T14:52:20
+unhealthy	draining
+1	0
+alb-unhealthy-hosts-production	ALARM
+2026-10-20T14:52:58
+unhealthy	draining
+1	0
+alb-unhealthy-hosts-production	ALARM
+2026-10-20T14:53:37
+unhealthy
+1	0
+alb-unhealthy-hosts-production	ALARM
+2026-10-20T14:54:16
+unhealthy
+1	0
+alb-unhealthy-hosts-production	ALARM
+2026-10-20T14:54:54
+initial	unhealthy
+2	0
+alb-unhealthy-hosts-production	ALARM
+2026-10-20T14:55:33
+initial	unhealthy
+2	0
+alb-unhealthy-hosts-production	ALARM
+2026-10-20T14:56:11
+initial	unhealthy
+2	0
+alb-unhealthy-hosts-production	ALARM
+2026-10-20T14:56:50
+initial	unhealthy
+2	0
+alb-unhealthy-hosts-production	ALARM
+== restore /health
+/health
+2026-10-20T14:57:53
+initial	unhealthy
+2	0
+alb-unhealthy-hosts-production	ALARM
+2026-10-20T14:58:32
+healthy	draining
+1	0
+alb-unhealthy-hosts-production	ALARM
+2026-10-20T14:59:11
+healthy	draining
+1	0
+alb-unhealthy-hosts-production	ALARM
+2026-10-20T14:59:50
+healthy	draining
+1	0
+

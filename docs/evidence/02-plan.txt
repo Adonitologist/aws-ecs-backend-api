@@ -1,0 +1,1340 @@
+module.monitoring.data.aws_caller_identity.current: Reading...
+module.database.data.aws_caller_identity.current: Reading...
+module.ecs.data.aws_caller_identity.current: Reading...
+module.networking.data.aws_availability_zones.available: Reading...
+module.networking.data.aws_iam_policy_document.vpc_flow_log_assume_role: Reading...
+module.networking.data.aws_iam_policy_document.vpc_flow_log_assume_role: Read complete after 0s [id=2717921857]
+module.database.data.aws_caller_identity.current: Read complete after 0s [id=111111111111]
+module.monitoring.data.aws_caller_identity.current: Read complete after 0s [id=111111111111]
+module.ecs.data.aws_caller_identity.current: Read complete after 0s [id=111111111111]
+module.networking.data.aws_availability_zones.available: Read complete after 0s [id=us-east-1]
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+ <= read (data resources)
+
+Terraform will perform the following actions:
+
+  # module.database.aws_db_instance.postgres will be created
+  + resource "aws_db_instance" "postgres" {
+      + address                               = (known after apply)
+      + allocated_storage                     = 20
+      + apply_immediately                     = false
+      + arn                                   = (known after apply)
+      + auto_minor_version_upgrade            = true
+      + availability_zone                     = (known after apply)
+      + backup_retention_period               = 0
+      + backup_target                         = (known after apply)
+      + backup_window                         = (known after apply)
+      + ca_cert_identifier                    = (known after apply)
+      + character_set_name                    = (known after apply)
+      + copy_tags_to_snapshot                 = false
+      + database_insights_mode                = (known after apply)
+      + db_name                               = "appdb"
+      + db_subnet_group_name                  = "main-db-subnet-group-production"
+      + dedicated_log_volume                  = false
+      + delete_automated_backups              = true
+      + deletion_protection                   = false
+      + domain_fqdn                           = (known after apply)
+      + endpoint                              = (known after apply)
+      + engine                                = "postgres"
+      + engine_lifecycle_support              = (known after apply)
+      + engine_version                        = "15.8"
+      + engine_version_actual                 = (known after apply)
+      + hosted_zone_id                        = (known after apply)
+      + iam_database_authentication_enabled   = true
+      + id                                    = (known after apply)
+      + identifier                            = "ecs-backend-db-production"
+      + identifier_prefix                     = (known after apply)
+      + instance_class                        = "db.t3.micro"
+      + iops                                  = (known after apply)
+      + kms_key_id                            = (known after apply)
+      + latest_restorable_time                = (known after apply)
+      + license_model                         = (known after apply)
+      + listener_endpoint                     = (known after apply)
+      + maintenance_window                    = (known after apply)
+      + master_user_secret                    = (known after apply)
+      + master_user_secret_kms_key_id         = (known after apply)
+      + max_allocated_storage                 = 100
+      + monitoring_interval                   = 0
+      + monitoring_role_arn                   = (known after apply)
+      + multi_az                              = (known after apply)
+      + nchar_character_set_name              = (known after apply)
+      + network_type                          = (known after apply)
+      + option_group_name                     = (known after apply)
+      + parameter_group_name                  = (known after apply)
+      + password                              = (sensitive value)
+      + password_wo                           = (write-only attribute)
+      + performance_insights_enabled          = true
+      + performance_insights_kms_key_id       = (known after apply)
+      + performance_insights_retention_period = (known after apply)
+      + port                                  = (known after apply)
+      + publicly_accessible                   = false
+      + replica_mode                          = (known after apply)
+      + replicas                              = (known after apply)
+      + resource_id                           = (known after apply)
+      + skip_final_snapshot                   = true
+      + snapshot_identifier                   = (known after apply)
+      + status                                = (known after apply)
+      + storage_encrypted                     = true
+      + storage_throughput                    = (known after apply)
+      + storage_type                          = "gp3"
+      + tags_all                              = {
+          + "Environment" = "production"
+          + "ManagedBy"   = "Terraform"
+          + "Project"     = "ecs-backend-api"
+        }
+      + timezone                              = (known after apply)
+      + username                              = "dbadmin"
+      + vpc_security_group_ids                = (known after apply)
+    }
+
+  # module.database.aws_db_subnet_group.default will be created
+  + resource "aws_db_subnet_group" "default" {
+      + arn                     = (known after apply)
+      + description             = "Managed by Terraform"
+      + id                      = (known after apply)
+      + name                    = "main-db-subnet-group-production"
+      + name_prefix             = (known after apply)
+      + subnet_ids              = (known after apply)
+      + supported_network_types = (known after apply)
+      + tags_all                = {
+          + "Environment" = "production"
+          + "ManagedBy"   = "Terraform"
+          + "Project"     = "ecs-backend-api"
+        }
+      + vpc_id                  = (known after apply)
+    }
+
+  # module.database.aws_kms_key.db_key will be created
+  + resource "aws_kms_key" "db_key" {
+      + arn                                = (known after apply)
+      + bypass_policy_lockout_safety_check = false
+      + customer_master_key_spec           = "SYMMETRIC_DEFAULT"
+      + deletion_window_in_days            = 7
+      + description                        = "KMS customer managed key for RDS and Secrets Manager"
+      + enable_key_rotation                = true
+      + id                                 = (known after apply)
+      + is_enabled                         = true
+      + key_id                             = (known after apply)
+      + key_usage                          = "ENCRYPT_DECRYPT"
+      + multi_region                       = (known after apply)
+      + policy                             = jsonencode(
+            {
+              + Statement = [
+                  + {
+                      + Action    = "kms:*"
+                      + Effect    = "Allow"
+                      + Principal = {
+                          + AWS = "arn:aws:iam::111111111111:root"
+                        }
+                      + Resource  = "*"
+                      + Sid       = "Enable IAM User Permissions"
+                    },
+                ]
+              + Version   = "2012-10-17"
+            }
+        )
+      + rotation_period_in_days            = (known after apply)
+      + tags_all                           = {
+          + "Environment" = "production"
+          + "ManagedBy"   = "Terraform"
+          + "Project"     = "ecs-backend-api"
+        }
+    }
+
+  # module.database.aws_secretsmanager_secret.db_credentials will be created
+  + resource "aws_secretsmanager_secret" "db_credentials" {
+      + arn                            = (known after apply)
+      + force_overwrite_replica_secret = false
+      + id                             = (known after apply)
+      + kms_key_id                     = (known after apply)
+      + name                           = "rds-db-credentials-production"
+      + name_prefix                    = (known after apply)
+      + policy                         = (known after apply)
+      + recovery_window_in_days        = 0
+      + tags_all                       = {
+          + "Environment" = "production"
+          + "ManagedBy"   = "Terraform"
+          + "Project"     = "ecs-backend-api"
+        }
+
+      + replica (known after apply)
+    }
+
+  # module.database.aws_secretsmanager_secret_version.db_credentials_version will be created
+  + resource "aws_secretsmanager_secret_version" "db_credentials_version" {
+      + arn                  = (known after apply)
+      + has_secret_string_wo = (known after apply)
+      + id                   = (known after apply)
+      + secret_id            = (known after apply)
+      + secret_string        = (sensitive value)
+      + secret_string_wo     = (write-only attribute)
+      + version_id           = (known after apply)
+      + version_stages       = (known after apply)
+    }
+
+  # module.database.random_password.db_password will be created
+  + resource "random_password" "db_password" {
+      + bcrypt_hash      = (sensitive value)
+      + id               = (known after apply)
+      + length           = 16
+      + lower            = true
+      + min_lower        = 0
+      + min_numeric      = 0
+      + min_special      = 0
+      + min_upper        = 0
+      + number           = true
+      + numeric          = true
+      + override_special = "!#$%&*()-_=+[]{}<>:?"
+      + result           = (sensitive value)
+      + special          = true
+      + upper            = true
+    }
+
+  # module.ecs.aws_appautoscaling_policy.ecs_policy_cpu will be created
+  + resource "aws_appautoscaling_policy" "ecs_policy_cpu" {
+      + alarm_arns         = (known after apply)
+      + arn                = (known after apply)
+      + id                 = (known after apply)
+      + name               = "cpu-autoscaling-production"
+      + policy_type        = "TargetTrackingScaling"
+      + resource_id        = "service/app-cluster-production/app-service-production"
+      + scalable_dimension = "ecs:service:DesiredCount"
+      + service_namespace  = "ecs"
+
+      + target_tracking_scaling_policy_configuration {
+          + disable_scale_in   = false
+          + scale_in_cooldown  = 300
+          + scale_out_cooldown = 60
+          + target_value       = 75
+
+          + predefined_metric_specification {
+              + predefined_metric_type = "ECSServiceAverageCPUUtilization"
+            }
+        }
+    }
+
+  # module.ecs.aws_appautoscaling_policy.ecs_policy_memory will be created
+  + resource "aws_appautoscaling_policy" "ecs_policy_memory" {
+      + alarm_arns         = (known after apply)
+      + arn                = (known after apply)
+      + id                 = (known after apply)
+      + name               = "memory-autoscaling-production"
+      + policy_type        = "TargetTrackingScaling"
+      + resource_id        = "service/app-cluster-production/app-service-production"
+      + scalable_dimension = "ecs:service:DesiredCount"
+      + service_namespace  = "ecs"
+
+      + target_tracking_scaling_policy_configuration {
+          + disable_scale_in   = false
+          + scale_in_cooldown  = 300
+          + scale_out_cooldown = 60
+          + target_value       = 75
+
+          + predefined_metric_specification {
+              + predefined_metric_type = "ECSServiceAverageMemoryUtilization"
+            }
+        }
+    }
+
+  # module.ecs.aws_appautoscaling_target.ecs_target will be created
+  + resource "aws_appautoscaling_target" "ecs_target" {
+      + arn                = (known after apply)
+      + id                 = (known after apply)
+      + max_capacity       = 4
+      + min_capacity       = 1
+      + resource_id        = "service/app-cluster-production/app-service-production"
+      + role_arn           = (known after apply)
+      + scalable_dimension = "ecs:service:DesiredCount"
+      + service_namespace  = "ecs"
+      + tags_all           = {
+          + "Environment" = "production"
+          + "ManagedBy"   = "Terraform"
+          + "Project"     = "ecs-backend-api"
+        }
+
+      + suspended_state (known after apply)
+    }
+
+  # module.ecs.aws_cloudwatch_log_group.ecs_logs will be created
+  + resource "aws_cloudwatch_log_group" "ecs_logs" {
+      + arn               = (known after apply)
+      + id                = (known after apply)
+      + kms_key_id        = (known after apply)
+      + log_group_class   = (known after apply)
+      + name              = "/ecs/app-production"
+      + name_prefix       = (known after apply)
+      + retention_in_days = 7
+      + skip_destroy      = false
+      + tags_all          = {
+          + "Environment" = "production"
+          + "ManagedBy"   = "Terraform"
+          + "Project"     = "ecs-backend-api"
+        }
+    }
+
+  # module.ecs.aws_ecr_repository.app will be created
+  + resource "aws_ecr_repository" "app" {
+      + arn                  = (known after apply)
+      + force_delete         = true
+      + id                   = (known after apply)
+      + image_tag_mutability = "IMMUTABLE"
+      + name                 = "app-production"
+      + registry_id          = (known after apply)
+      + repository_url       = (known after apply)
+      + tags_all             = {
+          + "Environment" = "production"
+          + "ManagedBy"   = "Terraform"
+          + "Project"     = "ecs-backend-api"
+        }
+
+      + image_scanning_configuration {
+          + scan_on_push = true
+        }
+    }
+
+  # module.ecs.aws_ecs_cluster.main will be created
+  + resource "aws_ecs_cluster" "main" {
+      + arn      = (known after apply)
+      + id       = (known after apply)
+      + name     = "app-cluster-production"
+      + tags_all = {
+          + "Environment" = "production"
+          + "ManagedBy"   = "Terraform"
+          + "Project"     = "ecs-backend-api"
+        }
+
+      + setting (known after apply)
+    }
+
+  # module.ecs.aws_ecs_service.app will be created
+  + resource "aws_ecs_service" "app" {
+      + availability_zone_rebalancing      = "DISABLED"
+      + cluster                            = (known after apply)
+      + deployment_maximum_percent         = 200
+      + deployment_minimum_healthy_percent = 100
+      + desired_count                      = 1
+      + enable_ecs_managed_tags            = false
+      + enable_execute_command             = false
+      + force_new_deployment               = true
+      + iam_role                           = (known after apply)
+      + id                                 = (known after apply)
+      + launch_type                        = "FARGATE"
+      + name                               = "app-service-production"
+      + platform_version                   = (known after apply)
+      + scheduling_strategy                = "REPLICA"
+      + tags_all                           = {
+          + "Environment" = "production"
+          + "ManagedBy"   = "Terraform"
+          + "Project"     = "ecs-backend-api"
+        }
+      + task_definition                    = (known after apply)
+      + triggers                           = (known after apply)
+      + wait_for_steady_state              = false
+
+      + load_balancer {
+          + container_name   = "backend"
+          + container_port   = 8080
+          + target_group_arn = (known after apply)
+            # (1 unchanged attribute hidden)
+        }
+
+      + network_configuration {
+          + assign_public_ip = false
+          + security_groups  = (known after apply)
+          + subnets          = (known after apply)
+        }
+    }
+
+  # module.ecs.aws_ecs_task_definition.app will be created
+  + resource "aws_ecs_task_definition" "app" {
+      + arn                      = (known after apply)
+      + arn_without_revision     = (known after apply)
+      + container_definitions    = (known after apply)
+      + cpu                      = "256"
+      + enable_fault_injection   = (known after apply)
+      + execution_role_arn       = (known after apply)
+      + family                   = "app-task-production"
+      + id                       = (known after apply)
+      + memory                   = "512"
+      + network_mode             = "awsvpc"
+      + requires_compatibilities = [
+          + "FARGATE",
+        ]
+      + revision                 = (known after apply)
+      + skip_destroy             = false
+      + tags_all                 = {
+          + "Environment" = "production"
+          + "ManagedBy"   = "Terraform"
+          + "Project"     = "ecs-backend-api"
+        }
+      + track_latest             = false
+    }
+
+  # module.ecs.aws_iam_policy.secrets_policy will be created
+  + resource "aws_iam_policy" "secrets_policy" {
+      + arn              = (known after apply)
+      + attachment_count = (known after apply)
+      + id               = (known after apply)
+      + name             = "ecs-secrets-policy-production"
+      + name_prefix      = (known after apply)
+      + path             = "/"
+      + policy           = (known after apply)
+      + policy_id        = (known after apply)
+      + tags_all         = {
+          + "Environment" = "production"
+          + "ManagedBy"   = "Terraform"
+          + "Project"     = "ecs-backend-api"
+        }
+    }
+
+  # module.ecs.aws_iam_role.ecs_execution_role will be created
+  + resource "aws_iam_role" "ecs_execution_role" {
+      + arn                   = (known after apply)
+      + assume_role_policy    = jsonencode(
+            {
+              + Statement = [
+                  + {
+                      + Action    = "sts:AssumeRole"
+                      + Effect    = "Allow"
+                      + Principal = {
+                          + Service = "ecs-tasks.amazonaws.com"
+                        }
+                    },
+                ]
+              + Version   = "2012-10-17"
+            }
+        )
+      + create_date           = (known after apply)
+      + force_detach_policies = false
+      + id                    = (known after apply)
+      + managed_policy_arns   = (known after apply)
+      + max_session_duration  = 3600
+      + name                  = "ecs-execution-role-production"
+      + name_prefix           = (known after apply)
+      + path                  = "/"
+      + tags_all              = {
+          + "Environment" = "production"
+          + "ManagedBy"   = "Terraform"
+          + "Project"     = "ecs-backend-api"
+        }
+      + unique_id             = (known after apply)
+
+      + inline_policy (known after apply)
+    }
+
+  # module.ecs.aws_iam_role_policy_attachment.ecs_execution_role_policy will be created
+  + resource "aws_iam_role_policy_attachment" "ecs_execution_role_policy" {
+      + id         = (known after apply)
+      + policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
+      + role       = "ecs-execution-role-production"
+    }
+
+  # module.ecs.aws_iam_role_policy_attachment.ecs_secrets_attachment will be created
+  + resource "aws_iam_role_policy_attachment" "ecs_secrets_attachment" {
+      + id         = (known after apply)
+      + policy_arn = (known after apply)
+      + role       = "ecs-execution-role-production"
+    }
+
+  # module.ecs.aws_kms_key.ecs_logs_key will be created
+  + resource "aws_kms_key" "ecs_logs_key" {
+      + arn                                = (known after apply)
+      + bypass_policy_lockout_safety_check = false
+      + customer_master_key_spec           = "SYMMETRIC_DEFAULT"
+      + deletion_window_in_days            = 7
+      + description                        = "KMS key for CloudWatch Log Group encryption"
+      + enable_key_rotation                = true
+      + id                                 = (known after apply)
+      + is_enabled                         = true
+      + key_id                             = (known after apply)
+      + key_usage                          = "ENCRYPT_DECRYPT"
+      + multi_region                       = (known after apply)
+      + policy                             = jsonencode(
+            {
+              + Statement = [
+                  + {
+                      + Action    = "kms:*"
+                      + Effect    = "Allow"
+                      + Principal = {
+                          + AWS = "arn:aws:iam::111111111111:root"
+                        }
+                      + Resource  = "*"
+                      + Sid       = "Enable IAM User Permissions"
+                    },
+                  + {
+                      + Action    = [
+                          + "kms:Encrypt*",
+                          + "kms:Decrypt*",
+                          + "kms:ReEncrypt*",
+                          + "kms:GenerateDataKey*",
+                          + "kms:Describe*",
+                        ]
+                      + Condition = {
+                          + ArnEquals = {
+                              + "kms:EncryptionContext:aws:logs:arn" = "arn:aws:logs:us-east-1:111111111111:log-group:/ecs/app-production"
+                            }
+                        }
+                      + Effect    = "Allow"
+                      + Principal = {
+                          + Service = "logs.us-east-1.amazonaws.com"
+                        }
+                      + Resource  = "*"
+                      + Sid       = "Allow CloudWatch Logs Encryption"
+                    },
+                ]
+              + Version   = "2012-10-17"
+            }
+        )
+      + rotation_period_in_days            = (known after apply)
+      + tags_all                           = {
+          + "Environment" = "production"
+          + "ManagedBy"   = "Terraform"
+          + "Project"     = "ecs-backend-api"
+        }
+    }
+
+  # module.monitoring.aws_cloudwatch_metric_alarm.this["ecs_cpu_high"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "this" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_name                            = "ecs-cpu-high-production"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "app-cluster-production"
+          + "ServiceName" = "app-service-production"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 2
+      + id                                    = (known after apply)
+      + metric_name                           = "CPUUtilization"
+      + namespace                             = "AWS/ECS"
+      + period                                = 60
+      + statistic                             = "Average"
+      + tags_all                              = {
+          + "Environment" = "production"
+          + "ManagedBy"   = "Terraform"
+          + "Project"     = "ecs-backend-api"
+        }
+      + threshold                             = 80
+      + treat_missing_data                    = "notBreaching"
+    }
+
+  # module.monitoring.aws_cloudwatch_metric_alarm.this["rds_cpu_high"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "this" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_name                            = "rds-cpu-high-production"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "DBInstanceIdentifier" = "ecs-backend-db-production"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 2
+      + id                                    = (known after apply)
+      + metric_name                           = "CPUUtilization"
+      + namespace                             = "AWS/RDS"
+      + period                                = 60
+      + statistic                             = "Average"
+      + tags_all                              = {
+          + "Environment" = "production"
+          + "ManagedBy"   = "Terraform"
+          + "Project"     = "ecs-backend-api"
+        }
+      + threshold                             = 80
+      + treat_missing_data                    = "notBreaching"
+    }
+
+  # module.monitoring.aws_cloudwatch_metric_alarm.this["rds_free_storage_low"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "this" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_name                            = "rds-free-storage-low-production"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "LessThanThreshold"
+      + dimensions                            = {
+          + "DBInstanceIdentifier" = "ecs-backend-db-production"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "FreeStorageSpace"
+      + namespace                             = "AWS/RDS"
+      + period                                = 60
+      + statistic                             = "Minimum"
+      + tags_all                              = {
+          + "Environment" = "production"
+          + "ManagedBy"   = "Terraform"
+          + "Project"     = "ecs-backend-api"
+        }
+      + threshold                             = 2147483648
+      + treat_missing_data                    = "notBreaching"
+    }
+
+  # module.monitoring.aws_cloudwatch_metric_alarm.this["target_5xx"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "this" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_name                            = "alb-target-5xx-production"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = (known after apply)
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "HTTPCode_Target_5XX_Count"
+      + namespace                             = "AWS/ApplicationELB"
+      + period                                = 60
+      + statistic                             = "Sum"
+      + tags_all                              = {
+          + "Environment" = "production"
+          + "ManagedBy"   = "Terraform"
+          + "Project"     = "ecs-backend-api"
+        }
+      + threshold                             = 5
+      + treat_missing_data                    = "notBreaching"
+    }
+
+  # module.monitoring.aws_cloudwatch_metric_alarm.this["unhealthy_hosts"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "this" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_name                            = "alb-unhealthy-hosts-production"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = (known after apply)
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "UnHealthyHostCount"
+      + namespace                             = "AWS/ApplicationELB"
+      + period                                = 60
+      + statistic                             = "Maximum"
+      + tags_all                              = {
+          + "Environment" = "production"
+          + "ManagedBy"   = "Terraform"
+          + "Project"     = "ecs-backend-api"
+        }
+      + threshold                             = 0
+      + treat_missing_data                    = "notBreaching"
+    }
+
+  # module.monitoring.aws_kms_key.sns will be created
+  + resource "aws_kms_key" "sns" {
+      + arn                                = (known after apply)
+      + bypass_policy_lockout_safety_check = false
+      + customer_master_key_spec           = "SYMMETRIC_DEFAULT"
+      + deletion_window_in_days            = 7
+      + description                        = "KMS key for the alarms SNS topic"
+      + enable_key_rotation                = true
+      + id                                 = (known after apply)
+      + is_enabled                         = true
+      + key_id                             = (known after apply)
+      + key_usage                          = "ENCRYPT_DECRYPT"
+      + multi_region                       = (known after apply)
+      + policy                             = jsonencode(
+            {
+              + Statement = [
+                  + {
+                      + Action    = "kms:*"
+                      + Effect    = "Allow"
+                      + Principal = {
+                          + AWS = "arn:aws:iam::111111111111:root"
+                        }
+                      + Resource  = "*"
+                      + Sid       = "Enable IAM User Permissions"
+                    },
+                  + {
+                      + Action    = [
+                          + "kms:Decrypt",
+                          + "kms:GenerateDataKey*",
+                        ]
+                      + Effect    = "Allow"
+                      + Principal = {
+                          + Service = "cloudwatch.amazonaws.com"
+                        }
+                      + Resource  = "*"
+                      + Sid       = "Allow CloudWatch Alarms to publish"
+                    },
+                ]
+              + Version   = "2012-10-17"
+            }
+        )
+      + rotation_period_in_days            = (known after apply)
+      + tags_all                           = {
+          + "Environment" = "production"
+          + "ManagedBy"   = "Terraform"
+          + "Project"     = "ecs-backend-api"
+        }
+    }
+
+  # module.monitoring.aws_sns_topic.alarms will be created
+  + resource "aws_sns_topic" "alarms" {
+      + arn                         = (known after apply)
+      + beginning_archive_time      = (known after apply)
+      + content_based_deduplication = false
+      + fifo_throughput_scope       = (known after apply)
+      + fifo_topic                  = false
+      + id                          = (known after apply)
+      + kms_master_key_id           = (known after apply)
+      + name                        = "alarms-production"
+      + name_prefix                 = (known after apply)
+      + owner                       = (known after apply)
+      + policy                      = (known after apply)
+      + signature_version           = (known after apply)
+      + tags_all                    = {
+          + "Environment" = "production"
+          + "ManagedBy"   = "Terraform"
+          + "Project"     = "ecs-backend-api"
+        }
+      + tracing_config              = (known after apply)
+    }
+
+  # module.networking.data.aws_iam_policy_document.vpc_flow_log_policy will be read during apply
+  # (config refers to values not yet known)
+ <= data "aws_iam_policy_document" "vpc_flow_log_policy" {
+      + id            = (known after apply)
+      + json          = (known after apply)
+      + minified_json = (known after apply)
+
+      + statement {
+          + actions   = [
+              + "logs:CreateLogGroup",
+              + "logs:CreateLogStream",
+              + "logs:DescribeLogGroups",
+              + "logs:DescribeLogStreams",
+              + "logs:PutLogEvents",
+            ]
+          + effect    = "Allow"
+          + resources = [
+              + (known after apply),
+              + (known after apply),
+            ]
+        }
+    }
+
+  # module.networking.aws_cloudwatch_log_group.vpc_flow_log will be created
+  + resource "aws_cloudwatch_log_group" "vpc_flow_log" {
+      + arn               = (known after apply)
+      + id                = (known after apply)
+      + log_group_class   = (known after apply)
+      + name              = "/aws/vpc/flow-log/production"
+      + name_prefix       = (known after apply)
+      + retention_in_days = 7
+      + skip_destroy      = false
+      + tags_all          = {
+          + "Environment" = "production"
+          + "ManagedBy"   = "Terraform"
+          + "Project"     = "ecs-backend-api"
+        }
+    }
+
+  # module.networking.aws_eip.nat will be created
+  + resource "aws_eip" "nat" {
+      + allocation_id        = (known after apply)
+      + arn                  = (known after apply)
+      + association_id       = (known after apply)
+      + carrier_ip           = (known after apply)
+      + customer_owned_ip    = (known after apply)
+      + domain               = "vpc"
+      + id                   = (known after apply)
+      + instance             = (known after apply)
+      + ipam_pool_id         = (known after apply)
+      + network_border_group = (known after apply)
+      + network_interface    = (known after apply)
+      + private_dns          = (known after apply)
+      + private_ip           = (known after apply)
+      + ptr_record           = (known after apply)
+      + public_dns           = (known after apply)
+      + public_ip            = (known after apply)
+      + public_ipv4_pool     = (known after apply)
+      + tags_all             = {
+          + "Environment" = "production"
+          + "ManagedBy"   = "Terraform"
+          + "Project"     = "ecs-backend-api"
+        }
+      + vpc                  = (known after apply)
+    }
+
+  # module.networking.aws_flow_log.main will be created
+  + resource "aws_flow_log" "main" {
+      + arn                      = (known after apply)
+      + iam_role_arn             = (known after apply)
+      + id                       = (known after apply)
+      + log_destination          = (known after apply)
+      + log_destination_type     = "cloud-watch-logs"
+      + log_format               = (known after apply)
+      + log_group_name           = (known after apply)
+      + max_aggregation_interval = 600
+      + tags_all                 = {
+          + "Environment" = "production"
+          + "ManagedBy"   = "Terraform"
+          + "Project"     = "ecs-backend-api"
+        }
+      + traffic_type             = "ALL"
+      + vpc_id                   = (known after apply)
+    }
+
+  # module.networking.aws_iam_role.vpc_flow_log_role will be created
+  + resource "aws_iam_role" "vpc_flow_log_role" {
+      + arn                   = (known after apply)
+      + assume_role_policy    = jsonencode(
+            {
+              + Statement = [
+                  + {
+                      + Action    = "sts:AssumeRole"
+                      + Effect    = "Allow"
+                      + Principal = {
+                          + Service = "vpc-flow-logs.amazonaws.com"
+                        }
+                    },
+                ]
+              + Version   = "2012-10-17"
+            }
+        )
+      + create_date           = (known after apply)
+      + force_detach_policies = false
+      + id                    = (known after apply)
+      + managed_policy_arns   = (known after apply)
+      + max_session_duration  = 3600
+      + name                  = "vpc-flow-log-role-production"
+      + name_prefix           = (known after apply)
+      + path                  = "/"
+      + tags_all              = {
+          + "Environment" = "production"
+          + "ManagedBy"   = "Terraform"
+          + "Project"     = "ecs-backend-api"
+        }
+      + unique_id             = (known after apply)
+
+      + inline_policy (known after apply)
+    }
+
+  # module.networking.aws_iam_role_policy.vpc_flow_log_policy_attachment will be created
+  + resource "aws_iam_role_policy" "vpc_flow_log_policy_attachment" {
+      + id          = (known after apply)
+      + name        = "vpc-flow-log-policy-production"
+      + name_prefix = (known after apply)
+      + policy      = (known after apply)
+      + role        = (known after apply)
+    }
+
+  # module.networking.aws_internet_gateway.igw will be created
+  + resource "aws_internet_gateway" "igw" {
+      + arn      = (known after apply)
+      + id       = (known after apply)
+      + owner_id = (known after apply)
+      + tags_all = {
+          + "Environment" = "production"
+          + "ManagedBy"   = "Terraform"
+          + "Project"     = "ecs-backend-api"
+        }
+      + vpc_id   = (known after apply)
+    }
+
+  # module.networking.aws_lb.app_alb will be created
+  + resource "aws_lb" "app_alb" {
+      + arn                                                          = (known after apply)
+      + arn_suffix                                                   = (known after apply)
+      + client_keep_alive                                            = 3600
+      + desync_mitigation_mode                                       = "defensive"
+      + dns_name                                                     = (known after apply)
+      + drop_invalid_header_fields                                   = true
+      + enable_deletion_protection                                   = false
+      + enable_http2                                                 = true
+      + enable_tls_version_and_cipher_suite_headers                  = false
+      + enable_waf_fail_open                                         = false
+      + enable_xff_client_port                                       = false
+      + enable_zonal_shift                                           = false
+      + enforce_security_group_inbound_rules_on_private_link_traffic = (known after apply)
+      + id                                                           = (known after apply)
+      + idle_timeout                                                 = 60
+      + internal                                                     = false
+      + ip_address_type                                              = (known after apply)
+      + load_balancer_type                                           = "application"
+      + name                                                         = "app-alb-production"
+      + name_prefix                                                  = (known after apply)
+      + preserve_host_header                                         = false
+      + security_groups                                              = (known after apply)
+      + subnets                                                      = (known after apply)
+      + tags_all                                                     = {
+          + "Environment" = "production"
+          + "ManagedBy"   = "Terraform"
+          + "Project"     = "ecs-backend-api"
+        }
+      + vpc_id                                                       = (known after apply)
+      + xff_header_processing_mode                                   = "append"
+      + zone_id                                                      = (known after apply)
+
+      + subnet_mapping (known after apply)
+    }
+
+  # module.networking.aws_lb_listener.app_listener will be created
+  + resource "aws_lb_listener" "app_listener" {
+      + arn                                                                   = (known after apply)
+      + id                                                                    = (known after apply)
+      + load_balancer_arn                                                     = (known after apply)
+      + port                                                                  = 80
+      + protocol                                                              = "HTTP"
+      + routing_http_request_x_amzn_mtls_clientcert_header_name               = (known after apply)
+      + routing_http_request_x_amzn_mtls_clientcert_issuer_header_name        = (known after apply)
+      + routing_http_request_x_amzn_mtls_clientcert_leaf_header_name          = (known after apply)
+      + routing_http_request_x_amzn_mtls_clientcert_serial_number_header_name = (known after apply)
+      + routing_http_request_x_amzn_mtls_clientcert_subject_header_name       = (known after apply)
+      + routing_http_request_x_amzn_mtls_clientcert_validity_header_name      = (known after apply)
+      + routing_http_request_x_amzn_tls_cipher_suite_header_name              = (known after apply)
+      + routing_http_request_x_amzn_tls_version_header_name                   = (known after apply)
+      + routing_http_response_access_control_allow_credentials_header_value   = (known after apply)
+      + routing_http_response_access_control_allow_headers_header_value       = (known after apply)
+      + routing_http_response_access_control_allow_methods_header_value       = (known after apply)
+      + routing_http_response_access_control_allow_origin_header_value        = (known after apply)
+      + routing_http_response_access_control_expose_headers_header_value      = (known after apply)
+      + routing_http_response_access_control_max_age_header_value             = (known after apply)
+      + routing_http_response_content_security_policy_header_value            = (known after apply)
+      + routing_http_response_server_enabled                                  = (known after apply)
+      + routing_http_response_strict_transport_security_header_value          = (known after apply)
+      + routing_http_response_x_content_type_options_header_value             = (known after apply)
+      + routing_http_response_x_frame_options_header_value                    = (known after apply)
+      + ssl_policy                                                            = (known after apply)
+      + tags_all                                                              = {
+          + "Environment" = "production"
+          + "ManagedBy"   = "Terraform"
+          + "Project"     = "ecs-backend-api"
+        }
+      + tcp_idle_timeout_seconds                                              = (known after apply)
+
+      + default_action {
+          + order            = (known after apply)
+          + target_group_arn = (known after apply)
+          + type             = "forward"
+        }
+
+      + mutual_authentication (known after apply)
+    }
+
+  # module.networking.aws_lb_target_group.app_tg will be created
+  + resource "aws_lb_target_group" "app_tg" {
+      + arn                                = (known after apply)
+      + arn_suffix                         = (known after apply)
+      + connection_termination             = (known after apply)
+      + deregistration_delay               = "300"
+      + id                                 = (known after apply)
+      + ip_address_type                    = (known after apply)
+      + lambda_multi_value_headers_enabled = false
+      + load_balancer_arns                 = (known after apply)
+      + load_balancing_algorithm_type      = (known after apply)
+      + load_balancing_anomaly_mitigation  = (known after apply)
+      + load_balancing_cross_zone_enabled  = (known after apply)
+      + name                               = "app-tg-production"
+      + name_prefix                        = (known after apply)
+      + port                               = 8080
+      + preserve_client_ip                 = (known after apply)
+      + protocol                           = "HTTP"
+      + protocol_version                   = (known after apply)
+      + proxy_protocol_v2                  = false
+      + slow_start                         = 0
+      + tags_all                           = {
+          + "Environment" = "production"
+          + "ManagedBy"   = "Terraform"
+          + "Project"     = "ecs-backend-api"
+        }
+      + target_type                        = "ip"
+      + vpc_id                             = (known after apply)
+
+      + health_check {
+          + enabled             = true
+          + healthy_threshold   = 2
+          + interval            = 30
+          + matcher             = "200"
+          + path                = "/health"
+          + port                = "traffic-port"
+          + protocol            = "HTTP"
+          + timeout             = 5
+          + unhealthy_threshold = 10
+        }
+
+      + stickiness (known after apply)
+
+      + target_failover (known after apply)
+
+      + target_group_health (known after apply)
+
+      + target_health_state (known after apply)
+    }
+
+  # module.networking.aws_nat_gateway.nat will be created
+  + resource "aws_nat_gateway" "nat" {
+      + allocation_id                      = (known after apply)
+      + association_id                     = (known after apply)
+      + connectivity_type                  = "public"
+      + id                                 = (known after apply)
+      + network_interface_id               = (known after apply)
+      + private_ip                         = (known after apply)
+      + public_ip                          = (known after apply)
+      + secondary_private_ip_address_count = (known after apply)
+      + secondary_private_ip_addresses     = (known after apply)
+      + subnet_id                          = (known after apply)
+      + tags_all                           = {
+          + "Environment" = "production"
+          + "ManagedBy"   = "Terraform"
+          + "Project"     = "ecs-backend-api"
+        }
+    }
+
+  # module.networking.aws_route_table.private will be created
+  + resource "aws_route_table" "private" {
+      + arn              = (known after apply)
+      + id               = (known after apply)
+      + owner_id         = (known after apply)
+      + propagating_vgws = (known after apply)
+      + route            = [
+          + {
+              + cidr_block                 = "0.0.0.0/0"
+              + nat_gateway_id             = (known after apply)
+                # (11 unchanged attributes hidden)
+            },
+        ]
+      + tags_all         = {
+          + "Environment" = "production"
+          + "ManagedBy"   = "Terraform"
+          + "Project"     = "ecs-backend-api"
+        }
+      + vpc_id           = (known after apply)
+    }
+
+  # module.networking.aws_route_table.public will be created
+  + resource "aws_route_table" "public" {
+      + arn              = (known after apply)
+      + id               = (known after apply)
+      + owner_id         = (known after apply)
+      + propagating_vgws = (known after apply)
+      + route            = [
+          + {
+              + cidr_block                 = "0.0.0.0/0"
+              + gateway_id                 = (known after apply)
+                # (11 unchanged attributes hidden)
+            },
+        ]
+      + tags_all         = {
+          + "Environment" = "production"
+          + "ManagedBy"   = "Terraform"
+          + "Project"     = "ecs-backend-api"
+        }
+      + vpc_id           = (known after apply)
+    }
+
+  # module.networking.aws_route_table_association.private[0] will be created
+  + resource "aws_route_table_association" "private" {
+      + id             = (known after apply)
+      + route_table_id = (known after apply)
+      + subnet_id      = (known after apply)
+    }
+
+  # module.networking.aws_route_table_association.private[1] will be created
+  + resource "aws_route_table_association" "private" {
+      + id             = (known after apply)
+      + route_table_id = (known after apply)
+      + subnet_id      = (known after apply)
+    }
+
+  # module.networking.aws_route_table_association.public[0] will be created
+  + resource "aws_route_table_association" "public" {
+      + id             = (known after apply)
+      + route_table_id = (known after apply)
+      + subnet_id      = (known after apply)
+    }
+
+  # module.networking.aws_route_table_association.public[1] will be created
+  + resource "aws_route_table_association" "public" {
+      + id             = (known after apply)
+      + route_table_id = (known after apply)
+      + subnet_id      = (known after apply)
+    }
+
+  # module.networking.aws_security_group.alb_sg will be created
+  + resource "aws_security_group" "alb_sg" {
+      + arn                    = (known after apply)
+      + description            = "Security group for Application Load Balancer"
+      + egress                 = [
+          + {
+              + cidr_blocks      = [
+                  + "10.0.0.0/16",
+                ]
+              + description      = "Allow outbound traffic only to VPC (ECS Tasks)"
+              + from_port        = 8080
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 8080
+            },
+        ]
+      + id                     = (known after apply)
+      + ingress                = [
+          + {
+              + cidr_blocks      = [
+                  + "203.0.113.1/32",
+                ]
+              + description      = "Allow HTTP inbound traffic from specified IPs"
+              + from_port        = 80
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 80
+            },
+        ]
+      + name                   = "alb-sg-production"
+      + name_prefix            = (known after apply)
+      + owner_id               = (known after apply)
+      + revoke_rules_on_delete = false
+      + tags_all               = {
+          + "Environment" = "production"
+          + "ManagedBy"   = "Terraform"
+          + "Project"     = "ecs-backend-api"
+        }
+      + vpc_id                 = (known after apply)
+    }
+
+  # module.networking.aws_security_group.db_sg will be created
+  + resource "aws_security_group" "db_sg" {
+      + arn                    = (known after apply)
+      + description            = "Allow traffic from ECS to RDS"
+      + egress                 = (known after apply)
+      + id                     = (known after apply)
+      + ingress                = (known after apply)
+      + name                   = "db-sg-production"
+      + name_prefix            = (known after apply)
+      + owner_id               = (known after apply)
+      + revoke_rules_on_delete = false
+      + tags_all               = {
+          + "Environment" = "production"
+          + "ManagedBy"   = "Terraform"
+          + "Project"     = "ecs-backend-api"
+        }
+      + vpc_id                 = (known after apply)
+    }
+
+  # module.networking.aws_security_group.ecs_sg will be created
+  + resource "aws_security_group" "ecs_sg" {
+      + arn                    = (known after apply)
+      + description            = "Security group for ECS Fargate tasks"
+      + egress                 = [
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = "Allow outbound HTTPS traffic for pulling ECR/Docker images"
+              + from_port        = 443
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 443
+            },
+          + {
+              + cidr_blocks      = []
+              + description      = "Allow PostgreSQL traffic strictly to the RDS security group"
+              + from_port        = 5432
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = (known after apply)
+              + self             = false
+              + to_port          = 5432
+            },
+        ]
+      + id                     = (known after apply)
+      + ingress                = [
+          + {
+              + cidr_blocks      = []
+              + description      = "Allow inbound traffic from ALB"
+              + from_port        = 8080
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = (known after apply)
+              + self             = false
+              + to_port          = 8080
+            },
+        ]
+      + name                   = "ecs-sg-production"
+      + name_prefix            = (known after apply)
+      + owner_id               = (known after apply)
+      + revoke_rules_on_delete = false
+      + tags_all               = {
+          + "Environment" = "production"
+          + "ManagedBy"   = "Terraform"
+          + "Project"     = "ecs-backend-api"
+        }
+      + vpc_id                 = (known after apply)
+    }
+
+  # module.networking.aws_subnet.private[0] will be created
+  + resource "aws_subnet" "private" {
+      + arn                                            = (known after apply)
+      + assign_ipv6_address_on_creation                = false
+      + availability_zone                              = "us-east-1a"
+      + availability_zone_id                           = (known after apply)
+      + cidr_block                                     = "10.0.2.0/24"
+      + enable_dns64                                   = false
+      + enable_resource_name_dns_a_record_on_launch    = false
+      + enable_resource_name_dns_aaaa_record_on_launch = false
+      + id                                             = (known after apply)
+      + ipv6_cidr_block_association_id                 = (known after apply)
+      + ipv6_native                                    = false
+      + map_public_ip_on_launch                        = false
+      + owner_id                                       = (known after apply)
+      + private_dns_hostname_type_on_launch            = (known after apply)
+      + tags_all                                       = {
+          + "Environment" = "production"
+          + "ManagedBy"   = "Terraform"
+          + "Project"     = "ecs-backend-api"
+        }
+      + vpc_id                                         = (known after apply)
+    }
+
+  # module.networking.aws_subnet.private[1] will be created
+  + resource "aws_subnet" "private" {
+      + arn                                            = (known after apply)
+      + assign_ipv6_address_on_creation                = false
+      + availability_zone                              = "us-east-1b"
+      + availability_zone_id                           = (known after apply)
+      + cidr_block                                     = "10.0.3.0/24"
+      + enable_dns64                                   = false
+      + enable_resource_name_dns_a_record_on_launch    = false
+      + enable_resource_name_dns_aaaa_record_on_launch = false
+      + id                                             = (known after apply)
+      + ipv6_cidr_block_association_id                 = (known after apply)
+      + ipv6_native                                    = false
+      + map_public_ip_on_launch                        = false
+      + owner_id                                       = (known after apply)
+      + private_dns_hostname_type_on_launch            = (known after apply)
+      + tags_all                                       = {
+          + "Environment" = "production"
+          + "ManagedBy"   = "Terraform"
+          + "Project"     = "ecs-backend-api"
+        }
+      + vpc_id                                         = (known after apply)
+    }
+
+  # module.networking.aws_subnet.public[0] will be created
+  + resource "aws_subnet" "public" {
+      + arn                                            = (known after apply)
+      + assign_ipv6_address_on_creation                = false
+      + availability_zone                              = "us-east-1a"
+      + availability_zone_id                           = (known after apply)
+      + cidr_block                                     = "10.0.0.0/24"
+      + enable_dns64                                   = false
+      + enable_resource_name_dns_a_record_on_launch    = false
+      + enable_resource_name_dns_aaaa_record_on_launch = false
+      + id                                             = (known after apply)
+      + ipv6_cidr_block_association_id                 = (known after apply)
+      + ipv6_native                                    = false
+      + map_public_ip_on_launch                        = false
+      + owner_id                                       = (known after apply)
+      + private_dns_hostname_type_on_launch            = (known after apply)
+      + tags_all                                       = {
+          + "Environment" = "production"
+          + "ManagedBy"   = "Terraform"
+          + "Project"     = "ecs-backend-api"
+        }
+      + vpc_id                                         = (known after apply)
+    }
+
+  # module.networking.aws_subnet.public[1] will be created
+  + resource "aws_subnet" "public" {
+      + arn                                            = (known after apply)
+      + assign_ipv6_address_on_creation                = false
+      + availability_zone                              = "us-east-1b"
+      + availability_zone_id                           = (known after apply)
+      + cidr_block                                     = "10.0.1.0/24"
+      + enable_dns64                                   = false
+      + enable_resource_name_dns_a_record_on_launch    = false
+      + enable_resource_name_dns_aaaa_record_on_launch = false
+      + id                                             = (known after apply)
+      + ipv6_cidr_block_association_id                 = (known after apply)
+      + ipv6_native                                    = false
+      + map_public_ip_on_launch                        = false
+      + owner_id                                       = (known after apply)
+      + private_dns_hostname_type_on_launch            = (known after apply)
+      + tags_all                                       = {
+          + "Environment" = "production"
+          + "ManagedBy"   = "Terraform"
+          + "Project"     = "ecs-backend-api"
+        }
+      + vpc_id                                         = (known after apply)
+    }
+
+  # module.networking.aws_vpc.main will be created
+  + resource "aws_vpc" "main" {
+      + arn                                  = (known after apply)
+      + cidr_block                           = "10.0.0.0/16"
+      + default_network_acl_id               = (known after apply)
+      + default_route_table_id               = (known after apply)
+      + default_security_group_id            = (known after apply)
+      + dhcp_options_id                      = (known after apply)
+      + enable_dns_hostnames                 = true
+      + enable_dns_support                   = true
+      + enable_network_address_usage_metrics = (known after apply)
+      + id                                   = (known after apply)
+      + instance_tenancy                     = "default"
+      + ipv6_association_id                  = (known after apply)
+      + ipv6_cidr_block                      = (known after apply)
+      + ipv6_cidr_block_network_border_group = (known after apply)
+      + main_route_table_id                  = (known after apply)
+      + owner_id                             = (known after apply)
+      + tags_all                             = {
+          + "Environment" = "production"
+          + "ManagedBy"   = "Terraform"
+          + "Project"     = "ecs-backend-api"
+        }
+    }
+
+  # module.networking.aws_vpc_security_group_ingress_rule.db_from_ecs will be created
+  + resource "aws_vpc_security_group_ingress_rule" "db_from_ecs" {
+      + arn                          = (known after apply)
+      + description                  = "Allow PostgreSQL traffic strictly from ECS tasks"
+      + from_port                    = 5432
+      + id                           = (known after apply)
+      + ip_protocol                  = "tcp"
+      + referenced_security_group_id = (known after apply)
+      + security_group_id            = (known after apply)
+      + security_group_rule_id       = (known after apply)
+      + tags_all                     = {
+          + "Environment" = "production"
+          + "ManagedBy"   = "Terraform"
+          + "Project"     = "ecs-backend-api"
+        }
+      + to_port                      = 5432
+    }
+
+Plan: 51 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  + alarm_names        = {
+      + ecs_cpu_high         = "ecs-cpu-high-production"
+      + rds_cpu_high         = "rds-cpu-high-production"
+      + rds_free_storage_low = "rds-free-storage-low-production"
+      + target_5xx           = "alb-target-5xx-production"
+      + unhealthy_hosts      = "alb-unhealthy-hosts-production"
+    }
+  + alb_dns_name       = (known after apply)
+  + cluster_name       = "app-cluster-production"
+  + ecr_repository_url = (known after apply)
+  + service_name       = "app-service-production"
+  + sns_topic_arn      = (known after apply)
+
+--------------------
+
+Saved the plan to: tfplan
+
+To perform exactly these actions, run the following command to apply:
+    terraform apply "tfplan"

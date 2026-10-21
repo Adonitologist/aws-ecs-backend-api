@@ -4,20 +4,20 @@
 == Target groups
 == RDS instances
 == RDS snapshots
-ecs-backend-db-final-snapshot-production
 == ECR repositories
 == Secrets
 == Log groups
-/aws/ecs/containerinsights/app-cluster-production/performance	/aws/lambda/event-processor-production	/aws/vpc/flow-log/production
+/aws/lambda/event-processor-production
 == NAT gateways (not deleted)
 == Elastic IPs
-eipalloc-0ed5a0fdb456a7d31
 == VPCs
 == SNS topics
 == CloudWatch alarms
 == IAM roles
 == KMS keys of this project (PendingDeletion is expected for 7 days)
+09c139a4-7c33-47f4-930d-a4df94bb482d	PendingDeletion	KMS key for CloudWatch Log Group encryption
 3869bcdb-e453-4f96-9a22-9dcac1f88c2b	PendingDeletion	KMS key for the alarms SNS topic
+87805bfd-a5c4-4962-8a6d-be82e9205e34	PendingDeletion	KMS key for the alarms SNS topic
+cd1ab129-1db8-4a02-be25-f5cce691b2d7	PendingDeletion	KMS customer managed key for RDS and Secrets Manager
 dc4f9d35-2788-473d-83f7-d5db83dd0a57	PendingDeletion	KMS customer managed key for RDS and Secrets Manager
 e9a93bec-1250-4f5d-9b46-7f91ae796d83	PendingDeletion	KMS key for CloudWatch Log Group encryption
-

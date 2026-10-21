@@ -1,0 +1,29 @@
+{
+    "AlarmHistoryItems": [
+        {
+            "AlarmName": "alb-unhealthy-hosts-production",
+            "AlarmType": "MetricAlarm",
+            "Timestamp": "2026-10-21T21:23:26.026000+02:00",
+            "HistoryItemType": "StateUpdate",
+            "HistorySummary": "Alarm updated from OK to ALARM",
+            "HistoryData": "{\"version\":\"1.0\",\"oldState\":{\"stateValue\":\"OK\",\"stateReason\":\"Threshold Crossed: 1 datapoint [0.0 (21/10/26 12:42:00)] was not greater than the threshold (0.0).\",\"stateReasonData\":{\"version\":\"1.0\",\"queryDate\":\"2026-10-21T12:45:00.900+0000\",\"startDate\":\"2026-10-21T12:42:00.000+0000\",\"statistic\":\"Maximum\",\"period\":60,\"recentDatapoints\":[0.0],\"threshold\":0.0,\"evaluatedDatapoints\":[{\"timestamp\":\"2026-10-21T12:42:00.000+0000\",\"sampleCount\":2.0,\"value\":0.0}]}},\"newState\":{\"stateValue\":\"ALARM\",\"stateReason\":\"manual test\"}}"
+        },
+        {
+            "AlarmName": "alb-unhealthy-hosts-production",
+            "AlarmType": "MetricAlarm",
+            "Timestamp": "2026-10-21T14:45:00.903000+02:00",
+            "HistoryItemType": "StateUpdate",
+            "HistorySummary": "Alarm updated from ALARM to OK",
+            "HistoryData": "{\"version\":\"1.0\",\"oldState\":{\"stateValue\":\"ALARM\",\"stateReason\":\"Threshold Crossed: 1 datapoint [1.0 (21/10/26 12:28:00)] was greater than the threshold (0.0).\",\"stateReasonData\":{\"version\":\"1.0\",\"queryDate\":\"2026-10-21T12:31:00.899+0000\",\"startDate\":\"2026-10-21T12:28:00.000+0000\",\"statistic\":\"Maximum\",\"period\":60,\"recentDatapoints\":[1.0],\"threshold\":0.0,\"evaluatedDatapoints\":[{\"timestamp\":\"2026-10-21T12:28:00.000+0000\",\"sampleCount\":2.0,\"value\":1.0}]}},\"newState\":{\"stateValue\":\"OK\",\"stateReason\":\"Threshold Crossed: 1 datapoint [0.0 (21/10/26 12:42:00)] was not greater than the threshold (0.0).\",\"stateReasonData\":{\"version\":\"1.0\",\"queryDate\":\"2026-10-21T12:45:00.900+0000\",\"startDate\":\"2026-10-21T12:42:00.000+0000\",\"statistic\":\"Maximum\",\"period\":60,\"recentDatapoints\":[0.0],\"threshold\":0.0,\"evaluatedDatapoints\":[{\"timestamp\":\"2026-10-21T12:42:00.000+0000\",\"sampleCount\":2.0,\"value\":0.0}]}}}"
+        },
+        {
+            "AlarmName": "alb-unhealthy-hosts-production",
+            "AlarmType": "MetricAlarm",
+            "Timestamp": "2026-10-21T14:31:00.901000+02:00",
+            "HistoryItemType": "StateUpdate",
+            "HistorySummary": "Alarm updated from OK to ALARM",
+            "HistoryData": "{\"version\":\"1.0\",\"oldState\":{\"stateValue\":\"OK\",\"stateReason\":\"Threshold Crossed: 1 datapoint [0.0 (21/10/26 12:20:00)] was not greater than the threshold (0.0).\",\"stateReasonData\":{\"version\":\"1.0\",\"queryDate\":\"2026-10-21T12:23:00.903+0000\",\"startDate\":\"2026-10-21T12:20:00.000+0000\",\"statistic\":\"Maximum\",\"period\":60,\"recentDatapoints\":[0.0],\"threshold\":0.0,\"evaluatedDatapoints\":[{\"timestamp\":\"2026-10-21T12:20:00.000+0000\",\"sampleCount\":2.0,\"value\":0.0}]}},\"newState\":{\"stateValue\":\"ALARM\",\"stateReason\":\"Threshold Crossed: 1 datapoint [1.0 (21/10/26 12:28:00)] was greater than the threshold (0.0).\",\"stateReasonData\":{\"version\":\"1.0\",\"queryDate\":\"2026-10-21T12:31:00.899+0000\",\"startDate\":\"2026-10-21T12:28:00.000+0000\",\"statistic\":\"Maximum\",\"period\":60,\"recentDatapoints\":[1.0],\"threshold\":0.0,\"evaluatedDatapoints\":[{\"timestamp\":\"2026-10-21T12:28:00.000+0000\",\"sampleCount\":2.0,\"value\":1.0}]}}}"
+        }
+    ],
+    "NextToken": "eyJOZXh0VG9rZW4iOiBudWxsLCAiYm90b190cnVuY2F0ZV9hbW91bnQiOiAzfQ=="
+}

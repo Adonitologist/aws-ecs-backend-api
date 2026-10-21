@@ -1,0 +1,4 @@
+Operator observation, 2026-10-21, after terraform destroy (51 destroyed, 0 in state):
+log group /aws/vpc/flow-log/production existed again, created 21:37 local time, 0 bytes, no retention, no tags.
+It was not created by Terraform (Terraform's group has retention 7 and tags). Deleted manually with aws logs delete-log-group.
+Result: docs/evidence/07-leftovers-after-destroy.txt

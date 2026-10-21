@@ -5,8 +5,8 @@ module.networking.data.aws_availability_zones.available: Reading...
 module.monitoring.data.aws_caller_identity.current: Reading...
 module.networking.data.aws_iam_policy_document.vpc_flow_log_assume_role: Reading...
 module.networking.aws_cloudwatch_log_group.vpc_flow_log: Refreshing state... [id=/aws/vpc/flow-log/production]
-module.networking.aws_vpc.main: Refreshing state... [id=vpc-00e53f2879cf6c719]
-module.networking.aws_eip.nat: Refreshing state... [id=eipalloc-0b90189fc93fd3b8d]
+module.networking.aws_vpc.main: Refreshing state... [id=vpc-REDACTED]
+module.networking.aws_eip.nat: Refreshing state... [id=eipalloc-REDACTED]
 module.ecs.aws_ecr_repository.app: Refreshing state... [id=app-production]
 module.ecs.aws_ecs_cluster.main: Refreshing state... [id=arn:aws:ecs:us-east-1:111111111111:cluster/app-cluster-production]
 module.ecs.aws_iam_role.ecs_execution_role: Refreshing state... [id=ecs-execution-role-production]
@@ -28,28 +28,28 @@ module.database.aws_secretsmanager_secret.db_credentials: Refreshing state... [i
 module.monitoring.aws_sns_topic.alarms: Refreshing state... [id=arn:aws:sns:us-east-1:111111111111:alarms-production]
 module.ecs.aws_cloudwatch_log_group.ecs_logs: Refreshing state... [id=/ecs/app-production]
 module.networking.aws_flow_log.main: Refreshing state... [id=fl-02e2e121a7393f06d]
-module.networking.aws_subnet.private[0]: Refreshing state... [id=subnet-051934c073502cae5]
-module.networking.aws_security_group.db_sg: Refreshing state... [id=sg-03d1a0192534e0c1e]
-module.networking.aws_subnet.private[1]: Refreshing state... [id=subnet-0fd7f9b160bb32ce3]
-module.networking.aws_subnet.public[0]: Refreshing state... [id=subnet-0d7e96ca359f70691]
-module.networking.aws_security_group.alb_sg: Refreshing state... [id=sg-0d75577aecdeb1534]
+module.networking.aws_subnet.private[0]: Refreshing state... [id=subnet-REDACTED]
+module.networking.aws_security_group.db_sg: Refreshing state... [id=sg-REDACTED]
+module.networking.aws_subnet.private[1]: Refreshing state... [id=subnet-REDACTED]
+module.networking.aws_subnet.public[0]: Refreshing state... [id=subnet-REDACTED]
+module.networking.aws_security_group.alb_sg: Refreshing state... [id=sg-REDACTED]
 module.networking.aws_lb_target_group.app_tg: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:111111111111:targetgroup/app-tg-production/a29bad310cfbfcbf]
-module.networking.aws_subnet.public[1]: Refreshing state... [id=subnet-0dbd11767ba292601]
-module.networking.aws_internet_gateway.igw: Refreshing state... [id=igw-088af43cbd33911a1]
+module.networking.aws_subnet.public[1]: Refreshing state... [id=subnet-REDACTED]
+module.networking.aws_internet_gateway.igw: Refreshing state... [id=igw-REDACTED]
 module.ecs.aws_iam_policy.secrets_policy: Refreshing state... [id=arn:aws:iam::111111111111:policy/ecs-secrets-policy-production]
 module.ecs.aws_ecs_task_definition.app: Refreshing state... [id=app-task-production]
 module.database.aws_db_subnet_group.default: Refreshing state... [id=main-db-subnet-group-production]
-module.networking.aws_security_group.ecs_sg: Refreshing state... [id=sg-06266e73f4c71fd4c]
+module.networking.aws_security_group.ecs_sg: Refreshing state... [id=sg-REDACTED]
 module.ecs.aws_iam_role_policy_attachment.ecs_secrets_attachment: Refreshing state... [id=ecs-execution-role-production-20261020115953649500000005]
 module.networking.aws_lb.app_alb: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:111111111111:loadbalancer/app/app-alb-production/20682b08fa1ea082]
-module.networking.aws_nat_gateway.nat: Refreshing state... [id=nat-010bb842a778d9ccd]
-module.networking.aws_route_table.public: Refreshing state... [id=rtb-09f57462ed98a97d8]
-module.networking.aws_vpc_security_group_ingress_rule.db_from_ecs: Refreshing state... [id=sgr-07d9b83dde771b878]
-module.networking.aws_route_table.private: Refreshing state... [id=rtb-0964dc109b2146c00]
-module.networking.aws_route_table_association.public[0]: Refreshing state... [id=rtbassoc-0938fb533fd40fd8b]
-module.networking.aws_route_table_association.public[1]: Refreshing state... [id=rtbassoc-0c783c3df474fb21b]
-module.networking.aws_route_table_association.private[1]: Refreshing state... [id=rtbassoc-089d4d84737884351]
-module.networking.aws_route_table_association.private[0]: Refreshing state... [id=rtbassoc-0aed500ae637e40ce]
+module.networking.aws_nat_gateway.nat: Refreshing state... [id=nat-REDACTED]
+module.networking.aws_route_table.public: Refreshing state... [id=rtb-REDACTED]
+module.networking.aws_vpc_security_group_ingress_rule.db_from_ecs: Refreshing state... [id=sgr-REDACTED]
+module.networking.aws_route_table.private: Refreshing state... [id=rtb-REDACTED]
+module.networking.aws_route_table_association.public[0]: Refreshing state... [id=rtbassoc-REDACTED]
+module.networking.aws_route_table_association.public[1]: Refreshing state... [id=rtbassoc-REDACTED]
+module.networking.aws_route_table_association.private[1]: Refreshing state... [id=rtbassoc-REDACTED]
+module.networking.aws_route_table_association.private[0]: Refreshing state... [id=rtbassoc-REDACTED]
 module.ecs.aws_ecs_service.app: Refreshing state... [id=arn:aws:ecs:us-east-1:111111111111:service/app-cluster-production/app-service-production]
 module.database.aws_db_instance.postgres: Refreshing state... [id=db-IXOBLJHIIWM53POCSNPZ4TLRRQ]
 module.ecs.aws_appautoscaling_target.ecs_target: Refreshing state... [id=service/app-cluster-production/app-service-production]
@@ -135,7 +135,7 @@ Terraform will perform the following actions:
         } -> null
       - username                              = "dbadmin" -> null
       - vpc_security_group_ids                = [
-          - "sg-03d1a0192534e0c1e",
+          - "sg-REDACTED",
         ] -> null
         # (14 unchanged attributes hidden)
     }
@@ -147,8 +147,8 @@ Terraform will perform the following actions:
       - id                      = "main-db-subnet-group-production" -> null
       - name                    = "main-db-subnet-group-production" -> null
       - subnet_ids              = [
-          - "subnet-051934c073502cae5",
-          - "subnet-0fd7f9b160bb32ce3",
+          - "subnet-REDACTED",
+          - "subnet-REDACTED",
         ] -> null
       - supported_network_types = [
           - "IPV4",
@@ -159,7 +159,7 @@ Terraform will perform the following actions:
           - "ManagedBy"   = "Terraform"
           - "Project"     = "ecs-backend-api"
         } -> null
-      - vpc_id                  = "vpc-00e53f2879cf6c719" -> null
+      - vpc_id                  = "vpc-REDACTED" -> null
         # (1 unchanged attribute hidden)
     }
 
@@ -438,11 +438,11 @@ Terraform will perform the following actions:
       - network_configuration {
           - assign_public_ip = false -> null
           - security_groups  = [
-              - "sg-06266e73f4c71fd4c",
+              - "sg-REDACTED",
             ] -> null
           - subnets          = [
-              - "subnet-051934c073502cae5",
-              - "subnet-0fd7f9b160bb32ce3",
+              - "subnet-REDACTED",
+              - "subnet-REDACTED",
             ] -> null
         }
     }
@@ -943,13 +943,13 @@ Terraform will perform the following actions:
 
   # module.networking.aws_eip.nat will be destroyed
   - resource "aws_eip" "nat" {
-      - allocation_id            = "eipalloc-0b90189fc93fd3b8d" -> null
-      - arn                      = "arn:aws:ec2:us-east-1:111111111111:elastic-ip/eipalloc-0b90189fc93fd3b8d" -> null
+      - allocation_id            = "eipalloc-REDACTED" -> null
+      - arn                      = "arn:aws:ec2:us-east-1:111111111111:elastic-ip/eipalloc-REDACTED" -> null
       - association_id           = "eipassoc-0cf02397ee5bd0b4d" -> null
       - domain                   = "vpc" -> null
-      - id                       = "eipalloc-0b90189fc93fd3b8d" -> null
+      - id                       = "eipalloc-REDACTED" -> null
       - network_border_group     = "us-east-1" -> null
-      - network_interface        = "eni-01bd1d74e8c022ae5" -> null
+      - network_interface        = "eni-REDACTED" -> null
       - private_dns              = "ip-10-0-0-58.ec2.internal" -> null
       - private_ip               = "10.0.0.58" -> null
       - public_dns               = "ec2-54-243-191-108.compute-1.amazonaws.com" -> null
@@ -982,7 +982,7 @@ Terraform will perform the following actions:
           - "Project"     = "ecs-backend-api"
         } -> null
       - traffic_type               = "ALL" -> null
-      - vpc_id                     = "vpc-00e53f2879cf6c719" -> null
+      - vpc_id                     = "vpc-REDACTED" -> null
         # (1 unchanged attribute hidden)
     }
 
@@ -1076,8 +1076,8 @@ Terraform will perform the following actions:
 
   # module.networking.aws_internet_gateway.igw will be destroyed
   - resource "aws_internet_gateway" "igw" {
-      - arn      = "arn:aws:ec2:us-east-1:111111111111:internet-gateway/igw-088af43cbd33911a1" -> null
-      - id       = "igw-088af43cbd33911a1" -> null
+      - arn      = "arn:aws:ec2:us-east-1:111111111111:internet-gateway/igw-REDACTED" -> null
+      - id       = "igw-REDACTED" -> null
       - owner_id = "111111111111" -> null
       - tags     = {} -> null
       - tags_all = {
@@ -1085,7 +1085,7 @@ Terraform will perform the following actions:
           - "ManagedBy"   = "Terraform"
           - "Project"     = "ecs-backend-api"
         } -> null
-      - vpc_id   = "vpc-00e53f2879cf6c719" -> null
+      - vpc_id   = "vpc-REDACTED" -> null
     }
 
   # module.networking.aws_lb.app_alb will be destroyed
@@ -1094,7 +1094,7 @@ Terraform will perform the following actions:
       - arn_suffix                                                   = "app/app-alb-production/20682b08fa1ea082" -> null
       - client_keep_alive                                            = 3600 -> null
       - desync_mitigation_mode                                       = "defensive" -> null
-      - dns_name                                                     = "app-alb-production-301842800.us-east-1.elb.amazonaws.com" -> null
+      - dns_name                                                     = "ALB-DNS-REDACTED" -> null
       - drop_invalid_header_fields                                   = true -> null
       - enable_cross_zone_load_balancing                             = true -> null
       - enable_deletion_protection                                   = false -> null
@@ -1111,11 +1111,11 @@ Terraform will perform the following actions:
       - name                                                         = "app-alb-production" -> null
       - preserve_host_header                                         = false -> null
       - security_groups                                              = [
-          - "sg-0d75577aecdeb1534",
+          - "sg-REDACTED",
         ] -> null
       - subnets                                                      = [
-          - "subnet-0d7e96ca359f70691",
-          - "subnet-0dbd11767ba292601",
+          - "subnet-REDACTED",
+          - "subnet-REDACTED",
         ] -> null
       - tags                                                         = {} -> null
       - tags_all                                                     = {
@@ -1123,7 +1123,7 @@ Terraform will perform the following actions:
           - "ManagedBy"   = "Terraform"
           - "Project"     = "ecs-backend-api"
         } -> null
-      - vpc_id                                                       = "vpc-00e53f2879cf6c719" -> null
+      - vpc_id                                                       = "vpc-REDACTED" -> null
       - xff_header_processing_mode                                   = "append" -> null
       - zone_id                                                      = "Z35SXDOTRQ7X7K" -> null
         # (3 unchanged attributes hidden)
@@ -1139,11 +1139,11 @@ Terraform will perform the following actions:
         }
 
       - subnet_mapping {
-          - subnet_id            = "subnet-0d7e96ca359f70691" -> null
+          - subnet_id            = "subnet-REDACTED" -> null
             # (4 unchanged attributes hidden)
         }
       - subnet_mapping {
-          - subnet_id            = "subnet-0dbd11767ba292601" -> null
+          - subnet_id            = "subnet-REDACTED" -> null
             # (4 unchanged attributes hidden)
         }
     }
@@ -1198,7 +1198,7 @@ Terraform will perform the following actions:
           - "Project"     = "ecs-backend-api"
         } -> null
       - target_type                        = "ip" -> null
-      - vpc_id                             = "vpc-00e53f2879cf6c719" -> null
+      - vpc_id                             = "vpc-REDACTED" -> null
         # (1 unchanged attribute hidden)
 
       - health_check {
@@ -1238,17 +1238,17 @@ Terraform will perform the following actions:
 
   # module.networking.aws_nat_gateway.nat will be destroyed
   - resource "aws_nat_gateway" "nat" {
-      - allocation_id                      = "eipalloc-0b90189fc93fd3b8d" -> null
+      - allocation_id                      = "eipalloc-REDACTED" -> null
       - association_id                     = "eipassoc-0cf02397ee5bd0b4d" -> null
       - connectivity_type                  = "public" -> null
-      - id                                 = "nat-010bb842a778d9ccd" -> null
-      - network_interface_id               = "eni-01bd1d74e8c022ae5" -> null
+      - id                                 = "nat-REDACTED" -> null
+      - network_interface_id               = "eni-REDACTED" -> null
       - private_ip                         = "10.0.0.58" -> null
       - public_ip                          = "203.0.113.1" -> null
       - secondary_allocation_ids           = [] -> null
       - secondary_private_ip_address_count = 0 -> null
       - secondary_private_ip_addresses     = [] -> null
-      - subnet_id                          = "subnet-0d7e96ca359f70691" -> null
+      - subnet_id                          = "subnet-REDACTED" -> null
       - tags                               = {} -> null
       - tags_all                           = {
           - "Environment" = "production"
@@ -1259,14 +1259,14 @@ Terraform will perform the following actions:
 
   # module.networking.aws_route_table.private will be destroyed
   - resource "aws_route_table" "private" {
-      - arn              = "arn:aws:ec2:us-east-1:111111111111:route-table/rtb-0964dc109b2146c00" -> null
-      - id               = "rtb-0964dc109b2146c00" -> null
+      - arn              = "arn:aws:ec2:us-east-1:111111111111:route-table/rtb-REDACTED" -> null
+      - id               = "rtb-REDACTED" -> null
       - owner_id         = "111111111111" -> null
       - propagating_vgws = [] -> null
       - route            = [
           - {
               - cidr_block                 = "0.0.0.0/0"
-              - nat_gateway_id             = "nat-010bb842a778d9ccd"
+              - nat_gateway_id             = "nat-REDACTED"
                 # (11 unchanged attributes hidden)
             },
         ] -> null
@@ -1276,19 +1276,19 @@ Terraform will perform the following actions:
           - "ManagedBy"   = "Terraform"
           - "Project"     = "ecs-backend-api"
         } -> null
-      - vpc_id           = "vpc-00e53f2879cf6c719" -> null
+      - vpc_id           = "vpc-REDACTED" -> null
     }
 
   # module.networking.aws_route_table.public will be destroyed
   - resource "aws_route_table" "public" {
-      - arn              = "arn:aws:ec2:us-east-1:111111111111:route-table/rtb-09f57462ed98a97d8" -> null
-      - id               = "rtb-09f57462ed98a97d8" -> null
+      - arn              = "arn:aws:ec2:us-east-1:111111111111:route-table/rtb-REDACTED" -> null
+      - id               = "rtb-REDACTED" -> null
       - owner_id         = "111111111111" -> null
       - propagating_vgws = [] -> null
       - route            = [
           - {
               - cidr_block                 = "0.0.0.0/0"
-              - gateway_id                 = "igw-088af43cbd33911a1"
+              - gateway_id                 = "igw-REDACTED"
                 # (11 unchanged attributes hidden)
             },
         ] -> null
@@ -1298,44 +1298,44 @@ Terraform will perform the following actions:
           - "ManagedBy"   = "Terraform"
           - "Project"     = "ecs-backend-api"
         } -> null
-      - vpc_id           = "vpc-00e53f2879cf6c719" -> null
+      - vpc_id           = "vpc-REDACTED" -> null
     }
 
   # module.networking.aws_route_table_association.private[0] will be destroyed
   - resource "aws_route_table_association" "private" {
-      - id             = "rtbassoc-0aed500ae637e40ce" -> null
-      - route_table_id = "rtb-0964dc109b2146c00" -> null
-      - subnet_id      = "subnet-051934c073502cae5" -> null
+      - id             = "rtbassoc-REDACTED" -> null
+      - route_table_id = "rtb-REDACTED" -> null
+      - subnet_id      = "subnet-REDACTED" -> null
         # (1 unchanged attribute hidden)
     }
 
   # module.networking.aws_route_table_association.private[1] will be destroyed
   - resource "aws_route_table_association" "private" {
-      - id             = "rtbassoc-089d4d84737884351" -> null
-      - route_table_id = "rtb-0964dc109b2146c00" -> null
-      - subnet_id      = "subnet-0fd7f9b160bb32ce3" -> null
+      - id             = "rtbassoc-REDACTED" -> null
+      - route_table_id = "rtb-REDACTED" -> null
+      - subnet_id      = "subnet-REDACTED" -> null
         # (1 unchanged attribute hidden)
     }
 
   # module.networking.aws_route_table_association.public[0] will be destroyed
   - resource "aws_route_table_association" "public" {
-      - id             = "rtbassoc-0938fb533fd40fd8b" -> null
-      - route_table_id = "rtb-09f57462ed98a97d8" -> null
-      - subnet_id      = "subnet-0d7e96ca359f70691" -> null
+      - id             = "rtbassoc-REDACTED" -> null
+      - route_table_id = "rtb-REDACTED" -> null
+      - subnet_id      = "subnet-REDACTED" -> null
         # (1 unchanged attribute hidden)
     }
 
   # module.networking.aws_route_table_association.public[1] will be destroyed
   - resource "aws_route_table_association" "public" {
-      - id             = "rtbassoc-0c783c3df474fb21b" -> null
-      - route_table_id = "rtb-09f57462ed98a97d8" -> null
-      - subnet_id      = "subnet-0dbd11767ba292601" -> null
+      - id             = "rtbassoc-REDACTED" -> null
+      - route_table_id = "rtb-REDACTED" -> null
+      - subnet_id      = "subnet-REDACTED" -> null
         # (1 unchanged attribute hidden)
     }
 
   # module.networking.aws_security_group.alb_sg will be destroyed
   - resource "aws_security_group" "alb_sg" {
-      - arn                    = "arn:aws:ec2:us-east-1:111111111111:security-group/sg-0d75577aecdeb1534" -> null
+      - arn                    = "arn:aws:ec2:us-east-1:111111111111:security-group/sg-REDACTED" -> null
       - description            = "Security group for Application Load Balancer" -> null
       - egress                 = [
           - {
@@ -1352,7 +1352,7 @@ Terraform will perform the following actions:
               - to_port          = 8080
             },
         ] -> null
-      - id                     = "sg-0d75577aecdeb1534" -> null
+      - id                     = "sg-REDACTED" -> null
       - ingress                = [
           - {
               - cidr_blocks      = [
@@ -1377,16 +1377,16 @@ Terraform will perform the following actions:
           - "ManagedBy"   = "Terraform"
           - "Project"     = "ecs-backend-api"
         } -> null
-      - vpc_id                 = "vpc-00e53f2879cf6c719" -> null
+      - vpc_id                 = "vpc-REDACTED" -> null
         # (1 unchanged attribute hidden)
     }
 
   # module.networking.aws_security_group.db_sg will be destroyed
   - resource "aws_security_group" "db_sg" {
-      - arn                    = "arn:aws:ec2:us-east-1:111111111111:security-group/sg-03d1a0192534e0c1e" -> null
+      - arn                    = "arn:aws:ec2:us-east-1:111111111111:security-group/sg-REDACTED" -> null
       - description            = "Allow traffic from ECS to RDS" -> null
       - egress                 = [] -> null
-      - id                     = "sg-03d1a0192534e0c1e" -> null
+      - id                     = "sg-REDACTED" -> null
       - ingress                = [
           - {
               - cidr_blocks      = []
@@ -1396,7 +1396,7 @@ Terraform will perform the following actions:
               - prefix_list_ids  = []
               - protocol         = "tcp"
               - security_groups  = [
-                  - "sg-06266e73f4c71fd4c",
+                  - "sg-REDACTED",
                 ]
               - self             = false
               - to_port          = 5432
@@ -1411,13 +1411,13 @@ Terraform will perform the following actions:
           - "ManagedBy"   = "Terraform"
           - "Project"     = "ecs-backend-api"
         } -> null
-      - vpc_id                 = "vpc-00e53f2879cf6c719" -> null
+      - vpc_id                 = "vpc-REDACTED" -> null
         # (1 unchanged attribute hidden)
     }
 
   # module.networking.aws_security_group.ecs_sg will be destroyed
   - resource "aws_security_group" "ecs_sg" {
-      - arn                    = "arn:aws:ec2:us-east-1:111111111111:security-group/sg-06266e73f4c71fd4c" -> null
+      - arn                    = "arn:aws:ec2:us-east-1:111111111111:security-group/sg-REDACTED" -> null
       - description            = "Security group for ECS Fargate tasks" -> null
       - egress                 = [
           - {
@@ -1441,13 +1441,13 @@ Terraform will perform the following actions:
               - prefix_list_ids  = []
               - protocol         = "tcp"
               - security_groups  = [
-                  - "sg-03d1a0192534e0c1e",
+                  - "sg-REDACTED",
                 ]
               - self             = false
               - to_port          = 5432
             },
         ] -> null
-      - id                     = "sg-06266e73f4c71fd4c" -> null
+      - id                     = "sg-REDACTED" -> null
       - ingress                = [
           - {
               - cidr_blocks      = []
@@ -1457,7 +1457,7 @@ Terraform will perform the following actions:
               - prefix_list_ids  = []
               - protocol         = "tcp"
               - security_groups  = [
-                  - "sg-0d75577aecdeb1534",
+                  - "sg-REDACTED",
                 ]
               - self             = false
               - to_port          = 8080
@@ -1472,13 +1472,13 @@ Terraform will perform the following actions:
           - "ManagedBy"   = "Terraform"
           - "Project"     = "ecs-backend-api"
         } -> null
-      - vpc_id                 = "vpc-00e53f2879cf6c719" -> null
+      - vpc_id                 = "vpc-REDACTED" -> null
         # (1 unchanged attribute hidden)
     }
 
   # module.networking.aws_subnet.private[0] will be destroyed
   - resource "aws_subnet" "private" {
-      - arn                                            = "arn:aws:ec2:us-east-1:111111111111:subnet/subnet-051934c073502cae5" -> null
+      - arn                                            = "arn:aws:ec2:us-east-1:111111111111:subnet/subnet-REDACTED" -> null
       - assign_ipv6_address_on_creation                = false -> null
       - availability_zone                              = "us-east-1a" -> null
       - availability_zone_id                           = "use1-az1" -> null
@@ -1487,7 +1487,7 @@ Terraform will perform the following actions:
       - enable_lni_at_device_index                     = 0 -> null
       - enable_resource_name_dns_a_record_on_launch    = false -> null
       - enable_resource_name_dns_aaaa_record_on_launch = false -> null
-      - id                                             = "subnet-051934c073502cae5" -> null
+      - id                                             = "subnet-REDACTED" -> null
       - ipv6_native                                    = false -> null
       - map_customer_owned_ip_on_launch                = false -> null
       - map_public_ip_on_launch                        = false -> null
@@ -1499,13 +1499,13 @@ Terraform will perform the following actions:
           - "ManagedBy"   = "Terraform"
           - "Project"     = "ecs-backend-api"
         } -> null
-      - vpc_id                                         = "vpc-00e53f2879cf6c719" -> null
+      - vpc_id                                         = "vpc-REDACTED" -> null
         # (4 unchanged attributes hidden)
     }
 
   # module.networking.aws_subnet.private[1] will be destroyed
   - resource "aws_subnet" "private" {
-      - arn                                            = "arn:aws:ec2:us-east-1:111111111111:subnet/subnet-0fd7f9b160bb32ce3" -> null
+      - arn                                            = "arn:aws:ec2:us-east-1:111111111111:subnet/subnet-REDACTED" -> null
       - assign_ipv6_address_on_creation                = false -> null
       - availability_zone                              = "us-east-1b" -> null
       - availability_zone_id                           = "use1-az2" -> null
@@ -1514,7 +1514,7 @@ Terraform will perform the following actions:
       - enable_lni_at_device_index                     = 0 -> null
       - enable_resource_name_dns_a_record_on_launch    = false -> null
       - enable_resource_name_dns_aaaa_record_on_launch = false -> null
-      - id                                             = "subnet-0fd7f9b160bb32ce3" -> null
+      - id                                             = "subnet-REDACTED" -> null
       - ipv6_native                                    = false -> null
       - map_customer_owned_ip_on_launch                = false -> null
       - map_public_ip_on_launch                        = false -> null
@@ -1526,13 +1526,13 @@ Terraform will perform the following actions:
           - "ManagedBy"   = "Terraform"
           - "Project"     = "ecs-backend-api"
         } -> null
-      - vpc_id                                         = "vpc-00e53f2879cf6c719" -> null
+      - vpc_id                                         = "vpc-REDACTED" -> null
         # (4 unchanged attributes hidden)
     }
 
   # module.networking.aws_subnet.public[0] will be destroyed
   - resource "aws_subnet" "public" {
-      - arn                                            = "arn:aws:ec2:us-east-1:111111111111:subnet/subnet-0d7e96ca359f70691" -> null
+      - arn                                            = "arn:aws:ec2:us-east-1:111111111111:subnet/subnet-REDACTED" -> null
       - assign_ipv6_address_on_creation                = false -> null
       - availability_zone                              = "us-east-1a" -> null
       - availability_zone_id                           = "use1-az1" -> null
@@ -1541,7 +1541,7 @@ Terraform will perform the following actions:
       - enable_lni_at_device_index                     = 0 -> null
       - enable_resource_name_dns_a_record_on_launch    = false -> null
       - enable_resource_name_dns_aaaa_record_on_launch = false -> null
-      - id                                             = "subnet-0d7e96ca359f70691" -> null
+      - id                                             = "subnet-REDACTED" -> null
       - ipv6_native                                    = false -> null
       - map_customer_owned_ip_on_launch                = false -> null
       - map_public_ip_on_launch                        = false -> null
@@ -1553,13 +1553,13 @@ Terraform will perform the following actions:
           - "ManagedBy"   = "Terraform"
           - "Project"     = "ecs-backend-api"
         } -> null
-      - vpc_id                                         = "vpc-00e53f2879cf6c719" -> null
+      - vpc_id                                         = "vpc-REDACTED" -> null
         # (4 unchanged attributes hidden)
     }
 
   # module.networking.aws_subnet.public[1] will be destroyed
   - resource "aws_subnet" "public" {
-      - arn                                            = "arn:aws:ec2:us-east-1:111111111111:subnet/subnet-0dbd11767ba292601" -> null
+      - arn                                            = "arn:aws:ec2:us-east-1:111111111111:subnet/subnet-REDACTED" -> null
       - assign_ipv6_address_on_creation                = false -> null
       - availability_zone                              = "us-east-1b" -> null
       - availability_zone_id                           = "use1-az2" -> null
@@ -1568,7 +1568,7 @@ Terraform will perform the following actions:
       - enable_lni_at_device_index                     = 0 -> null
       - enable_resource_name_dns_a_record_on_launch    = false -> null
       - enable_resource_name_dns_aaaa_record_on_launch = false -> null
-      - id                                             = "subnet-0dbd11767ba292601" -> null
+      - id                                             = "subnet-REDACTED" -> null
       - ipv6_native                                    = false -> null
       - map_customer_owned_ip_on_launch                = false -> null
       - map_public_ip_on_launch                        = false -> null
@@ -1580,26 +1580,26 @@ Terraform will perform the following actions:
           - "ManagedBy"   = "Terraform"
           - "Project"     = "ecs-backend-api"
         } -> null
-      - vpc_id                                         = "vpc-00e53f2879cf6c719" -> null
+      - vpc_id                                         = "vpc-REDACTED" -> null
         # (4 unchanged attributes hidden)
     }
 
   # module.networking.aws_vpc.main will be destroyed
   - resource "aws_vpc" "main" {
-      - arn                                  = "arn:aws:ec2:us-east-1:111111111111:vpc/vpc-00e53f2879cf6c719" -> null
+      - arn                                  = "arn:aws:ec2:us-east-1:111111111111:vpc/vpc-REDACTED" -> null
       - assign_generated_ipv6_cidr_block     = false -> null
       - cidr_block                           = "10.0.0.0/16" -> null
-      - default_network_acl_id               = "acl-04b39c2b9980b695d" -> null
-      - default_route_table_id               = "rtb-0cb5c781876086965" -> null
-      - default_security_group_id            = "sg-06cb742dc0436bdcb" -> null
+      - default_network_acl_id               = "acl-REDACTED" -> null
+      - default_route_table_id               = "rtb-REDACTED" -> null
+      - default_security_group_id            = "sg-REDACTED" -> null
       - dhcp_options_id                      = "dopt-0899dbeef8b8d3ed0" -> null
       - enable_dns_hostnames                 = true -> null
       - enable_dns_support                   = true -> null
       - enable_network_address_usage_metrics = false -> null
-      - id                                   = "vpc-00e53f2879cf6c719" -> null
+      - id                                   = "vpc-REDACTED" -> null
       - instance_tenancy                     = "default" -> null
       - ipv6_netmask_length                  = 0 -> null
-      - main_route_table_id                  = "rtb-0cb5c781876086965" -> null
+      - main_route_table_id                  = "rtb-REDACTED" -> null
       - owner_id                             = "111111111111" -> null
       - tags                                 = {} -> null
       - tags_all                             = {
@@ -1612,14 +1612,14 @@ Terraform will perform the following actions:
 
   # module.networking.aws_vpc_security_group_ingress_rule.db_from_ecs will be destroyed
   - resource "aws_vpc_security_group_ingress_rule" "db_from_ecs" {
-      - arn                          = "arn:aws:ec2:us-east-1:111111111111:security-group-rule/sgr-07d9b83dde771b878" -> null
+      - arn                          = "arn:aws:ec2:us-east-1:111111111111:security-group-rule/sgr-REDACTED" -> null
       - description                  = "Allow PostgreSQL traffic strictly from ECS tasks" -> null
       - from_port                    = 5432 -> null
-      - id                           = "sgr-07d9b83dde771b878" -> null
+      - id                           = "sgr-REDACTED" -> null
       - ip_protocol                  = "tcp" -> null
-      - referenced_security_group_id = "sg-06266e73f4c71fd4c" -> null
-      - security_group_id            = "sg-03d1a0192534e0c1e" -> null
-      - security_group_rule_id       = "sgr-07d9b83dde771b878" -> null
+      - referenced_security_group_id = "sg-REDACTED" -> null
+      - security_group_id            = "sg-REDACTED" -> null
+      - security_group_rule_id       = "sgr-REDACTED" -> null
       - tags_all                     = {
           - "Environment" = "production"
           - "ManagedBy"   = "Terraform"
@@ -1638,18 +1638,18 @@ Changes to Outputs:
       - target_5xx           = "alb-target-5xx-production"
       - unhealthy_hosts      = "alb-unhealthy-hosts-production"
     } -> null
-  - alb_dns_name       = "app-alb-production-301842800.us-east-1.elb.amazonaws.com" -> null
+  - alb_dns_name       = "ALB-DNS-REDACTED" -> null
   - cluster_name       = "app-cluster-production" -> null
   - ecr_repository_url = "111111111111.dkr.ecr.us-east-1.amazonaws.com/app-production" -> null
   - service_name       = "app-service-production" -> null
   - sns_topic_arn      = "arn:aws:sns:us-east-1:111111111111:alarms-production" -> null
 module.ecs.aws_iam_role_policy_attachment.ecs_execution_role_policy: Destroying... [id=ecs-execution-role-production-20261020115935988200000001]
-module.networking.aws_route_table_association.private[0]: Destroying... [id=rtbassoc-0aed500ae637e40ce]
+module.networking.aws_route_table_association.private[0]: Destroying... [id=rtbassoc-REDACTED]
 module.networking.aws_iam_role_policy.vpc_flow_log_policy_attachment: Destroying... [id=vpc-flow-log-role-production:vpc-flow-log-policy-production]
-module.networking.aws_route_table_association.public[0]: Destroying... [id=rtbassoc-0938fb533fd40fd8b]
+module.networking.aws_route_table_association.public[0]: Destroying... [id=rtbassoc-REDACTED]
 module.database.aws_secretsmanager_secret_version.db_credentials_version: Destroying... [id=arn:aws:secretsmanager:us-east-1:111111111111:secret:rds-db-credentials-production-fxnvmA|terraform-20261020120452039300000008]
 module.monitoring.aws_cloudwatch_metric_alarm.this["ecs_cpu_high"]: Destroying... [id=ecs-cpu-high-production]
-module.networking.aws_route_table_association.private[1]: Destroying... [id=rtbassoc-089d4d84737884351]
+module.networking.aws_route_table_association.private[1]: Destroying... [id=rtbassoc-REDACTED]
 module.monitoring.aws_cloudwatch_metric_alarm.this["unhealthy_hosts"]: Destroying... [id=alb-unhealthy-hosts-production]
 module.ecs.aws_appautoscaling_policy.ecs_policy_memory: Destroying... [id=memory-autoscaling-production]
 module.networking.aws_lb_listener.app_listener: Destroying... [id=arn:aws:elasticloadbalancing:us-east-1:111111111111:listener/app/app-alb-production/20682b08fa1ea082/e4cf8e71f97cad61]
@@ -1663,12 +1663,12 @@ module.networking.aws_flow_log.main: Destroying... [id=fl-02e2e121a7393f06d]
 module.monitoring.aws_cloudwatch_metric_alarm.this["rds_free_storage_low"]: Destroying... [id=rds-free-storage-low-production]
 module.ecs.aws_iam_role_policy_attachment.ecs_execution_role_policy: Destruction complete after 1s
 module.networking.aws_lb_listener.app_listener: Destruction complete after 1s
-module.networking.aws_route_table_association.public[1]: Destroying... [id=rtbassoc-0c783c3df474fb21b]
+module.networking.aws_route_table_association.public[1]: Destroying... [id=rtbassoc-REDACTED]
 module.ecs.aws_iam_role_policy_attachment.ecs_secrets_attachment: Destroying... [id=ecs-execution-role-production-20261020115953649500000005]
 module.ecs.aws_appautoscaling_policy.ecs_policy_memory: Destruction complete after 1s
 module.monitoring.aws_cloudwatch_metric_alarm.this["target_5xx"]: Destroying... [id=alb-target-5xx-production]
 module.monitoring.aws_cloudwatch_metric_alarm.this["rds_cpu_high"]: Destruction complete after 0s
-module.networking.aws_vpc_security_group_ingress_rule.db_from_ecs: Destroying... [id=sgr-07d9b83dde771b878]
+module.networking.aws_vpc_security_group_ingress_rule.db_from_ecs: Destroying... [id=sgr-REDACTED]
 module.monitoring.aws_cloudwatch_metric_alarm.this["rds_free_storage_low"]: Destruction complete after 0s
 module.ecs.aws_iam_role_policy_attachment.ecs_secrets_attachment: Destruction complete after 0s
 module.ecs.aws_iam_policy.secrets_policy: Destroying... [id=arn:aws:iam::111111111111:policy/ecs-secrets-policy-production]
@@ -1685,8 +1685,8 @@ module.networking.aws_route_table_association.private[0]: Destruction complete a
 module.ecs.aws_appautoscaling_target.ecs_target: Destroying... [id=service/app-cluster-production/app-service-production]
 module.networking.aws_route_table_association.private[1]: Destruction complete after 2s
 module.networking.aws_route_table_association.public[1]: Destruction complete after 1s
-module.networking.aws_route_table.public: Destroying... [id=rtb-09f57462ed98a97d8]
-module.networking.aws_route_table.private: Destroying... [id=rtb-0964dc109b2146c00]
+module.networking.aws_route_table.public: Destroying... [id=rtb-REDACTED]
+module.networking.aws_route_table.private: Destroying... [id=rtb-REDACTED]
 module.networking.aws_vpc_security_group_ingress_rule.db_from_ecs: Destruction complete after 1s
 module.ecs.aws_iam_policy.secrets_policy: Destruction complete after 1s
 module.ecs.aws_appautoscaling_target.ecs_target: Destruction complete after 0s
@@ -1697,28 +1697,28 @@ module.monitoring.aws_kms_key.sns: Destroying... [id=3869bcdb-e453-4f96-9a22-9dc
 module.networking.aws_iam_role.vpc_flow_log_role: Destruction complete after 1s
 module.networking.aws_route_table.public: Destruction complete after 1s
 module.networking.aws_route_table.private: Destruction complete after 1s
-module.networking.aws_nat_gateway.nat: Destroying... [id=nat-010bb842a778d9ccd]
+module.networking.aws_nat_gateway.nat: Destroying... [id=nat-REDACTED]
 module.monitoring.aws_kms_key.sns: Destruction complete after 1s
 module.database.aws_db_instance.postgres: Still destroying... [id=db-IXOBLJHIIWM53POCSNPZ4TLRRQ, 00m10s elapsed]
 module.networking.aws_lb.app_alb: Still destroying... [id=arn:aws:elasticloadbalancing:us-east-1:...pp/app-alb-production/20682b08fa1ea082, 00m10s elapsed]
 module.ecs.aws_ecs_service.app: Still destroying... [id=arn:aws:ecs:us-east-1:111111111111:serv...ster-production/app-service-production, 00m10s elapsed]
-module.networking.aws_nat_gateway.nat: Still destroying... [id=nat-010bb842a778d9ccd, 00m10s elapsed]
+module.networking.aws_nat_gateway.nat: Still destroying... [id=nat-REDACTED, 00m10s elapsed]
 module.database.aws_db_instance.postgres: Still destroying... [id=db-IXOBLJHIIWM53POCSNPZ4TLRRQ, 00m20s elapsed]
 module.networking.aws_lb.app_alb: Still destroying... [id=arn:aws:elasticloadbalancing:us-east-1:...pp/app-alb-production/20682b08fa1ea082, 00m20s elapsed]
 module.ecs.aws_ecs_service.app: Still destroying... [id=arn:aws:ecs:us-east-1:111111111111:serv...ster-production/app-service-production, 00m20s elapsed]
-module.networking.aws_nat_gateway.nat: Still destroying... [id=nat-010bb842a778d9ccd, 00m20s elapsed]
+module.networking.aws_nat_gateway.nat: Still destroying... [id=nat-REDACTED, 00m20s elapsed]
 module.networking.aws_lb.app_alb: Destruction complete after 29s
 module.database.aws_db_instance.postgres: Still destroying... [id=db-IXOBLJHIIWM53POCSNPZ4TLRRQ, 00m30s elapsed]
 module.ecs.aws_ecs_service.app: Still destroying... [id=arn:aws:ecs:us-east-1:111111111111:serv...ster-production/app-service-production, 00m30s elapsed]
-module.networking.aws_nat_gateway.nat: Still destroying... [id=nat-010bb842a778d9ccd, 00m30s elapsed]
+module.networking.aws_nat_gateway.nat: Still destroying... [id=nat-REDACTED, 00m30s elapsed]
 module.database.aws_db_instance.postgres: Still destroying... [id=db-IXOBLJHIIWM53POCSNPZ4TLRRQ, 00m40s elapsed]
 module.ecs.aws_ecs_service.app: Still destroying... [id=arn:aws:ecs:us-east-1:111111111111:serv...ster-production/app-service-production, 00m40s elapsed]
-module.networking.aws_nat_gateway.nat: Still destroying... [id=nat-010bb842a778d9ccd, 00m40s elapsed]
+module.networking.aws_nat_gateway.nat: Still destroying... [id=nat-REDACTED, 00m40s elapsed]
 module.networking.aws_nat_gateway.nat: Destruction complete after 41s
-module.networking.aws_internet_gateway.igw: Destroying... [id=igw-088af43cbd33911a1]
-module.networking.aws_eip.nat: Destroying... [id=eipalloc-0b90189fc93fd3b8d]
-module.networking.aws_subnet.public[0]: Destroying... [id=subnet-0d7e96ca359f70691]
-module.networking.aws_subnet.public[1]: Destroying... [id=subnet-0dbd11767ba292601]
+module.networking.aws_internet_gateway.igw: Destroying... [id=igw-REDACTED]
+module.networking.aws_eip.nat: Destroying... [id=eipalloc-REDACTED]
+module.networking.aws_subnet.public[0]: Destroying... [id=subnet-REDACTED]
+module.networking.aws_subnet.public[1]: Destroying... [id=subnet-REDACTED]
 module.networking.aws_subnet.public[1]: Destruction complete after 1s
 module.networking.aws_subnet.public[0]: Destruction complete after 1s
 module.networking.aws_internet_gateway.igw: Destruction complete after 1s
@@ -1766,10 +1766,10 @@ module.ecs.aws_ecs_service.app: Still destroying... [id=arn:aws:ecs:us-east-1:11
 module.ecs.aws_ecs_service.app: Still destroying... [id=arn:aws:ecs:us-east-1:111111111111:serv...ster-production/app-service-production, 05m30s elapsed]
 module.ecs.aws_ecs_service.app: Destruction complete after 5m36s
 module.ecs.aws_ecs_cluster.main: Destroying... [id=arn:aws:ecs:us-east-1:111111111111:cluster/app-cluster-production]
-module.networking.aws_subnet.private[1]: Destroying... [id=subnet-0fd7f9b160bb32ce3]
-module.networking.aws_subnet.private[0]: Destroying... [id=subnet-051934c073502cae5]
+module.networking.aws_subnet.private[1]: Destroying... [id=subnet-REDACTED]
+module.networking.aws_subnet.private[0]: Destroying... [id=subnet-REDACTED]
 module.ecs.aws_ecs_task_definition.app: Destroying... [id=app-task-production]
-module.networking.aws_security_group.ecs_sg: Destroying... [id=sg-06266e73f4c71fd4c]
+module.networking.aws_security_group.ecs_sg: Destroying... [id=sg-REDACTED]
 module.networking.aws_lb_target_group.app_tg: Destroying... [id=arn:aws:elasticloadbalancing:us-east-1:111111111111:targetgroup/app-tg-production/a29bad310cfbfcbf]
 module.ecs.aws_ecs_task_definition.app: Destruction complete after 1s
 module.ecs.aws_cloudwatch_log_group.ecs_logs: Destroying... [id=/ecs/app-production]
@@ -1785,15 +1785,15 @@ module.database.aws_secretsmanager_secret.db_credentials: Destruction complete a
 module.database.aws_kms_key.db_key: Destroying... [id=dc4f9d35-2788-473d-83f7-d5db83dd0a57]
 module.networking.aws_subnet.private[0]: Destruction complete after 2s
 module.networking.aws_security_group.ecs_sg: Destruction complete after 2s
-module.networking.aws_security_group.db_sg: Destroying... [id=sg-03d1a0192534e0c1e]
-module.networking.aws_security_group.alb_sg: Destroying... [id=sg-0d75577aecdeb1534]
+module.networking.aws_security_group.db_sg: Destroying... [id=sg-REDACTED]
+module.networking.aws_security_group.alb_sg: Destroying... [id=sg-REDACTED]
 module.ecs.aws_ecr_repository.app: Destruction complete after 1s
 module.ecs.aws_iam_role.ecs_execution_role: Destruction complete after 1s
 module.ecs.aws_kms_key.ecs_logs_key: Destruction complete after 0s
 module.database.aws_kms_key.db_key: Destruction complete after 1s
 module.networking.aws_security_group.db_sg: Destruction complete after 1s
 module.networking.aws_security_group.alb_sg: Destruction complete after 1s
-module.networking.aws_vpc.main: Destroying... [id=vpc-00e53f2879cf6c719]
+module.networking.aws_vpc.main: Destroying... [id=vpc-REDACTED]
 module.networking.aws_vpc.main: Destruction complete after 2s
 
 Destroy complete! Resources: 51 destroyed.

@@ -1,0 +1,106 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "ProjectServices",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:*",
+                "elasticloadbalancing:*",
+                "ecs:*",
+                "ecr:*",
+                "rds:*",
+                "kms:*",
+                "secretsmanager:*",
+                "logs:*",
+                "sns:*",
+                "cloudwatch:*",
+                "application-autoscaling:*"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:RequestedRegion": "us-east-1"
+                }
+            }
+        },
+        {
+            "Sid": "ProjectRolesAndPoliciesOnly",
+            "Effect": "Allow",
+            "Action": [
+                "iam:CreateRole",
+                "iam:DeleteRole",
+                "iam:GetRole",
+                "iam:TagRole",
+                "iam:UntagRole",
+                "iam:ListRoleTags",
+                "iam:UpdateAssumeRolePolicy",
+                "iam:ListRolePolicies",
+                "iam:ListAttachedRolePolicies",
+                "iam:ListInstanceProfilesForRole",
+                "iam:PutRolePolicy",
+                "iam:GetRolePolicy",
+                "iam:DeleteRolePolicy",
+                "iam:AttachRolePolicy",
+                "iam:DetachRolePolicy",
+                "iam:CreatePolicy",
+                "iam:DeletePolicy",
+                "iam:GetPolicy",
+                "iam:GetPolicyVersion",
+                "iam:ListPolicyVersions",
+                "iam:CreatePolicyVersion",
+                "iam:DeletePolicyVersion",
+                "iam:TagPolicy",
+                "iam:UntagPolicy",
+                "iam:ListPolicyTags"
+            ],
+            "Resource": [
+                "arn:aws:iam::ACCOUNT_ID:role/ecs-execution-role-*",
+                "arn:aws:iam::ACCOUNT_ID:role/vpc-flow-log-role-*",
+                "arn:aws:iam::ACCOUNT_ID:policy/ecs-secrets-policy-*"
+            ]
+        },
+        {
+            "Sid": "PassProjectRolesToServices",
+            "Effect": "Allow",
+            "Action": "iam:PassRole",
+            "Resource": [
+                "arn:aws:iam::ACCOUNT_ID:role/ecs-execution-role-*",
+                "arn:aws:iam::ACCOUNT_ID:role/vpc-flow-log-role-*"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "iam:PassedToService": [
+                        "ecs-tasks.amazonaws.com",
+                        "vpc-flow-logs.amazonaws.com"
+                    ]
+                }
+            }
+        },
+        {
+            "Sid": "ServiceLinkedRoles",
+            "Effect": "Allow",
+            "Action": "iam:CreateServiceLinkedRole",
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "iam:AWSServiceName": [
+                        "ecs.amazonaws.com",
+                        "elasticloadbalancing.amazonaws.com",
+                        "rds.amazonaws.com",
+                        "ecs.application-autoscaling.amazonaws.com"
+                    ]
+                }
+            }
+        },
+        {
+            "Sid": "LeftoverCheckReadOnly",
+            "Effect": "Allow",
+            "Action": [
+                "iam:ListRoles",
+                "tag:GetResources"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
